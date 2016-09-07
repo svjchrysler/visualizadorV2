@@ -1,0 +1,38 @@
+body{
+background:#000;
+font-family:'Merienda', serif;
+color:whitesmoke;
+font-size:.9em;
+}
+ul{
+list-style:none;
+}
+li{
+height:200px;
+width:350px;
+margin:5px 0 0 0;
+box-shadow:inset 0 .1em 1em #b0b0b0;
+}
+li:hover{
+box-shadow:inset 0 .1em 1em #fff;
+}
+li:first-child{
+background:url(images/1.jpg);
+}
+li:nth-of-type(2){
+background:url(images/2.jpg);
+}
+li:nth-of-type(3){
+background:url(images/3.jpg);
+}
+.box1,.box2,.box3{
+height:200px;
+width:360px;
+position:absolute;
+margin-top:-280px;
+margin-left:380px;
+opacity:0;
+}
+h3{
+text-shadow: 0 .1em 1em #0000ff;
+}

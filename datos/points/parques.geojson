@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "COD_ICE": "07690", "DISTRITO": "08", "LUGAR": "CIUDAD SANTA CRUZ DE LA SIERRA", "BARRIO": "URBANIZACION LAS ORQUIDEAS", "UV": "UV-160", "NOMBREREF": "PARQUE URBANO EL MECHERO", "ESTECONOMI": null, "CLASIFICAD": "103", "DESCRIPCIO": "Parques y plazas" }, "geometry": { "type": "Point", "coordinates": [ -63.125690667059956, -17.836587120534446 ] } },
+{ "type": "Feature", "properties": { "COD_ICE": "07690", "DISTRITO": "08", "LUGAR": "CIUDAD SANTA CRUZ DE LA SIERRA", "BARRIO": "URBANIZACION LAS ORQUIDEAS", "UV": "UV-160", "NOMBREREF": "PARQUE URBANO EL MECHERO", "ESTECONOMI": null, "CLASIFICAD": "103", "DESCRIPCIO": "Parques y plazas" }, "geometry": { "type": "Point", "coordinates": [ -63.126469189147649, -17.83590830241052 ] } },
+{ "type": "Feature", "properties": { "COD_ICE": "09890", "DISTRITO": "08", "LUGAR": "CIUDAD SANTA CRUZ DE LA SIERRA", "BARRIO": "24 DE SEPTIEMBRE", "UV": "UV-161", "NOMBREREF": "PLAZUELA", "ESTECONOMI": null, "CLASIFICAD": "103", "DESCRIPCIO": "Parques y plazas" }, "geometry": { "type": "Point", "coordinates": [ -63.112183719932482, -17.836198594863085 ] } },
+{ "type": "Feature", "properties": { "COD_ICE": "03280", "DISTRITO": "17", "LUGAR": "CIUDAD SANTA CRUZ DE LA SIERRA", "BARRIO": "VIRGEN DE GUADALUPE", "UV": "UV-225", "NOMBREREF": "PLAZUELITA", "ESTECONOMI": null, "CLASIFICAD": "103", "DESCRIPCIO": "Parques y plazas" }, "geometry": { "type": "Point", "coordinates": [ -63.122566680443605, -17.726093076170216 ] } },
+{ "type": "Feature", "properties": { "COD_ICE": "09400", "DISTRITO": "17", "LUGAR": "CIUDAD SANTA CRUZ DE LA SIERRA", "BARRIO": "MELCHOR PINTO", "UV": "UV-71A", "NOMBREREF": "PLAZUELA", "ESTECONOMI": null, "CLASIFICAD": "103", "DESCRIPCIO": "Parques y plazas" }, "geometry": { "type": "Point", "coordinates": [ -63.145586216558897, -17.746909517591781 ] } }
+]
+}

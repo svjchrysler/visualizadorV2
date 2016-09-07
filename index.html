@@ -1,0 +1,405 @@
+<html>
+
+<head>
+    <title>ICEVisorMap</title>
+    <!--<meta http-equiv="refresh" content="10" />-->
+    <!--LEAFLETJS-->
+    <!--*******************************************************-->
+    <link rel="stylesheet" href="js/leaflet_0.7.5/leaflet.css" />
+    <script src="js/leaflet_0.7.5/leaflet.js"></script>
+    <!--*******************************************************-->
+
+    <!------------LEAFLET LABEL----------------------->
+    <!--<script src="components/Sidebar/L.Control.Sidebar.js"></script>-->
+    <script src="components/Label/leaflet.label.js"></script>
+    <link rel="stylesheet" href="components/Label/leaflet.label.css" />
+    <!------------------------------------------------>
+
+    <script src="js/Fuse/fuse.js"></script>
+    <!--<script src="js/Fuse/fuse.min.js"></script>-->
+    <!--<script src="js/Fuse/fuse.2012.js"></script>-->
+
+    <!------------CONTROL DRAW----------------------->
+    <link rel="stylesheet" href="components/Draw/leaflet.draw.css" />
+    <script src="components/Draw/leaflet.draw.js"></script>
+    <!------------------------------------------------>
+    <link rel="stylesheet" href="css/MarkerCluster.css" />
+    <link rel="stylesheet" href="css/leaflet-search.css" />
+    <link rel="stylesheet" href="css/leaflet-panel-layers.css" />
+    <link rel="stylesheet" href="css/leaflet.measurecontrol.css" />
+    <link rel="stylesheet" href="css/easyPrint.css" />
+    <!--<link rel="stylesheet" href="css/L.Control.Locate.mapbox.scss" -->
+    <!--<link rel="stylesheet" href="css/L.Control.Locate.scss" -->
+    <link rel="stylesheet" href="css/icons.css" />
+
+
+    <script src="js/leaflet.markercluster.js"></script>
+
+    <script src="js/leaflet-search.js"></script>
+    <script src="js/leaflet.groupedlayercontrol.js"></script>
+
+    <script src="js/leaflet.measurecontrol.js"></script>
+    <script src="js/leaflet-panel-layers.js"></script>
+    <script src="js/leaflet.easyPrint.js"></script>
+    <!--<script src="js/L.Control.Locate.js"></script>-->
+    <!--<script src="js/leaflet.wms.js"></script>-->
+
+    <!--<script src="https://rawgithub.com/mylen/leaflet.TileLayer.WMTS/master/leaflet-tilelayer-wmts.js"></script>-->
+
+
+    <!------------CONTROL WINDOW----------------------->
+    <script src="js/L.Control.Window.js"></script>
+    <link rel="stylesheet" href="css/L.Control.Window.css" />
+    <!------------------------------------------------>
+    <!------------SLIDE MENU----------------------->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="components/Slidemenu/L.Control.SlideMenu.js"></script>
+    <link rel="stylesheet" href="components/Slidemenu/L.Control.SlideMenu.css" />
+    <!------------------------------------------------>
+    <!------------SIDEBAR MENU----------------------->
+    <script src="components/Sidebar/L.Control.Sidebar.js"></script>
+    <link rel="stylesheet" href="components/Sidebar/L.Control.Sidebar.css" />
+    <!------------------------------------------------>
+
+    <!------------STYLED MENU----------------------->
+    <script src="components/StyledLayerControl/src/styledLayerControl.js"></script>
+    <link rel="stylesheet" href="components/StyledLayerControl/css/styledLayerControl.css" />
+    <!------------------------------------------------>
+    <!------------FILE LAYER MENU----------------------->
+    <script src="components/Filelayer/leaflet.filelayer.js"></script>
+    <!------------------------------------------------>
+    <!------------EASY BUTTON CONTROL----------------------->
+    <link rel="stylesheet" href="components/EasyButton/easy-button.css" />
+    <script src="components/EasyButton/easy-button.js"></script>
+    <!------------------------------------------------>
+    <!------------TAG FILTER CONTROL----------------------->
+    <link rel="stylesheet" href="components/TagFilterButton/tag-filter-button.css" />
+    <script src="components/TagFilterButton/tag-filter-button.js"></script>
+    <!------------------------------------------------>
+    <!------------FUSE SEARCH CONTROL----------------------->
+    <!--<link rel="stylesheet" href="components/FuseSearch/leaflet.fusesearch.css" />-->
+    <!--<script src="components/FuseSearch/leaflet.fusesearch.js"></script>-->
+    <!--<script src="components/FuseSearch/vfusesearch.js"></script>-->
+    <!------------------------------------------------>
+
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+    <!--<script src="js/neighborhoods.js"></script>
+    <script src="js/rodents.js"></script>-->
+
+    <style>
+        body {
+            background-color: gray;
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .info {
+            /*margin:50px;*/
+            padding: 6px 8px;
+            font: 12px/14px Arial, Helvetica, sans-serif;
+            /*background: white;*/
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 7px;
+            left: 30px;
+            /*top:-150px;*/
+            visibility: hidden;
+        }
+        
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+        /*.info a {
+            background:#3a7989;
+            display:inline-block;
+            margin:0 6px;
+            padding:7px 20px 7px;
+            color:black;
+            text-decoration:none;
+            text-shadow: 0 1px 1px #FFF;
+            border:1px solid #ccc;
+        }*/
+        
+        .legend {
+            line-height: 18px;
+            color: #555;
+            visibility: hidden;
+        }
+        
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+        
+        #btnref {
+            background: #3a7999;
+            display: inline-block;
+            margin: 0 1px;
+            padding: 7px 20px 7px;
+            color: white;
+            text-decoration: none;
+            text-shadow: 0 1px 1px black;
+            border: 1px solid #ccc;
+            width: 130px;
+            border-radius: 8px;
+            cursor: hand;
+        }
+        
+        #btnref:hover,
+        #btni:hover {
+            background: #3a7989;
+            display: inline-block;
+            margin: 0 1px;
+            padding: 7px 20px 7px;
+            color: white;
+            text-decoration: none;
+            text-shadow: 0 1px 1px black;
+            border: 1px solid #ccc;
+            width: 130px;
+            border-radius: 8px;
+        }
+        
+        #slideInfo {
+            width: 100%;
+            height: 95%;
+        }
+        
+        #frameSlideInfo {
+            width: 700px;
+            height: 92%;
+            border: none;
+        }
+        
+        .label {
+            font-size: 10;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            margin-top: 1em;
+        }
+        
+        .label div {
+            position: relative;
+            left: -50%;
+            text-shadow: 0px 2px 1px rgba(255, 255, 255, 0.85);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar"></div>
+    <div id="map"></div>
+    <div id='coord' style="font-size:13px" align="right" visibility="hidden"></div>
+    <script type="text/javascript">
+        var _0x3ccb=["\x6F\x6E\x63\x6F\x6E\x74\x65\x78\x74\x6D\x65\x6E\x75"];document[_0x3ccb[0]]= function(){return false}
+    </script>
+
+    <script>
+  
+  //DEFINIENDO MAPAS BASE
+      mbUrlMapbox = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw'; //mAPBOX
+      mbUrlNubes = 'https://dnv9my2eseobd.cloudfront.net/v3/cartodb.map-4xtxp73f/{z}/{x}/{y}.png'; //WEATHER Nubes
+      mbUrlLluvia = 'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s={s}'; //WEATHER lluvia
+      mbUrlOS = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; //OPEN STREET lluvia
+      mbUrlGOO = 'http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'; //GOOGLE ?
+		grayscale = L.tileLayer(mbUrlMapbox, { id: 'mapbox.light'});//, attribution: 'Tiles by <a href="http://mapc.org">MapBox</a>	 ' });
+		nubes = L.tileLayer(mbUrlNubes, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">CLOUD FRONT</a>	' });
+		lluvia = L.tileLayer(mbUrlLluvia, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
+		OS = L.tileLayer(mbUrlOS, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">OpenStreetMap</a>' });
+		GO = L.tileLayer(mbUrlGOO, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">ARCGIS</a>' });
+// DEFINIENDO MAPAS ICE
+		mbUrlICE = 'http://200.119.197.136/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
+		mbUrlICEMNZA = 'http://200.119.197.136/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
+		mbUrlICEUVS = 'http://200.119.197.136/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
+		mbUrlICEDISTRITOS = 'http://200.119.197.136/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
+		mbUrlICEPREDIOS= 'http://200.119.197.136/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
+		mbUrlICECALLES = 'http://200.119.197.136/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
+        
+        mBlank='';
+        BLANK=L.tileLayer(mBlank);
+		ICE = L.tileLayer(mbUrlICE, { id: 'ice.streets'});//, attribution: 'Tiles by <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+		ICEMNZA = L.tileLayer(mbUrlICEMNZA, { id: 'ice.streets'});//, attribution: 'Manzanos de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+		ICEUVS = L.tileLayer(mbUrlICEUVS, { id: 'ice.streets'});//, attribution: 'Uvs de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+		ICEPREDIOS = L.tileLayer(mbUrlICEPREDIOS, { id: 'ice.streets'});//, attribution: 'Predios de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+		ICECALLES = L.tileLayer(mbUrlICECALLES, { id: 'ice.streets'});//, attribution: 'Calles de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 19, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+		ICEDISTRITOS = L.tileLayer(mbUrlICEDISTRITOS, { id: 'ice.streets'});//, attribution: 'Distritos de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+
+// ESTABLECIENDO COORDENADAS INICALES (PLAZA 24 DE SEPTIEMBRE)
+      var map = L.map('map',{
+          attributionControl:false,
+          center:[-17.78361, -63.18212],
+          zoom:13,
+          maxZoom:19
+      });//.setView([-17.78361, -63.18212], 11);
+
+//PREDEFINIENDO UN MAPA DE INICIO      
+    //   nubes.addTo(map);
+    // grayscale.addTo(map);
+    // map.addLayer(ICEMNZA);
+
+//CARGANDO MAPAS BASE 
+    //   var baseLayers = {
+    //       "CLOUD FRONT": nubes,
+    //       "Satelite GOOGLE": lluvia,
+    //       "Open Street": OS,
+    //   };
+
+
+
+ 
+ /**
+  * CLUSTER DE BUSQUEDA
+  */
+  var searchcluster = L.markerClusterGroup({ disableClusteringAtZoom: 10 });
+  
+//   map.on('mousemove',function(e){
+//       document.getElementById("coord").innerHTML=e.latlng;
+//   });
+</script>
+
+
+    <!--****************************************************************************-->
+    <!--AGREGANDO SCRIPT DE CATEGORIAS-->
+    <!--****************************************************************************-->
+    <!--<script type="text/javascript" src="components/categorias-clusters.js"></script>-->
+    <!--****************************************************************************-->
+
+
+    <script>
+/**
+ * ************************************************************************************************************************************************
+ * ************************************************************************************************************************************************
+ */
+
+
+
+// CARGANDO UN MAPA BASE INICIAL
+    // L.tileLayer(mbUrlMapbox,
+    // {
+    //     id: 'mapbox.light',
+    //     attribution: '',
+    //     maxZoom: 19,
+    //     minZoom: 4
+    // }).addTo(map);
+
+		
+    L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
+    L.Control.measureControl().addTo(map);
+    
+    
+    L.easyPrint({
+        title: 'Print Map',
+        elementsToHide: 'p, h2,a,form,i, .gitButton'
+    }).addTo(map);
+
+// var url = "http://www.geo.gob.bo/geoserver/autoridadelectricidad/wms";
+
+// // Okay (implicit source)
+// var options = {'transparent': true};
+// var layer1 = L.WMS.source(url, "layer1", options);
+
+// // layer1._source === layer2._source
+// // var control = L.control.layers({}, {
+// //     'Layer 1': layer1
+// // });
+// source.addTo(map);
+  </script>
+
+
+    <!--****************************************************************************-->
+    <!--AGREGANDO SCRIPT SEARCH CONTROL-->
+    <!--****************************************************************************-->
+    <script src="components/control-search.js"></script>
+    <!--****************************************************************************-->
+    <!--****************************************************************************-->
+    <!--AGREGANDO SCRIPT CHOROPLETH MAP (MAPAS TEMATICOS)-->
+    <!--****************************************************************************-->
+    <!--<script src="datos/polygons/departamentosGJ.js"></script>
+    <script src="datos/polygons/exp_provincia.js"></script>
+    <script src="datos/polygons/exp_municipio.js"></script>-->
+    <script src="datos/polygons/distritos.js"></script>
+    <script src="datos/polygons/distrito1GJ.js"></script>
+    <script src="datos/polygons/distrito2GJ.js"></script>
+    <script src="datos/polygons/distrito3GJ.js"></script>
+    <script src="datos/polygons/distrito4GJ.js"></script>
+    <script src="datos/polygons/distrito5GJ.js"></script>
+    <script src="datos/polygons/distrito6GJ.js"></script>
+    <script src="datos/polygons/distrito7GJ.js"></script>
+    <script src="datos/polygons/distrito8GJ.js"></script>
+    <script src="datos/polygons/distrito9GJ.js"></script>
+    <script src="datos/polygons/distrito10GJ.js"></script>
+    <script src="datos/polygons/distrito11GJ.js"></script>
+    <script src="datos/polygons/distrito12GJ.js"></script>
+    <script src="datos/polygons/distrito13GJ.js"></script>
+    <script src="datos/polygons/distrito14GJ.js"></script>
+    <script src="datos/polygons/distrito15GJ.js"></script>
+    <script src="datos/polygons/distrito16GJ.js"></script>
+    <script src="datos/polygons/distrito17GJ.js"></script>
+    <script src="datos/polygons/departamentosGEOJ.js"></script>
+    <script src="datos/polygons/municipioGEOJ.js"></script>
+    <script src="datos/polygons/provinciaGEOJ.js"></script>
+    <script src="components/choropleth-map.js"></script>
+    <!--****************************************************************************-->
+    <!--****************************************************************************-->
+    <!--AGREGANDO SCRIPT PANEL CONTROL-->
+    <!--****************************************************************************-->
+    <!--<script src="components/control-collapsible-panel.js"></script>-->
+    <!--****************************************************************************-->
+    <!--****************************************************************************-->
+    <!--AGREGANDO SCRIPT DRAW CONTROL-->
+    <!--****************************************************************************-->
+    <script src="components/control-draw.js"></script>
+    <!--****************************************************************************-->
+    <!--****************************************************************************-->
+    <!--****************************************************************************-->
+
+    <!--****************************************************************************-->
+    <!--AGREGANDO SIDEBAR MENU CONTROL-->
+    <!--****************************************************************************-->
+    <script src="components/sidebarmenu.js"></script>
+    <!--****************************************************************************-->
+    <!--FILE LAYER CONTROL-->
+    <!--****************************************************************************-->
+    <script src="components/filelayer.js"></script>
+    <!--****************************************************************************-->
+    <!--AGREGANDO FUSE SEARCH CONTROL-->
+    <!--****************************************************************************-->
+    <!--<script src="components/fusesearchcontrol.js"></script>-->
+    <!--****************************************************************************-->
+    <!--****************************************************************************-->
+    <!--AGREGANDO SLIDE MENU CONTROL-->
+    <!--****************************************************************************-->
+    <script src="components/slidemenu.js"></script>
+    <script src="components/menu_capas_v2.js"></script>
+    <!--AGREGANDO TAG FILTER CONTROL-->
+    <!--****************************************************************************-->
+    <script src="components/tagfiltercontrol.js"></script>
+    <!--****************************************************************************-->
+    <!--AGREGANDO CENTER MAP CONTROL-->
+    <!--****************************************************************************-->
+    <!--<script src="components/controlcentermap.js"></script>-->
+    <!--****************************************************************************-->
+
+    <script>
+        $.getScript( "components/controlcentermap.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/controlcentermap.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/controlcentermap.js",exception);
+            });
+    </script>
+
+
+</body>
+
+</html>

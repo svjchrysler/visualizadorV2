@@ -1,0 +1,1 @@
+var graf_d2_manzanas_predios=[{"Manzanos":765,"Predios":14236,"Distrito":"Distrito 2"}]

@@ -1,0 +1,73 @@
+.icon {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+}
+
+/* ICONS */
+.icon-farmacia {
+	background: url('../image/icons/health.svg') center center no-repeat;
+	/*background-color:#ff0000;*/
+	background-size: contain;
+}
+.icon-hospital {
+	background: url('../image/icons/hospital.svg') center center no-repeat;
+	/*background-color:#ff0000;*/
+	background-size: contain;
+}
+
+.icon-parque{
+	background: url('../image/icons/forest.svg') center center no-repeat;
+	/*background-color:#ff0000;*/
+	background-size: contain;
+}
+.icon-financiera {
+	background: url('../image/icons/bank.svg') center center no-repeat;
+	/*background-color:#ff0000;*/
+	background-size: contain;
+}
+
+.icon-hotel {
+	background: url('../image/icons/building-icon.svg') center center no-repeat;
+	/*background-color:#ff0000;*/
+	background-size: contain;
+}
+.icon-travel-agency {
+	background: url('../image/icons/travel-agency.svg') center center no-repeat;
+	/*background-color:#ff0000;*/
+	background-size: contain;
+}
+.icon-cancel {
+	background: url('../image/icons/cancel.svg') center center no-repeat;
+	background-size: contain;
+}
+.icon-search {
+	background: url('../image/icons/search.svg') center center no-repeat;
+	background-size: contain;
+}
+
+.leaflet-marker-icon, .leaflet-marker-shadow {
+    display: block;
+	fill:black;
+}
+
+
+
+
+/* MARKERS */
+/*.leaflet-marker-icon {*/
+/*	padding: 2px;*/
+/*	text-align: center;*/
+/*}*/
+/*.marker-bar {*/
+/*	background: url('../image/markers/bar.png') center center no-repeat;*/
+/*}*/
+/*.marker-fuel {*/
+/*	background: url('../image/markers/fuel.png') center center no-repeat;*/
+/*}*/
+/*.marker-parking {*/
+/*	background: url('../image/markers/parking.png') center center no-repeat;*/
+/*}*/
+/*.marker-drinking_water {*/
+/*	background: url('../image/markers/drinking_water.png') center center no-repeat;*/
+/*}*/

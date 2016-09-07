@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--<meta http-equiv="refresh" content="5">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        button.accordion {
+            /*background-color: #eee;*/
+            background-color: #888;
+            /*color: #444;*/
+            color: #eee2;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        
+        button.accordion.active,
+        button.accordion:hover {
+            background-color: #999;
+            /*background-color: #ddd;*/
+        }
+        
+        button.accordion:after {
+            content: '\02795';
+            font-size: 13px;
+            color: #222;
+            /*color: #777;*/
+            float: left;
+            margin-right: 10px;
+        }
+        
+        button.accordion.active:after {
+            content: "\2796";
+        }
+        
+        div.panel {
+            padding: 0 18px;
+            background-color: #aaa;
+            /*background-color: white;*/
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease-in-out;
+            opacity: 0;
+        }
+        
+        div.panel.show {
+            opacity: 1;
+            max-height: 500px;
+        }
+        
+        #btni {
+            background: #333;
+            display: inline-block;
+            margin: 0 1px;
+            padding: 7px 20px 7px;
+            color: white;
+            text-decoration: none;
+            text-shadow: 0 1px 1px black;
+            border: 1px solid #ccc;
+            width: 100px;
+            border-radius: 8px;
+            cursor: hand;
+        }
+        
+        #btni:hover {
+            background: #555;
+            display: inline-block;
+            margin: 0 1px;
+            padding: 7px 20px 7px;
+            color: white;
+            text-decoration: none;
+            text-shadow: 0 1px 1px black;
+            border: 1px solid #ccc;
+            width: 100px;
+            border-radius: 8px;
+        }
+        
+        table {
+            width: 100%;
+            margin-left: -10px;
+        }
+        
+        table,
+        th,
+        td {
+            border: none;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 2px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="width:350px; height:auto;">
+        <h2>Puntos de Interes</h2>
+        <p>Selecciona la categoria que quieres agregar al mapa</p>
+        <button class="accordion">Salud</button>
+        <div class="panel">
+            <table>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('farmacias','Salud','woods-marker.svg')">Farmacias</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('hospitales','Salud','woods-marker.svg')">Hospitales</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('odontologos','Salud','woods-marker.svg')">Odontologos</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('laboratorios','Salud','woods-marker.svg')">Laboratorios</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('centros de salud','Salud','woods-marker.svg')">Centros de Salud</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('postas','Salud','woods-marker.svg')">Postas</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('centros terapeuticos','Salud','woods-marker.svg')">Centros Terapeuticos</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('clinicas','Salud','woods-marker.svg')">Clinicas</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('consultorios medicos','Salud','woods-marker.svg')">Consultorios Medicos</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('clinicas','Salud','woods-marker.svg')">Clinicas</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('servicios de salud','Salud','woods-marker.svg')">Otros Servicios de Salud</div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <button class="accordion">Social</button>
+        <div class="panel">
+            <table>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('parques','Social','woods-marker.svg')">Parques</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('plazas','Social','woods-marker.svg')">Plazas</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('coliseos','Social','woods-marker.svg')">Coliseos</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('polifuncionales','Social','woods-marker.svg')">Polifuncionales</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('canchas','Social','woods-marker.svg')">Canchas</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('gimnasios','Social','woods-marker.svg')">GYM</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <button class="accordion">Educacion</button>
+        <div class="panel">
+            <table>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('primaria publica','Educacion','woods-marker.svg')">Primaria Publica</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('primaria privada','Educacion','woods-marker.svg')">Primaria Privada</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('secundaria publica','Educacion','woods-marker.svg')">Secundaria Publica</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('secundaria privada','Educacion','woods-marker.svg')">Secundaria Privada</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('universidades','Educacion','woods-marker.svg')">Universidades</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <button class="accordion">Otros</button>
+        <div class="panel">
+            <table>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('residenciales','Otros','woods-marker.svg')">Residenciales</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('hoteles','Otros','woods-marker.svg')">Hoteles</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('policia','Otros','woods-marker.svg')">Puesto Policial</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('licorerias','Otros','woods-marker.svg')">Licorerias</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--FIN DEL CUADRO-->
+    </div>
+
+
+
+    <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+            acc[i].onclick = function(){
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+        }
+    }
+    </script>
+
+    <script>
+        var otherlayers=[];
+        function press(layername,groupname,iconname){
+            // controlStyledLayer.addOverlay( clustersfinancieras, "Financieras", {groupName : "Otros"} );
+            if(otherlayers.indexOf(layername)>-1){
+                console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+            
+                console.info(groupname+" "+layername+" "+iconname);
+                console.info("vers i existe map",map);
+                $.getJSON("datos/points/"+layername+".geojson", function (data) {
+                    var ratIcon = L.icon({
+                        iconUrl: 'image/icons/'+iconname,
+                        iconSize: [25, 25]
+                    });
+                    var categ= L.geoJson(data, {
+                        pointToLayer: function (feature, latlng) {
+                            var contenido=''
+                                +'<b>'+feature.properties.NOMBREREF+'</b>'
+                                +'<br><br><b>DISTRITO</b> '+feature.properties.DISTRITO
+                                +' / '+feature.properties.UV
+                                +'<br><b>BARRIO</b> '+feature.properties.BARRIO
+                                +'';
+                            
+                            var marker = L.marker(latlng, { icon: ratIcon,tags:['DISTRITO '+feature.properties.DISTRITO] });
+                            marker.bindLabel(feature.properties.NOMBREREF);
+                            marker.bindPopup(contenido);
+                            marker.addEventListener('click',function(e){
+                                document.getElementById('coord').innerHTML=e.latlng;
+                            });
+                            return marker;
+                        }
+                    });
+                    if(categ){
+                        // categ.StyledLayerControl = {
+                        //     removable : true,
+                        //     visible :false
+                        // }
+                        controlStyledLayer.addOverlay( categ, layername, {groupName : groupname} );
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
