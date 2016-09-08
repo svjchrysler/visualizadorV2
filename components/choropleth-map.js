@@ -1,9 +1,9 @@
-var win =  L.control.window(map,{title:'Hello world!',content:'This is my first control window.',modal:false});
+var win =  L.control.window(map,{title:'Information!',content:'My Info Windows.',modal:true});
 var geojson;
 var geojsonDistrito;
 
 var nombreTematico = 'Descripcion';
-var nombreDistrito = 'Distrito';
+var nombreDistrito = 'Limites de Distrito';
 
 
 var info = L.control({ position: 'bottomleft' });
@@ -116,6 +116,7 @@ info.update = function (props,layer) {
                 // ref="<br><a id='btnref' target='_blank' href='"+getAbsolutePath()+"graficos/"+nombreTematico+".html'><b>Graficos Estadisticos</b></a>";
                 contenido = '<h4><b>' + props.nombre + '</b></h4>';
                 info._container.style.visibility = 'visible';
+                
                 break;
             // case 'Distritos':
             case 'Ciudad de Santa Cruz':
@@ -130,7 +131,10 @@ info.update = function (props,layer) {
 
                 contenido = '<h4>' + nombreDistrito + '</h4>'
                     + "UV: " + props.UV_ET;
-                info._container.style.visibility = 'visible';
+                // info._container.style.visibility = 'visible';
+                win.title(nombreDistrito)
+                    .content(contenido+'<br>'+btn+'<br>'+ref)
+                    .show();
                 break;
             default:
                 btn = '';
@@ -262,10 +266,6 @@ function highlightFeatureDistritos(e) {
         nombreTematico = layer.feature.properties.filetype;
         geojson = geojsonTematicos[nombreTematico];
     }
-    // // nombreTematico="Distritos";
-    // nombreTematico="Ciudad de Santa Cruz";
-    // nombreDistrito="Distrito "+layer.feature.properties.DISTRITO;
-    // info.update(layer.feature.properties);
 }
 function resetHighlightDistritos(e) {
     if (geojsonDistrito) {
@@ -377,32 +377,14 @@ function tematicoSelect(obj) {
                 }
                 markersTematicos[obj.name] = puntos;
             }
-            // if(geojson){
-            //     console.info("removeLayer geojson",geojson);
-            //     // map.removeLayer(geojson);
-            // }
             nombreTematico = obj.name;
-            // switch (nombreTematico) {
-            //     case 'Distrito':
-            //         legend._container.style.visibility = 'hidden';
-            //         break;
-            //     default:
-            //         legend._container.style.visibility = 'visible';
-            //         break;
-            // }
-
-            // info._container.style.visibility = 'visible';
-            // if(map.hasLayer(geojson)){
-            //     // map.removeLayer(geojson);
-            //     console.info("hasLayer geojson - remove",true);
-            // }
             geojson = obj.layer;
             geojsonTematicos[obj.name] = obj.layer;
             break;
 
         // case 'Distritos':
         case 'Ciudad de Santa Cruz':
-            if (obj.name == 'Distrito') {
+            if (obj.name == 'Limites de Distrito') {
                 var puntos = [];
                 if (markersTematicos.hasOwnProperty(obj.name)) {
                     puntos = markersTematicos[obj.name];
@@ -493,7 +475,7 @@ function tematicoUnSelect(obj) {
             break;
         // case 'Distritos':
         case 'Ciudad de Santa Cruz':
-            if (obj.name == 'Distrito') {
+            if (obj.name == 'Limites de Distrito') {
                 if (markersTematicos.hasOwnProperty(obj.name)) {
                     var puntos = markersTematicos[obj.name];
                     for (var o in markersTematicos[obj.name]) {

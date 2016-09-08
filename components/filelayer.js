@@ -27,6 +27,4 @@
                            pointToLayer: function (data, latlng) {
                               return L.circleMarker(latlng, {style: stylefilelayer});
                            }},
-        })
-        // .addTo(map)
-        ;
+        }).addTo(map);

@@ -13,19 +13,6 @@ var baseLayers = [
 						"Mapbox" :  grayscale,
 						"Satelite"  :  lluvia,
 						"OSM"   :  OS,
-						// "Departamento" :  L.geoJson(exp_departamento,
-				        //     {
-				        //         style: function (feature) {
-						// 			    return {
-						// 			        fillColor: '#EB7E37',
-						// 			        weight: 2,
-						// 			        opacity: 1,
-						// 			        color: 'white',
-						// 			        dashArray: '3',
-						// 			        fillOpacity: 0.4
-						// 			    };
-						// 			},
-				        //     }),
 					}
 		}
 	];
@@ -33,17 +20,17 @@ var baseLayers = [
 
 var overLayers = [
 		
-		{
-			groupName: "Capas",
-			expanded: false,
-			layers: { 
-					// "Distritos" : ICEDISTRITOS,
-					"UVs" 	 : ICEUVS,
-					"Manzanos":ICEMNZA,
-					"Predios":ICEPREDIOS,
-					"Calles":ICECALLES
-				}	
-		},
+		// {
+		// 	groupName: "Capas",
+		// 	expanded: false,
+		// 	layers: { 
+		// 			// "Distritos" : ICEDISTRITOS,
+		// 			"UVs" 	 : ICEUVS,
+		// 			"Manzanos":ICEMNZA,
+		// 			// "Predios":ICEPREDIOS,
+		// 			"Calles":ICECALLES
+		// 		}	
+		// },
 		{
 			// groupName: "Tematicos",
 			groupName: "Division Politica",
@@ -72,7 +59,7 @@ var overLayers = [
 			groupName: "Ciudad de Santa Cruz",
 			expanded: false,
 			layers:{
-				"Distrito"   :  L.geoJson(exp_distritos,
+				"Limites de Distrito"   :  L.geoJson(exp_distritos,
 				            {
 				                style: function (feature) {
 									    return {

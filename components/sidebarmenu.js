@@ -40,9 +40,9 @@ function referencia(filename){
     // console.info("filename",filename);
     sidebar.setContent("<iframe  id='frameSlideInfo' name='frameSlideInfo' src='ficha/"+filename+".html' width='98%' height='95%'></iframe>");
     sidebar.toggle();
-    //  setTimeout(function () {
-    //         sidebar.show();
-    //     }, 500);
+     setTimeout(function () {
+            sidebar.show();
+        }, 500);
 }
 
 function refgrafico(title,src){

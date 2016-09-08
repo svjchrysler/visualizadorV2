@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>ICEVisorMap</title>
+    <title>ICEGEO - VISOR GEOGRAFICO</title>
     <!--<meta http-equiv="refresh" content="10" />-->
     <!--LEAFLETJS-->
     <!--*******************************************************-->
@@ -253,9 +253,6 @@
     //       "Open Street": OS,
     //   };
 
-
-
- 
  /**
   * CLUSTER DE BUSQUEDA
   */
@@ -323,9 +320,6 @@
     <!--****************************************************************************-->
     <!--AGREGANDO SCRIPT CHOROPLETH MAP (MAPAS TEMATICOS)-->
     <!--****************************************************************************-->
-    <!--<script src="datos/polygons/departamentosGJ.js"></script>
-    <script src="datos/polygons/exp_provincia.js"></script>
-    <script src="datos/polygons/exp_municipio.js"></script>-->
     <script src="datos/polygons/distritos.js"></script>
     <script src="datos/polygons/distrito1GJ.js"></script>
     <script src="datos/polygons/distrito2GJ.js"></script>
@@ -357,19 +351,15 @@
     <!--****************************************************************************-->
     <!--AGREGANDO SCRIPT DRAW CONTROL-->
     <!--****************************************************************************-->
-    <script src="components/control-draw.js"></script>
-    <!--****************************************************************************-->
-    <!--****************************************************************************-->
-    <!--****************************************************************************-->
-
+    <!--<script src="components/control-draw.js"></script>-->
     <!--****************************************************************************-->
     <!--AGREGANDO SIDEBAR MENU CONTROL-->
     <!--****************************************************************************-->
-    <script src="components/sidebarmenu.js"></script>
+    <!--<script src="components/sidebarmenu.js"></script>-->
     <!--****************************************************************************-->
     <!--FILE LAYER CONTROL-->
     <!--****************************************************************************-->
-    <script src="components/filelayer.js"></script>
+    <!--<script src="components/filelayer.js"></script>-->
     <!--****************************************************************************-->
     <!--AGREGANDO FUSE SEARCH CONTROL-->
     <!--****************************************************************************-->
@@ -378,26 +368,149 @@
     <!--****************************************************************************-->
     <!--AGREGANDO SLIDE MENU CONTROL-->
     <!--****************************************************************************-->
-    <script src="components/slidemenu.js"></script>
-    <script src="components/menu_capas_v2.js"></script>
+    <!--<script src="components/slidemenu.js"></script>-->
+    <!--<script src="components/menu_capas_v2.js"></script>-->
     <!--AGREGANDO TAG FILTER CONTROL-->
     <!--****************************************************************************-->
-    <script src="components/tagfiltercontrol.js"></script>
+    <!--<script src="components/tagfiltercontrol.js"></script>-->
     <!--****************************************************************************-->
-    <!--AGREGANDO CENTER MAP CONTROL-->
+    <!--AGREGANDO EASY BUTTONS-->
     <!--****************************************************************************-->
-    <!--<script src="components/controlcentermap.js"></script>-->
-    <!--****************************************************************************-->
-
+    <!--<script src="components/easybuttons.js"></script>-->
     <script>
-        $.getScript( "components/controlcentermap.js" )
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        //****************************************************************************
+        /**
+         * AGREGANDO SCRIPT SEARCH CONTROL
+         */
+            // $.getScript( "components/control-search.js" );
+        //****************************************************************************
+        /**
+         * AGREGANDO CAPAS PARA LOS MAPAS TEMATICOS
+         */
+            // $.getScript( "datos/polygons/distritosGJ.js");
+            // $.getScript( "datos/polygons/distrito1GJ.js");
+            // $.getScript( "datos/polygons/distrito2GJ.js");
+            // $.getScript( "datos/polygons/distrito3GJ.js");
+            // $.getScript( "datos/polygons/distrito4GJ.js");
+            // $.getScript( "datos/polygons/distrito5GJ.js");
+            // $.getScript( "datos/polygons/distrito6GJ.js");
+            // $.getScript( "datos/polygons/distrito7GJ.js");
+            // $.getScript( "datos/polygons/distrito8GJ.js");
+            // $.getScript( "datos/polygons/distrito9GJ.js");
+            // $.getScript( "datos/polygons/distrito10GJ.js");
+            // $.getScript( "datos/polygons/distrito11GJ.js");
+            // $.getScript( "datos/polygons/distrito12GJ.js");
+            // $.getScript( "datos/polygons/distrito13GJ.js");
+            // $.getScript( "datos/polygons/distrito14GJ.js");
+            // $.getScript( "datos/polygons/distrito15GJ.js");
+            // $.getScript( "datos/polygons/distrito16GJ.js");
+            // $.getScript( "datos/polygons/distrito17GJ.js");
+            // $.getScript( "datos/polygons/departamentosGEOJ.js");
+            // $.getScript( "datos/polygons/municipioGEOJ.js");
+            // $.getScript( "datos/polygons/provinciaGEOJ.js");
+            
+         /**
+         * AGREGANDO SCRIPT CHOROPLETH MAP (MAPAS TEMATICOS)
+         */
+        // $.getScript( "components/choropleth-map.js" )
+        //     .done(function( script, textStatus ) {
+        //         console.info("components/choropleth-map.js",textStatus );
+        //     })
+        //     .fail(function( jqxhr, settings, exception ) {
+        //         console.info("components/choropleth-map.js",exception);
+        //     });
+        //****************************************************************************
+        /**
+         * AGREGANDO CONTROL DRAW
+         */
+        $.getScript( "components/control-draw.js" )
             .done(function( script, textStatus ) {
-                console.info("components/controlcentermap.js",textStatus );
+                console.info("components/control-draw.js",textStatus );
             })
             .fail(function( jqxhr, settings, exception ) {
-                console.info("components/controlcentermap.js",exception);
+                console.info("components/control-draw.js",exception);
             });
+        //****************************************************************************
+        /**
+         * AGREGANDO SIDEBAR MENU CONTROL
+         */
+        $.getScript( "components/sidebarmenu.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/sidebarmenu.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/sidebarmenu.js",exception);
+            });
+        //****************************************************************************
+        /**
+         * AGREGANDO FILE LAYER CONTROL
+         */
+        $.getScript( "components/filelayer.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/filelayer.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/filelayer.js",exception);
+            });
+        //****************************************************************************
+        /**
+         * AGREGANDO SLIDE MENU CONTROL
+         * MENU PARA AGREGAR MAS CAPAS
+         */
+        $.getScript( "components/slidemenu.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/slidemenu.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/slidemenu.js",exception);
+            });
+        //****************************************************************************
+        /**
+         * AGREGANDO MENU CAPAS
+         */
+         $.getScript( "components/menu_capas_v2.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/menu_capas_v2.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/menu_capas_v2.js",exception);
+            });
+        //****************************************************************************
+        /**
+         * AGREGANDO TAG FILTER CONTROL
+         */
+        $.getScript( "components/tagfiltercontrol.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/tagfiltercontrol.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/tagfiltercontrol.js",exception);
+            });
+        //****************************************************************************
+
+        /**
+         * AGREGANDO EASY BUTTONS
+         **/ 
+        $.getScript( "components/easybuttons.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/easybuttons.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/easybuttons.js",exception);
+            });
+        //****************************************************************************
     </script>
+    <!--****************************************************************************-->
 
 
 </body>

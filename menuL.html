@@ -4,6 +4,9 @@
 <head>
     <!--<meta http-equiv="refresh" content="5">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="components/markerAwesome/leaflet_awesome_markers.css">
+    <script src="components/markerAwesome/leaflet_awesome_markers.js"></script>
     <style>
         button.accordion {
             /*background-color: #eee;*/
@@ -102,7 +105,6 @@
 </head>
 
 <body>
-
     <div style="width:350px; height:auto;">
         <h2>Puntos de Interes</h2>
         <p>Selecciona la categoria que quieres agregar al mapa</p>
@@ -111,47 +113,50 @@
             <table>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('farmacias','Salud','woods-marker.svg')">Farmacias</div>
+                        <!--<div id="btni" onclick="press('farmacias','Salud','hospital-marker.svg')">Farmacias</div>-->
+                        <div id="btni" onclick="press('farmacias','Salud','plus-square','red')">Farmacias</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('hospitales','Salud','woods-marker.svg')">Hospitales</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="btni" onclick="press('odontologos','Salud','woods-marker.svg')">Odontologos</div>
-                    </td>
-                    <td>
-                        <div id="btni" onclick="press('laboratorios','Salud','woods-marker.svg')">Laboratorios</div>
+                        <!--<div id="btni" onclick="press('hospitales','Salud','hospital.svg')">Hospitales</div>-->
+                        <div id="btni" onclick="press('hospitales','Salud','h-square','red')">Hospitales</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('centros de salud','Salud','woods-marker.svg')">Centros de Salud</div>
+                        <!--<div id="btni" onclick="press('odontologos','Salud','woods-marker.svg')">Odontologos</div>-->
+                        <div id="btni" onclick="press('odontologos','Salud','user-md','red')">Odontologos</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('postas','Salud','woods-marker.svg')">Postas</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="btni" onclick="press('centros terapeuticos','Salud','woods-marker.svg')">Centros Terapeuticos</div>
-                    </td>
-                    <td>
-                        <div id="btni" onclick="press('clinicas','Salud','woods-marker.svg')">Clinicas</div>
+                        <!--<div id="btni" onclick="press('laboratorios','Salud','woods-marker.svg')">Laboratorios</div>-->
+                        <div id="btni" onclick="press('laboratorios','Salud','hospital-o','red')">Laboratorios</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('consultorios medicos','Salud','woods-marker.svg')">Consultorios Medicos</div>
+                        <div id="btni" onclick="press('centros de salud','Salud','hospital-o','red')">Centros de Salud</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('clinicas','Salud','woods-marker.svg')">Clinicas</div>
+                        <div id="btni" onclick="press('postas','Salud','hospital-o','red')">Postas</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('servicios de salud','Salud','woods-marker.svg')">Otros Servicios de Salud</div>
+                        <div id="btni" onclick="press('centros terapeuticos','Salud','hospital-o','red')">Centros Terapeuticos</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('clinicas','Salud','ambulance','red')">Clinicas</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('consultorios medicos','Salud','stethoscope','red')">Consultorios Medicos</div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('servicios de salud','Salud','hospital-o','red')">Otros Servicios de Salud</div>
                     </td>
                     <td>
                     </td>
@@ -164,26 +169,26 @@
             <table>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('parques','Social','woods-marker.svg')">Parques</div>
+                        <div id="btni" onclick="press('parques','Social','tree','black')">Parques</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('plazas','Social','woods-marker.svg')">Plazas</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="btni" onclick="press('coliseos','Social','woods-marker.svg')">Coliseos</div>
-                    </td>
-                    <td>
-                        <div id="btni" onclick="press('polifuncionales','Social','woods-marker.svg')">Polifuncionales</div>
+                        <div id="btni" onclick="press('plazas','Social','tree','black')">Plazas</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('canchas','Social','woods-marker.svg')">Canchas</div>
+                        <div id="btni" onclick="press('coliseos','Social','soccer-ball-o','black')">Coliseos</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('gimnasios','Social','woods-marker.svg')">GYM</div>
+                        <div id="btni" onclick="press('polifuncionales','Social','soccer-ball-o','black')">Polifuncionales</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('canchas','Social','soccer-ball-o','black')">Canchas</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('gimnasios','Social','users','black')">GYM</div>
                     </td>
                 </tr>
             </table>
@@ -194,23 +199,23 @@
             <table>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('primaria publica','Educacion','woods-marker.svg')">Primaria Publica</div>
+                        <div id="btni" onclick="press('primaria publica','Educacion','institution','blue')">Primaria Publica</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('primaria privada','Educacion','woods-marker.svg')">Primaria Privada</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="btni" onclick="press('secundaria publica','Educacion','woods-marker.svg')">Secundaria Publica</div>
-                    </td>
-                    <td>
-                        <div id="btni" onclick="press('secundaria privada','Educacion','woods-marker.svg')">Secundaria Privada</div>
+                        <div id="btni" onclick="press('primaria privada','Educacion','institution','blue')">Primaria Privada</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('universidades','Educacion','woods-marker.svg')">Universidades</div>
+                        <div id="btni" onclick="press('secundaria publica','Educacion','institution','red')">Secundaria Publica</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('secundaria privada','Educacion','institution','red')">Secundaria Privada</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('universidades','Educacion','institution','black')">Universidades</div>
                     </td>
                 </tr>
             </table>
@@ -221,18 +226,18 @@
             <table>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('residenciales','Otros','woods-marker.svg')">Residenciales</div>
+                        <div id="btni" onclick="press('residenciales','Otros','hotel','red')">Residenciales</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('hoteles','Otros','woods-marker.svg')">Hoteles</div>
+                        <div id="btni" onclick="press('hoteles','Otros','hotel','red')">Hoteles</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('policia','Otros','woods-marker.svg')">Puesto Policial</div>
+                        <div id="btni" onclick="press('policia','Otros','user','red')">Puesto Policial</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('licorerias','Otros','woods-marker.svg')">Licorerias</div>
+                        <!--<div id="btni" onclick="press('licoreria','Otros','beer','red')">Licorerias</div>-->
                     </td>
                 </tr>
             </table>
@@ -256,8 +261,7 @@
 
     <script>
         var otherlayers=[];
-        function press(layername,groupname,iconname){
-            // controlStyledLayer.addOverlay( clustersfinancieras, "Financieras", {groupName : "Otros"} );
+        function press(layername,groupname,iconname,iconcolor){
             if(otherlayers.indexOf(layername)>-1){
                 console.info("contains layername",layername);
             }else{
@@ -266,9 +270,19 @@
                 console.info(groupname+" "+layername+" "+iconname);
                 console.info("vers i existe map",map);
                 $.getJSON("datos/points/"+layername+".geojson", function (data) {
-                    var ratIcon = L.icon({
-                        iconUrl: 'image/icons/'+iconname,
-                        iconSize: [25, 25]
+                    // var ratIcon = L.icon({
+                    //     iconUrl: 'image/icons/'+iconname,
+                    //     iconSize: [25, 25]
+                    // });
+                    // var ratIcon = L.divIcon({
+                    //     className:'fa fa-blind',
+                    //     // html: '<i class="fa fa-blind" aria-hidden="true"></i>',
+                    //     iconSize: [25, 25]
+                    // });
+                    var ratIcon = L.AwesomeMarkers.icon({
+                        prefix:'fa',
+                        icon:iconname,//'database',
+                        iconColor:iconcolor//'red'
                     });
                     var categ= L.geoJson(data, {
                         pointToLayer: function (feature, latlng) {
