@@ -1,4 +1,4 @@
-var win =  L.control.window(map,{title:'Information!',content:'My Info Windows.',modal:true});
+var win =  L.control.window(map,{title:'Information!',content:'My Info Windows.',modal:false});
 var geojson;
 var geojsonDistrito;
 
@@ -115,7 +115,10 @@ info.update = function (props,layer) {
                 ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreTematico + '",' + '"' + getAbsolutePath() + "graficos/" + nombreTematico + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
                 // ref="<br><a id='btnref' target='_blank' href='"+getAbsolutePath()+"graficos/"+nombreTematico+".html'><b>Graficos Estadisticos</b></a>";
                 contenido = '<h4><b>' + props.nombre + '</b></h4>';
-                info._container.style.visibility = 'visible';
+                // info._container.style.visibility = 'visible';
+                win.title(props.nombre)
+                    .content(btn+'<br>'+ref)
+                    .show();
                 
                 break;
             // case 'Distritos':
@@ -129,8 +132,11 @@ info.update = function (props,layer) {
                     ref = '';
                 }
 
-                contenido = '<h4>' + nombreDistrito + '</h4>'
-                    + "UV: " + props.UV_ET;
+                contenido = ''
+                    // +'<h4>' + nombreDistrito + '</h4>'
+                    + "<b>UV:</b> " + props.UV_ET
+                    // + props.man?'':"<b>Manzana:</b> " + props.man
+                    +'';
                 // info._container.style.visibility = 'visible';
                 win.title(nombreDistrito)
                     .content(contenido+'<br>'+btn+'<br>'+ref)
