@@ -83,13 +83,11 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
     },
 
     selectLayer: function(layer) {
-        console.log("selectLayer "+layer);
         this._map.addLayer(layer);
         this._update();
     },
 
     unSelectLayer: function(layer) {
-        console.log("unSelectLayer "+layer);
         this._map.removeLayer(layer);
         this._update();
     },
@@ -102,8 +100,8 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
     	this.changeGroup( group_Name, false)
     },
 
-    changeGroup: function(group_Name, select){ 
-        
+    changeGroup: function(group_Name, select){
+
     	for (group in this._groupList) {
             if (this._groupList[group].groupName == group_Name) {
                 for (layer in this._layers) {
@@ -245,6 +243,7 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
     },
 
     _update: function() {
+        
         if (!this._container) {
             return;
         }
@@ -348,7 +347,7 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
             // configure the visible attribute to layer
 			if( obj.layer.StyledLayerControl.visible ){
 				this._map.addLayer(obj.layer);
-			}	
+			}
 
         }
 
@@ -374,7 +373,15 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
 
             inputElement = '<input id="ac' + obj.group.id + '" name="accordion-1" class="menu" ' + s_expanded + s_type_exclusive + '/>';
             inputLabel = '<label for="ac' + obj.group.id + '">' + obj.group.name + '</label>';
-
+            /**
+             * agregando evento onClick en la libreria
+             */
+            // $("label[for='ac"+obj.group.id+"']").click(function(e){
+            //     console.info("evento del label",e);
+            //     console.info("evento del label",e.text);
+            //     // console.info("asd",obj.group.name);
+            // });
+            //************************************
             article = document.createElement('article');
             article.className = 'ac-large';
             article.appendChild(label);
@@ -430,7 +437,7 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
         }
 
         this._handlingClick = false;
-        
+
     },
 
     _onDeleteClick: function(obj) {

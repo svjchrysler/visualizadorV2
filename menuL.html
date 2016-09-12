@@ -106,6 +106,32 @@
 
 <body>
     <div style="width:350px; height:auto;">
+        <h2>Division Politica</h2>
+        <p>Selecciona la capa que quieres ver</p>
+        <button class="accordion">Division Politica</button>
+        <div class="panel">
+            <table>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressP('Departamentos','departamentosGEOJ','Division Politica')">Departamento</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressP('Provincia','provinciaGEOJ','Division Politica')">Provincia</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressP('municipioGEOJ','Division Politica')">Municipio</div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--FIN DEL CUADRO-->
+    </div>
+    <div style="width:350px; height:auto;">
         <h2>Puntos de Interes</h2>
         <p>Selecciona la categoria que quieres agregar al mapa</p>
         <button class="accordion">Salud</button>
@@ -114,7 +140,7 @@
                 <tr>
                     <td>
                         <!--<div id="btni" onclick="press('farmacias','Salud','hospital-marker.svg')">Farmacias</div>-->
-                        <div id="btni" onclick="press('farmacias','Salud','plus-square','red')">Farmacias</div>
+                        <div id="btni" onclick="press('farmacias','Salud','plus-square','darkred')">Farmacias</div>
                     </td>
                     <td>
                         <!--<div id="btni" onclick="press('hospitales','Salud','hospital.svg')">Hospitales</div>-->
@@ -199,7 +225,7 @@
             <table>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('primaria publica','Educacion','institution','blue')">Primaria Publica</div>
+                        <div id="btni" onclick="press('primaria publica','Educacion','institution','green')">Primaria Publica</div>
                     </td>
                     <td>
                         <div id="btni" onclick="press('primaria privada','Educacion','institution','darkblue')">Primaria Privada</div>
@@ -248,20 +274,45 @@
 
 
     <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-    for (i = 0; i < acc.length; i++) {
-            acc[i].onclick = function(){
-                this.classList.toggle("active");
-                this.nextElementSibling.classList.toggle("show");
+        for (i = 0; i < acc.length; i++) {
+                acc[i].onclick = function(){
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+            }
         }
-    }
     </script>
 
     <script>
         var otherlayers=[];
-        function press(layername,groupname,iconname,iconcolor){
+
+        /**
+         * Capas de polygonos
+         */
+        function pressP(layername,groupname){
+            if(otherlayers.indexOf(layername)>-1){
+                console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                $.getJSON("datos/polygons/"+layername+".geojson", function (data) {
+                    var divpol= L.geoJson(data,
+				            {
+				                style: style,
+				                onEachFeature: onEachFeature,
+				            });
+                    if(divpol){
+                        controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
+                    }
+                });
+            }
+        }
+
+        /**
+         * Capas de puntos
+         */
+         function press(layername,groupname,iconname,iconcolor){
             if(otherlayers.indexOf(layername)>-1){
                 console.info("contains layername",layername);
             }else{
