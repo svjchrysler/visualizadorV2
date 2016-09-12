@@ -392,6 +392,12 @@ map.addLayer(ICEMNZA);
 // 			.setContent("The data that appears in this application are fictitious and do not represent actual data!")
 // 			.openOn(map);
 
+
+
+/**
+ * Evento persoalizado para 
+ * mostrar el menu de agregar capas
+ */
 // var lab="0";
 // $('.menu').click(function (e) {
 // 	// console.info("jquery click menu",e);
