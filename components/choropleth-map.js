@@ -503,6 +503,7 @@ function tematicoUnSelect(obj) {
                 //  geojsonDistrito=null;
                 // nombreTematico='Descripcion';
                 // legend._container.style.visibility='hidden';
+                    geojsonDistrito = null;
                 info._container.style.visibility = 'hidden';
             }
             break;

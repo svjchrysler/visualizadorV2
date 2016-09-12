@@ -1,26 +1,30 @@
 /**
  * CENTER MAP BUTTON
  */
-// L.easyButton('<i class="fa fa-crosshairs fa-2x" aria-hidden="true" style="margin-left:-4px"></i>', function () {
-//     if (geojson)
-//         map.fitBounds(geojson.getBounds());
-//     else
-//         map.setView([-17.78361, -63.18212],9);
-//         // map.setView(map.getCenter(), 7);
-// }).addTo(map);
+L.easyButton('<i class="fa fa-eye fa-lg" aria-hidden="true" style="margin-left:-3px; margin-top:4px"></i>', function () {
+    if (geojsonDistrito) {
+        map.fitBounds(geojsonDistrito.getBounds());
+    } else {
+        if (geojson)
+            map.fitBounds(geojson.getBounds());
+        else
+            map.setView([-17.78361, -63.18212], 9);
+    }
+    // map.setView(map.getCenter(), 7);
+}, 'Centrar Vista').addTo(map);
 
 /**
- * ADD LAYER BUTTON
+ * ADD INFO BUTTON
  */
-L.easyButton('<i class="fa fa-info fa-lg" aria-hidden="true" style="margin-left:3px; margin-top:4px;"></i>', function () {
-    if(sidebar){
+L.easyButton('<i class="fa fa-info fa-lg" aria-hidden="true" style="margin-left:2px; margin-top:4px;"></i>', function () {
+    if (sidebar) {
         sidebar.setContent("<iframe id='frameSlideInfo' name='frameSlideInfo' src='informacion.html' width='50%' height='95%'></iframe>");
         sidebar.toggle();
         setTimeout(function () {
             menuL.show();
-        }, 400); 
+        }, 400);
     }
-}).addTo(map);
+}, 'Informacion').addTo(map);
 
 
 
@@ -28,7 +32,7 @@ L.easyButton('<i class="fa fa-info fa-lg" aria-hidden="true" style="margin-left:
  * LOCATION BUTTON
  */
 // var circle ;
-            
+
 // var stateChangingButton = L.easyButton({
 //     states: [{
 //             stateName: 'locationOn',   // name the state

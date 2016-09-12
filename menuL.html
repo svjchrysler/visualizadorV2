@@ -121,7 +121,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="pressP('municipioGEOJ','Division Politica')">Municipio</div>
+                        <div id="btni" onclick="pressP('Municipio','municipioGEOJ','Division Politica')">Municipio</div>
                     </td>
                     <td>
                     </td>
@@ -291,12 +291,12 @@
         /**
          * Capas de polygonos
          */
-        function pressP(layername,groupname){
+        function pressP(layername,filename,groupname){
             if(otherlayers.indexOf(layername)>-1){
                 console.info("contains layername",layername);
             }else{
                 otherlayers.push(layername);
-                $.getJSON("datos/polygons/"+layername+".geojson", function (data) {
+                $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
                     var divpol= L.geoJson(data,
 				            {
 				                style: style,

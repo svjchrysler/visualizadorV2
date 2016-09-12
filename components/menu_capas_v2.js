@@ -392,23 +392,23 @@ map.addLayer(ICEMNZA);
 // 			.setContent("The data that appears in this application are fictitious and do not represent actual data!")
 // 			.openOn(map);
 
-var lab="0";
-$('.menu').click(function (e) {
-	// console.info("jquery click menu",e);
-	// console.info("jquery click menu - ",e.currentTarget);
-	// console.info("jquery click menu - id ",e.currentTarget.id);
-	// var lab = e.currentTarget.id;
-	// console.info(lab);
+// var lab="0";
+// $('.menu').click(function (e) {
+// 	// console.info("jquery click menu",e);
+// 	// console.info("jquery click menu - ",e.currentTarget);
+// 	// console.info("jquery click menu - id ",e.currentTarget.id);
+// 	// var lab = e.currentTarget.id;
+// 	// console.info(lab);
 
-	// var textlab = $("label[for='" + lab + "']").text();
-	// console.info(textlab);
-	var menuleafl = document.getElementsByClassName('leaflet-menu');
-	if (menuleafl[0].style.left == '0px' && lab!=e.currentTarget.id) {
-		lab=e.currentTarget.id;
-		menuleafl[0].style.left = '-400px';
-	} else {
-		menuleafl[0].style.left = '0px';
-	}
-	//  menuleafl.style.left='0px';
-	//  $(this).next().text();
-});
+// 	// var textlab = $("label[for='" + lab + "']").text();
+// 	// console.info(textlab);
+// 	var menuleafl = document.getElementsByClassName('leaflet-menu');
+// 	if (menuleafl[0].style.left == '0px' && lab!=e.currentTarget.id) {
+// 		lab=e.currentTarget.id;
+// 		menuleafl[0].style.left = '-400px';
+// 	} else {
+// 		menuleafl[0].style.left = '0px';
+// 	}
+// 	//  menuleafl.style.left='0px';
+// 	//  $(this).next().text();
+// });

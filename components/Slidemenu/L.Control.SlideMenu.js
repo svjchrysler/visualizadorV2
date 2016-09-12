@@ -19,7 +19,7 @@ L.Control.SlideMenu = L.Control.extend({
         var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', this._container);
         link.title = 'Agregar Capas';
         // L.DomUtil.create('span', 'fa fa-bars', link);
-        L.DomUtil.create('span', 'fa fa-database fa-2x', link);
+        L.DomUtil.create('span', 'fa fa-map-o fa-2x', link);
 
         this._menu = L.DomUtil.create('div', 'leaflet-menu', 
             document.getElementsByClassName('leaflet-container')[0]);    
