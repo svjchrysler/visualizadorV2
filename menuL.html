@@ -296,6 +296,9 @@
                 console.info("contains layername",layername);
             }else{
                 otherlayers.push(layername);
+                var loadcenter=document.getElementById('loadcenter');
+                loadcenter.style.visibility='visible';
+                loadcenter.innerHTML='cargando '+layername+'...';
                 $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
                     var divpol= L.geoJson(data,
 				            {
@@ -304,6 +307,9 @@
 				            });
                     if(divpol){
                         controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
+                        document.getElementById('loadcenter').style.visibility='hidden';
+                    }else{
+                        // document.getElementById('loadcenter').style='visible';
                     }
                 });
             }

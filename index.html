@@ -32,6 +32,8 @@
     <!--<link rel="stylesheet" href="css/L.Control.Locate.scss" -->
     <link rel="stylesheet" href="css/icons.css" />
 
+    <link rel="stylesheet" href="components/LoadingControl/loadingcontrol.css" />
+    <script src="components/LoadingControl/loadingcontrol.js"></script>
 
     <script src="js/leaflet.markercluster.js"></script>
 
@@ -192,17 +194,38 @@
             left: -50%;
             text-shadow: 0px 2px 1px rgba(255, 255, 255, 0.85);
         }
+        
+        #loadcenter {
+            position: absolute;
+            background: white;
+            top: 50%;
+            /* Buscamos el centro horizontal (relativo) del navegador */
+            left: 50%;
+            visibility:hidden;
+            /* Buscamos el centro vertical (relativo) del navegador */
+            /*width: 600 px;*/
+            /* Definimos el ancho del objeto a centrar */
+            /*height: 400px;*/
+            /* Definimos el alto del objeto a centrar */
+            /*margin-top: -200px;*/
+            /* Restamos la mitad de la altura del objeto con un margin-top */
+            /*margin-left: -300px;*/
+            /* Restamos la mitad de la anchura del objeto con un margin-left */
+        }
     </style>
 </head>
 
 <body>
     <div id="sidebar"></div>
     <div id="map"></div>
+    <div id="loadcenter">cargando...</div>
+
     <div id='coord' style="font-size:13px" align="right" visibility="hidden"></div>
-    
+
     <script type="text/javascript">
         var _0x3ccb=["\x6F\x6E\x63\x6F\x6E\x74\x65\x78\x74\x6D\x65\x6E\x75"];document[_0x3ccb[0]]= function(){return false}
     </script>
+
 
     <script>
   
@@ -239,7 +262,8 @@
           attributionControl:false,
           center:[-17.78361, -63.18212],
           zoom:13,
-          maxZoom:19
+          maxZoom:19,
+          loadingControl:true
       });//.setView([-17.78361, -63.18212], 11);
 
 //PREDEFINIENDO UN MAPA DE INICIO      
