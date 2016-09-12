@@ -1,4 +1,4 @@
-var win = L.control.window(map, { title: 'Information!', content: 'My Info Windows.', modal: false });
+var win = L.control.window(map, { title: 'Information!', content: 'My Info Windows.',modal: true });
 var geojson;
 var geojsonDistrito;
 

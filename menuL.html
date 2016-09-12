@@ -132,6 +132,88 @@
         <!--FIN DEL CUADRO-->
     </div>
     <div style="width:350px; height:auto;">
+        <h2>Distritos de la Ciudad de Santa Cruz</h2>
+        <p>Selecciona la capa que quieres ver</p>
+        <button class="accordion">Ciudad de Santa Cruz</button>
+        <div class="panel">
+            <table>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 01','distrito1GJ','Ciudad de Santa Cruz')">Distrito 01</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 02','distrito2GJ','Ciudad de Santa Cruz')">Distrito 02</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 03','distrito3GJ','Ciudad de Santa Cruz')">Distrito 03</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 04','distrito4GJ','Ciudad de Santa Cruz')">Distrito 04</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 05','distrito5GJ','Ciudad de Santa Cruz')">Distrito 05</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 06','distrito6GJ','Ciudad de Santa Cruz')">Distrito 06</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 07','distrito7GJ','Ciudad de Santa Cruz')">Distrito 07</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 08','distrito8GJ','Ciudad de Santa Cruz')">Distrito 08</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 09','distrito9GJ','Ciudad de Santa Cruz')">Distrito 09</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 10','distrito10GJ','Ciudad de Santa Cruz')">Distrito 10</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 11','distrito11GJ','Ciudad de Santa Cruz')">Distrito 11</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 12','distrito12GJ','Ciudad de Santa Cruz')">Distrito 12</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 13','distrito13GJ','Ciudad de Santa Cruz')">Distrito 13</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 14','distrito14GJ','Ciudad de Santa Cruz')">Distrito 14</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 15','distrito15GJ','Ciudad de Santa Cruz')">Distrito 15</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 16','distrito16GJ','Ciudad de Santa Cruz')">Distrito 16</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Distrito 17','distrito17GJ','Ciudad de Santa Cruz')">Distrito 17</div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--FIN DEL CUADRO-->
+    </div>
+    <div style="width:350px; height:auto;">
         <h2>Puntos de Interes</h2>
         <p>Selecciona la categoria que quieres agregar al mapa</p>
         <button class="accordion">Salud</button>
@@ -305,6 +387,41 @@
 				                style: style,
 				                onEachFeature: onEachFeature,
 				            });
+                    if(divpol){
+                        controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
+                        document.getElementById('loadcenter').style.visibility='hidden';
+                    }else{
+                        // document.getElementById('loadcenter').style='visible';
+                    }
+                });
+            }
+        }
+        /**
+         * Capas de Distritos
+         */
+        function pressD(layername,filename,groupname){
+            if(otherlayers.indexOf(layername)>-1){
+                console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                var loadcenter=document.getElementById('loadcenter');
+                loadcenter.style.visibility='visible';
+                loadcenter.innerHTML='cargando '+layername+'...';
+                $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
+                    var divpol= L.geoJson(data,
+				            {
+				                style: function (feature) {
+                                    return {
+                                        fillColor: '#EB7E37',
+                                        weight: 2,
+                                        opacity: 1,
+                                        color: 'white',
+                                        dashArray: '3',
+                                        fillOpacity: 0.4
+                                    };
+                                },
+                                onEachFeature: onEachFeatureDistritos,
+                        });
                     if(divpol){
                         controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
                         document.getElementById('loadcenter').style.visibility='hidden';
