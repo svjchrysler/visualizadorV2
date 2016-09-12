@@ -1,4 +1,4 @@
-var win =  L.control.window(map,{title:'Information!',content:'My Info Windows.',modal:false});
+var win = L.control.window(map, { title: 'Information!', content: 'My Info Windows.', modal: false });
 var geojson;
 var geojsonDistrito;
 
@@ -35,7 +35,7 @@ function existeUrl(url) {
 /**
  * actualizar la informacion
  */
-info.update = function (props,layer) {
+info.update = function (props, layer) {
     // var ref="<a id='btnref' target='_blank' href='"+getAbsolutePath()+"graficos/"+nombreTematico+".html'><b>Graficos Estadisticos</b></a>";
     // var ref="<a id='btnref' target='_self' width='100px' href='#' onclick='return referencia();'><b>Graficos Estadisticos</b></a>";
     var ref = '';
@@ -50,7 +50,7 @@ info.update = function (props,layer) {
                 ref = '';
                 contenido = ''
                     // +'<h2>' + props.nombre + '</h2>'
-                    +"<center><b>Poblacion</b></center>"
+                    + "<center><b>Poblacion</b></center>"
                     + "<br><b>Total: </b>" + props.total
                     + "<br><b>Hombres: </b>" + props.hombre + " hab."
                     + "<br><b>Hombres: </b>" + props.mujer + " hab."
@@ -63,7 +63,7 @@ info.update = function (props,layer) {
                 // info._container.style.visibility = 'visible';
                 // layer.bindPopup(contenido + btn + ref);
                 win.title(props.nombre)
-                    .content(contenido+'<br>'+btn+'<br>'+ref)
+                    .content(contenido + '<br>' + btn + '<br>' + ref)
                     .show();
                 break;
             case 'Provincia':
@@ -72,7 +72,7 @@ info.update = function (props,layer) {
                 ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreTematico + '",' + '"' + getAbsolutePath() + "graficos/" + nombreTematico + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
                 contenido = ''
                     // +'<h2>' + props.nombre + '</h2>'
-                    +"<center><b>Poblacion</b></center>"
+                    + "<center><b>Poblacion</b></center>"
                     + "<br><b>Total: </b>" + props.total
                     + "<br><b>Hombres: </b>" + props.hombre + " hab."
                     + "<br><b>Hombres: </b>" + props.mujer + " hab."
@@ -85,7 +85,7 @@ info.update = function (props,layer) {
                 // info._container.style.visibility = 'visible';
                 // layer.bindPopup(contenido + btn + ref);
                 win.title(props.nombre)
-                    .content(contenido+'<br>'+btn+'<br>'+ref)
+                    .content(contenido + '<br>' + btn + '<br>' + ref)
                     .show();
                 break;
             case 'Municipio':
@@ -94,7 +94,7 @@ info.update = function (props,layer) {
                 ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreTematico + '",' + '"' + getAbsolutePath() + "graficos/" + nombreTematico + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
                 contenido = ''
                     // +'<h2>' + props.nombre + '</h2>'
-                    +"<center><b>Poblacion</b></center>"
+                    + "<center><b>Poblacion</b></center>"
                     + "<br><b>Total: </b>" + props.total
                     + "<br><b>Hombres: </b>" + props.hombre + " hab."
                     + "<br><b>Hombres: </b>" + props.mujer + " hab."
@@ -107,7 +107,7 @@ info.update = function (props,layer) {
                 // info._container.style.visibility = 'visible';
                 // layer.bindPopup(contenido + btn + ref);
                 win.title(props.nombre)
-                    .content(contenido+'<br>'+btn+'<br>'+ref)
+                    .content(contenido + '<br>' + btn + '<br>' + ref)
                     .show();
                 break;
             case 'Distrito':
@@ -117,9 +117,9 @@ info.update = function (props,layer) {
                 contenido = '<h4><b>' + props.nombre + '</b></h4>';
                 // info._container.style.visibility = 'visible';
                 win.title(props.nombre)
-                    .content(btn+'<br>'+ref)
+                    .content(btn + '<br>' + ref)
                     .show();
-                
+
                 break;
             // case 'Distritos':
             case 'Ciudad de Santa Cruz':
@@ -136,10 +136,10 @@ info.update = function (props,layer) {
                     // +'<h4>' + nombreDistrito + '</h4>'
                     + "<b>UV:</b> " + props.UV_ET
                     // + props.man?'':"<b>Manzana:</b> " + props.man
-                    +'';
+                    + '';
                 // info._container.style.visibility = 'visible';
                 win.title(nombreDistrito)
-                    .content(contenido+'<br>'+btn+'<br>'+ref)
+                    .content(contenido + '<br>' + btn + '<br>' + ref)
                     .show();
                 break;
             default:
@@ -173,8 +173,8 @@ function getColor(d) {
                             d > 6000 ? '#ff3232' :
                                 d > 4000 ? '#fe4c4c' :
                                     d > 2000 ? '#ff6565' :
-                                    '#ee6565';
-                                        // '#990026';
+                                        '#ee6565';
+    // '#990026';
 }
 
 function style(feature) {
@@ -190,7 +190,7 @@ function style(feature) {
 
 function highlightFeature(e) {
     var layer = e.target;
-    
+
     layer.setStyle({
         weight: 5,
         color: '#666',
@@ -216,12 +216,12 @@ function resetHighlight(e) {
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
     var prop = e.target.feature.properties;
-    
+
     if (geojsonTematicos.hasOwnProperty(prop.filetype)) {
         nombreTematico = prop.filetype;
         geojson = geojsonTematicos[nombreTematico];
     }
-    info.update(prop,e.target);
+    info.update(prop, e.target);
 }
 
 function onEachFeature(feature, layer) {
@@ -349,8 +349,8 @@ var geojsonDistritos = {};
 function tematicoSelect(obj) {
     switch (obj.group.name) {
         case "Mapas Base":
-            console.info("mapas base Select",obj.group.name);
-        break;
+            console.info("mapas base Select", obj.group.name);
+            break;
         case 'Categorias':
             controlSearch._layer = obj.layer;
             searchcluster.addLayer(obj.layer);
@@ -410,8 +410,8 @@ function tematicoSelect(obj) {
                                     html: '<div>' + o.feature.properties.nombre + '</div>'
                                 })
                             });
-                            etiqueta.on('click',function(event){
-                                console.info('etiqueta click',event.getBounds());
+                            etiqueta.on('click', function (event) {
+                                console.info('etiqueta click', event.getBounds());
                                 map.fitBounds(event.getBounds());
 
                             });
@@ -426,23 +426,25 @@ function tematicoSelect(obj) {
                 geojsonDistrito = obj.layer;
                 // geojsonTematicos[obj.name] = obj.layer;
             } else {
-                nombreTematico = obj.group.name;
-                nombreDistrito = obj.name;
-                // legend._container.style.visibility='visible';
-                // info._container.style.visibility = 'visible';
-                // if(!geojsonDistritos.hasOwnProperty(obj.name)){
-                //     geojsonDistritos[obj.name]=obj.layer;
-                // }
-                geojsonDistrito = obj.layer;
-                // console.info("geojsonDistrito", geojsonDistrito);
+                if (obj.layer._layers) {
+                    nombreTematico = obj.group.name;
+                    nombreDistrito = obj.name;
+                    // legend._container.style.visibility='visible';
+                    // info._container.style.visibility = 'visible';
+                    // if(!geojsonDistritos.hasOwnProperty(obj.name)){
+                    //     geojsonDistritos[obj.name]=obj.layer;
+                    // }
+                    geojsonDistrito = obj.layer;
+                    // console.info("geojsonDistrito", geojsonDistrito);
+                }
             }
             break;
         case "Capas":
-            console.info("capas Select",obj.group.name);
-            
-        break;
+            console.info("capas Select", obj.group.name);
+
+            break;
         default:
-            console.info("Select",obj.group.name);
+            console.info("Select", obj.group.name);
             controlSearch._layer = obj.layer;
             searchcluster.addLayer(obj.layer);
             break;
@@ -452,8 +454,8 @@ function tematicoSelect(obj) {
 function tematicoUnSelect(obj) {
     switch (obj.group.name) {
         case "Mapas Base":
-            console.info("mapas base unSelect",obj.group.name);
-        break;
+            console.info("mapas base unSelect", obj.group.name);
+            break;
         case 'Categorias':
             searchcluster.removeLayer(obj.layer);
             searchcluster.addTo(map);
@@ -503,16 +505,15 @@ function tematicoUnSelect(obj) {
                 //  geojsonDistrito=null;
                 // nombreTematico='Descripcion';
                 // legend._container.style.visibility='hidden';
-                    geojsonDistrito = null;
                 info._container.style.visibility = 'hidden';
             }
             break;
 
         case "Capas":
-            console.info("capas unSelect",obj.group.name);
+            console.info("capas unSelect", obj.group.name);
             break;
         default:
-            console.info("unSelect",obj.group.name);
+            console.info("unSelect", obj.group.name);
             searchcluster.removeLayer(obj.layer);
             searchcluster.addTo(map);
             controlSearch._layer = searchcluster;
