@@ -32,11 +32,18 @@
     <!--<link rel="stylesheet" href="css/L.Control.Locate.scss" -->
     <link rel="stylesheet" href="css/icons.css" />
 
+    <!--LOADING CONTROL -->
     <link rel="stylesheet" href="components/LoadingControl/loadingcontrol.css" />
     <script src="components/LoadingControl/loadingcontrol.js"></script>
-
+    <!--FULLSCREEN CONTROL-->
+    <link rel="stylesheet" href="components/FullScreen/Control.FullScreen.css" />
+    <script src="components/FullScreen/Control.FullScreen.js"></script>
+    <!--MINI MAP CONTROL-->
+    <link rel="stylesheet" href="components/MiniMap/Control.MiniMap.css" />
+	<script src="components/MiniMap/Control.MiniMap.js" type="text/javascript"></script>
+    <!--MARKER CLUSTER -->
     <script src="js/leaflet.markercluster.js"></script>
-
+    <!--SEARCH CONTROL-->
     <script src="js/leaflet-search.js"></script>
     <script src="js/leaflet.groupedlayercontrol.js"></script>
 
@@ -47,6 +54,7 @@
     <!--<script src="js/leaflet.wms.js"></script>-->
 
     <!--<script src="https://rawgithub.com/mylen/leaflet.TileLayer.WMTS/master/leaflet-tilelayer-wmts.js"></script>-->
+
 
 
     <!------------CONTROL WINDOW----------------------->
@@ -111,6 +119,15 @@
             left: 30px;
             /*top:-150px;*/
             visibility: hidden;
+        }
+        
+        .info-title {
+            padding: 6px 8px;
+            font: 12px/14px Arial, Helvetica, sans-serif;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 7px;
+            visibility: visible;
         }
         
         .info h4 {
@@ -201,7 +218,7 @@
             top: 50%;
             /* Buscamos el centro horizontal (relativo) del navegador */
             left: 50%;
-            visibility:hidden;
+            visibility: hidden;
             /* Buscamos el centro vertical (relativo) del navegador */
             /*width: 600 px;*/
             /* Definimos el ancho del objeto a centrar */
@@ -238,15 +255,18 @@
 		grayscale = L.tileLayer(mbUrlMapbox, { id: 'mapbox.light'});//, attribution: 'Tiles by <a href="http://mapc.org">MapBox</a>	 ' });
 		nubes = L.tileLayer(mbUrlNubes, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">CLOUD FRONT</a>	' });
 		lluvia = L.tileLayer(mbUrlLluvia, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
+		minimap = L.tileLayer(mbUrlLluvia, { id: 'mapbox.streets',minZoom:0,maxZoom:14});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
 		OS = L.tileLayer(mbUrlOS, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">OpenStreetMap</a>' });
 		GO = L.tileLayer(mbUrlGOO, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">ARCGIS</a>' });
 // DEFINIENDO MAPAS ICE
-		mbUrlICE = 'http://200.119.197.136/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
-		mbUrlICEMNZA = 'http://200.119.197.136/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
-		mbUrlICEUVS = 'http://200.119.197.136/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
-		mbUrlICEDISTRITOS = 'http://200.119.197.136/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
-		mbUrlICEPREDIOS= 'http://200.119.197.136/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
-		mbUrlICECALLES = 'http://200.119.197.136/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
+//200.119.197.136
+//10.10.110.250
+		mbUrlICE = 'http://10.10.110.250/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
+		mbUrlICEMNZA = 'http://10.10.110.250/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
+		mbUrlICEUVS = 'http://10.10.110.250/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
+		mbUrlICEDISTRITOS = 'http://10.10.110.250/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
+		mbUrlICEPREDIOS= 'http://10.10.110.250/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
+		mbUrlICECALLES = 'http://10.10.110.250/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
         
         mBlank='';
         BLANK=L.tileLayer(mBlank);
@@ -262,21 +282,31 @@
           attributionControl:false,
           center:[-17.78361, -63.18212],
           zoom:13,
-          maxZoom:19,
-          loadingControl:true
+          maxZoom:18,
+          loadingControl:true, //LOADING CONTROL LIB
+          fullscreenControl:true, //FULL SCREEN CONTROL LIB
       });//.setView([-17.78361, -63.18212], 11);
 
-//PREDEFINIENDO UN MAPA DE INICIO      
-    //   nubes.addTo(map);
-    // grayscale.addTo(map);
-    // map.addLayer(ICEMNZA);
-
-//CARGANDO MAPAS BASE 
-    //   var baseLayers = {
-    //       "CLOUD FRONT": nubes,
-    //       "Satelite GOOGLE": lluvia,
-    //       "Open Street": OS,
-    //   };
+/**
+ * AGREGANDO TITULO
+ */
+    var title = new L.Control();
+		title.onAdd = function (map) {
+			//create a div with a class "info"
+			this._div = L.DomUtil.create('div', 'info-title'); 
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>Departamento de Santa Cruz</h2>'
+		};
+		title.addTo(map);
+//************FIN DEL TITULO*****************
+        new L.Control.MiniMap(minimap, {
+            toggleDisplay: true,
+            zoomLevelOffset:5
+            // autoToggleDisplay:true
+        }).addTo(map);
 
  /**
   * CLUSTER DE BUSQUEDA
@@ -423,7 +453,7 @@
         /**
          * AGREGANDO CAPAS PARA LOS MAPAS TEMATICOS
          */
-            // $.getScript( "datos/polygons/distritosGJ.js");
+            // $.getScript( "datos/polygons/distritos.js");
             // $.getScript( "datos/polygons/distrito1GJ.js");
             // $.getScript( "datos/polygons/distrito2GJ.js");
             // $.getScript( "datos/polygons/distrito3GJ.js");
