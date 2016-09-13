@@ -378,10 +378,7 @@
                 console.info("contains layername",layername);
             }else{
                 otherlayers.push(layername);
-                var loadcenter=document.getElementById('loadcenter');
-                loadcenter.style.visibility='visible';
-                loadcenter.innerHTML='cargando '+layername+'...';
-                disableMap();
+                disableMap(layername);
                 $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
                     var divpol= L.geoJson(data,
 				            {
@@ -407,10 +404,7 @@
                 console.info("contains layername",layername);
             }else{
                 otherlayers.push(layername);
-                var loadcenter=document.getElementById('loadcenter');
-                loadcenter.style.visibility='visible';
-                loadcenter.innerHTML='cargando '+layername+'...';
-                disableMap();
+                disableMap(layername);
                 $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
                     var divpol= L.geoJson(data,
 				            {
@@ -428,7 +422,7 @@
                         });
                     if(divpol){
                         controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
-                        document.getElementById('loadcenter').style.visibility='hidden';
+                        
                     }else{
                         // document.getElementById('loadcenter').style='visible';
                     }
@@ -445,7 +439,7 @@
                 console.info("contains layername",layername);
             }else{
                 otherlayers.push(layername);
-                disableMap();
+                disableMap(layername);
                 $.getJSON("datos/points/"+layername+".geojson", function (data) {
                     // var ratIcon = L.icon({
                     //     iconUrl: 'image/icons/'+iconname,
@@ -495,16 +489,27 @@
         /**
          * deshabilitar el mapa
          */
-        function disableMap(){
-            map.dragging.disable();
-            map.touchZoom.disable();
-            map.doubleClickZoom.disable();
-            map.scrollWheelZoom.disable();
-            map.boxZoom.disable();
-            map.keyboard.disable();
-            if (map.tap) map.tap.disable();
-            document.getElementById('map').style.cursor='default';
+        function disableMap(layername){
+            // map.dragging.disable();
+            // map.touchZoom.disable();
+            // map.doubleClickZoom.disable();
+            // map.scrollWheelZoom.disable();
+            // map.boxZoom.disable();
+            // map.keyboard.disable();
+            // if (map.tap) map.tap.disable();
+            // document.getElementById('map').style.cursor='default';
 
+            // var loadcenter=document.getElementById('loadcenter');
+            //     loadcenter.style.visibility='visible';
+            //     loadcenter.innerHTML='cargando '+layername+'...';
+
+            $.blockUI({
+                message: 'Cargando '+layername+'...',
+                css:{
+                    backgroundColor:'#444',
+                    color:'white'
+                }
+            });
             
         }
 
@@ -512,14 +517,16 @@
          * habilitar el mapa
          */
         function enableMap(){
-            map.dragging.enable();
-            map.touchZoom.enable();
-            map.doubleClickZoom.enable();
-            map.scrollWheelZoom.enable();
-            map.boxZoom.enable();
-            map.keyboard.enable();
-            if (map.tap) map.tap.enable();
-            document.getElementById('map').style.cursor='grab';
+            // map.dragging.enable();
+            // map.touchZoom.enable();
+            // map.doubleClickZoom.enable();
+            // map.scrollWheelZoom.enable();
+            // map.boxZoom.enable();
+            // map.keyboard.enable();
+            // if (map.tap) map.tap.enable();
+            // document.getElementById('map').style.cursor='grab';
+             $.unblockUI();
+            //  document.getElementById('loadcenter').style.visibility='hidden';
         }
     </script>
 

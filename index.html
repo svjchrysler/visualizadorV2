@@ -40,7 +40,7 @@
     <script src="components/FullScreen/Control.FullScreen.js"></script>
     <!--MINI MAP CONTROL-->
     <link rel="stylesheet" href="components/MiniMap/Control.MiniMap.css" />
-	<script src="components/MiniMap/Control.MiniMap.js" type="text/javascript"></script>
+    <script src="components/MiniMap/Control.MiniMap.js" type="text/javascript"></script>
     <!--MARKER CLUSTER -->
     <script src="js/leaflet.markercluster.js"></script>
     <!--SEARCH CONTROL-->
@@ -94,6 +94,8 @@
 
 
     <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery.blockUI.js"></script>
+
     <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
     <!--<script src="js/neighborhoods.js"></script>
     <script src="js/rodents.js"></script>-->
@@ -219,15 +221,34 @@
             /* Buscamos el centro horizontal (relativo) del navegador */
             left: 50%;
             visibility: hidden;
-            /* Buscamos el centro vertical (relativo) del navegador */
-            /*width: 600 px;*/
-            /* Definimos el ancho del objeto a centrar */
-            /*height: 400px;*/
-            /* Definimos el alto del objeto a centrar */
-            /*margin-top: -200px;*/
-            /* Restamos la mitad de la altura del objeto con un margin-top */
-            /*margin-left: -300px;*/
-            /* Restamos la mitad de la anchura del objeto con un margin-left */
+        }
+        
+        #loadcenteroverlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 1001;
+            opacity: .75;
+            -moz-opacity: 0.75;
+            filter: alpha(opacity=75);
+        }
+        
+        #loadcentermodal {
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            padding: 16px;
+            background: #fff;
+            color: #333;
+            z-index: 1002;
+            overflow: auto;
         }
     </style>
 </head>
@@ -236,6 +257,8 @@
     <div id="sidebar"></div>
     <div id="map"></div>
     <div id="loadcenter">cargando...</div>
+    <div id="loadcenteroverlay">cargando overlay...</div>
+    <div id="loadcentermodal">cargando modal...</div>
 
     <div id='coord' style="font-size:13px" align="right" visibility="hidden"></div>
 
@@ -298,7 +321,7 @@
 			return this._div;
 		};
 		title.update = function () {
-			this._div.innerHTML = '<h2>Departamento de Santa Cruz</h2>'
+			this._div.innerHTML = '<h2 align="center">ICE</h2><h3>Instituto Cruce&#241o de Estad&#237stica</h3>'
 		};
 		title.addTo(map);
 //************FIN DEL TITULO*****************
