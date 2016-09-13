@@ -381,6 +381,7 @@
                 var loadcenter=document.getElementById('loadcenter');
                 loadcenter.style.visibility='visible';
                 loadcenter.innerHTML='cargando '+layername+'...';
+                disableMap();
                 $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
                     var divpol= L.geoJson(data,
 				            {
@@ -393,9 +394,11 @@
                     }else{
                         // document.getElementById('loadcenter').style='visible';
                     }
+                    enableMap();
                 });
             }
         }
+        
         /**
          * Capas de Distritos
          */
@@ -407,6 +410,7 @@
                 var loadcenter=document.getElementById('loadcenter');
                 loadcenter.style.visibility='visible';
                 loadcenter.innerHTML='cargando '+layername+'...';
+                disableMap();
                 $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
                     var divpol= L.geoJson(data,
 				            {
@@ -428,6 +432,7 @@
                     }else{
                         // document.getElementById('loadcenter').style='visible';
                     }
+                    enableMap();
                 });
             }
         }
@@ -440,9 +445,7 @@
                 console.info("contains layername",layername);
             }else{
                 otherlayers.push(layername);
-            
-                console.info(groupname+" "+layername+" "+iconname);
-                console.info("vers i existe map",map);
+                disableMap();
                 $.getJSON("datos/points/"+layername+".geojson", function (data) {
                     // var ratIcon = L.icon({
                     //     iconUrl: 'image/icons/'+iconname,
@@ -483,10 +486,44 @@
                         // }
                         controlStyledLayer.addOverlay( categ, layername, {groupName : groupname} );
                     }
+                    enableMap();
                 });
             }
         }
+
+
+        /**
+         * deshabilitar el mapa
+         */
+        function disableMap(){
+            map.dragging.disable();
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+            map.boxZoom.disable();
+            map.keyboard.disable();
+            if (map.tap) map.tap.disable();
+            document.getElementById('map').style.cursor='default';
+
+            
+        }
+
+        /**
+         * habilitar el mapa
+         */
+        function enableMap(){
+            map.dragging.enable();
+            map.touchZoom.enable();
+            map.doubleClickZoom.enable();
+            map.scrollWheelZoom.enable();
+            map.boxZoom.enable();
+            map.keyboard.enable();
+            if (map.tap) map.tap.enable();
+            document.getElementById('map').style.cursor='grab';
+        }
     </script>
+
+
 </body>
 
 </html>
