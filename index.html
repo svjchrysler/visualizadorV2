@@ -105,16 +105,12 @@
             background-color: gray;
             margin:0px;
         }
-        
+
         #map {
             height: 100%;
             width: 100%;
-            /*margin-top:-5px;
-            margin-bottom:-5px;
-            margin-left:-5px;
-            margin-right:-5px;*/
         }
-        
+
         .info {
             /*margin:50px;*/
             padding: 6px 8px;
@@ -127,7 +123,7 @@
             /*top:-150px;*/
             visibility: hidden;
         }
-        
+
         .info-title {
             padding: 6px 8px;
             font: 12px/14px Arial, Helvetica, sans-serif;
@@ -136,7 +132,7 @@
             border-radius: 7px;
             visibility: visible;
         }
-        
+
         .info h4 {
             margin: 0 0 5px;
             color: #777;
@@ -151,13 +147,13 @@
             text-shadow: 0 1px 1px #FFF;
             border:1px solid #ccc;
         }*/
-        
+
         .legend {
             line-height: 18px;
             color: #555;
             visibility: hidden;
         }
-        
+
         .legend i {
             width: 18px;
             height: 18px;
@@ -165,7 +161,7 @@
             margin-right: 8px;
             opacity: 0.7;
         }
-        
+
         #btnref {
             background: #3a7999;
             display: inline-block;
@@ -179,7 +175,7 @@
             border-radius: 8px;
             cursor: hand;
         }
-        
+
         #btnref:hover,
         #btni:hover {
             background: #3a7989;
@@ -193,18 +189,18 @@
             width: 130px;
             border-radius: 8px;
         }
-        
+
         #slideInfo {
             width: 100%;
             height: 95%;
         }
-        
+
         #frameSlideInfo {
             width: 700px;
             height: 92%;
             border: none;
         }
-        
+
         .label {
             font-size: 10;
             font-weight: 700;
@@ -212,13 +208,13 @@
             text-align: left;
             margin-top: 1em;
         }
-        
+
         .label div {
             position: relative;
             left: -50%;
             text-shadow: 0px 2px 1px rgba(255, 255, 255, 0.85);
         }
-        
+
         /*#loadcenter {
             position: absolute;
             background: white;
@@ -226,7 +222,7 @@
             left: 50%;
             visibility: hidden;
         }
-        
+
         #loadcenteroverlay {
             display: none;
             position: absolute;
@@ -240,7 +236,7 @@
             -moz-opacity: 0.75;
             filter: alpha(opacity=75);
         }
-        
+
         #loadcentermodal {
             display: none;
             position: absolute;
@@ -272,7 +268,7 @@
 
 
     <script>
-  
+
 //DEFINIENDO MAPAS BASE
       mbUrlMapbox = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw'; //mAPBOX
       mbUrlNubes = 'https://dnv9my2eseobd.cloudfront.net/v3/cartodb.map-4xtxp73f/{z}/{x}/{y}.png'; //WEATHER Nubes
@@ -294,7 +290,7 @@
 		mbUrlICEDISTRITOS = 'http://10.10.110.250/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
 		mbUrlICEPREDIOS= 'http://10.10.110.250/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
 		mbUrlICECALLES = 'http://10.10.110.250/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
-        
+
         mBlank='';
         BLANK=L.tileLayer(mBlank);
 		ICE = L.tileLayer(mbUrlICE, { id: 'ice.streets'});//, attribution: 'Tiles by <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
@@ -320,13 +316,14 @@
     var title = new L.Control();
 		title.onAdd = function (map) {
 			//create a div with a class "info"
-			this._div = L.DomUtil.create('div', 'info-title'); 
+			this._div = L.DomUtil.create('div', 'info-title');
 			this.update();
 			return this._div;
 		};
 		title.update = function () {
-            //<h2 align="center">ICE</h2>
-			this._div.innerHTML = '<h3>Instituto Cruce&#241o de Estad&#237stica</h3>'
+			// this._div.innerHTML = '<h2 align="center">ICE</h2><h3>Instituto Cruce&#241o de Estad&#237stica</h3>'
+			// this._div.innerHTML = '<h3>Instituto Cruce&#241o de Estad&#237stica</h3>'
+			this._div.innerHTML = '<img src="image/ice_logo_1.jpeg" height="80px" width="200px" >'
 		};
 		title.addTo(map);
 //************FIN DEL TITULO*****************
@@ -340,7 +337,7 @@
   * CLUSTER DE BUSQUEDA
   */
   var searchcluster = L.markerClusterGroup({ disableClusteringAtZoom: 10 });
-  
+
 //   map.on('mousemove',function(e){
 //       document.getElementById("coord").innerHTML=e.latlng;
 //   });
@@ -371,11 +368,11 @@
     //     minZoom: 4
     // }).addTo(map);
 
-		
+
     L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
     L.Control.measureControl().addTo(map);
-    
-    
+
+
     L.easyPrint({
         title: 'Print Map',
         elementsToHide: 'p, h2,a,form,i, .gitButton'
@@ -502,7 +499,7 @@
             // $.getScript( "datos/polygons/departamentosGEOJ.js");
             // $.getScript( "datos/polygons/municipioGEOJ.js");
             // $.getScript( "datos/polygons/provinciaGEOJ.js");
-            
+
          /**
          * AGREGANDO SCRIPT CHOROPLETH MAP (MAPAS TEMATICOS)
          */
@@ -584,7 +581,7 @@
 
         /**
          * AGREGANDO EASY BUTTONS
-         **/ 
+         **/
         $.getScript( "components/easybuttons.js" )
             .done(function( script, textStatus ) {
                 console.info("components/easybuttons.js",textStatus );
