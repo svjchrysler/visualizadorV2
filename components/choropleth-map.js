@@ -1,4 +1,4 @@
-var win = L.control.window(map, { title: 'Information!', content: 'My Info Windows.',modal: true });
+var win = L.control.window(map, { title: 'Information!', content: 'My Info Windows.', modal: true });
 var geojson;
 var geojsonDistrito;
 
@@ -183,7 +183,7 @@ function style(feature) {
         weight: 2,
         opacity: 1,
         color: 'white',
-        dashArray: '3',
+        dashArray: '1',
         fillOpacity: 0.4
     };
 }
@@ -192,11 +192,15 @@ function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
-        weight: 5,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
+        weight: 1,
+        color: '#555',
+        dashArray: '1',
+        fillOpacity: 1
     });
+
+    if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+    }
 
     // if (geojsonTematicos.hasOwnProperty(layer.feature.properties.filetype)) {
     //     nombreTematico = layer.feature.properties.filetype;
@@ -234,28 +238,28 @@ function onEachFeature(feature, layer) {
 /**
  * PROVINCIA
  */
-function getColorProvincia(d) {
-    return d > 1200000 ? '#800026' :
-        d > 100000 ? '#BE0026' :
-            d > 60000 ? '#BC0016' :
-                d > 20000 ? '#AB1A1C' :
-                    d > 10000 ? '#BD0036' :
-                        d > 8000 ? '#AC4E2A' :
-                            d > 6000 ? '#FD8D3C' :
-                                d > 4000 ? '#934A10' :
-                                    d > 2000 ? '#966305' :
-                                        '#766305';
-}
-function styleProvincia(feature) {
-    return {
-        fillColor: getColorProvincia(feature.properties.poblacion2),
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        dashArray: '3',
-        fillOpacity: 0.4
-    };
-}
+// function getColorProvincia(d) {
+//     return d > 1200000 ? '#800026' :
+//         d > 100000 ? '#BE0026' :
+//             d > 60000 ? '#BC0016' :
+//                 d > 20000 ? '#AB1A1C' :
+//                     d > 10000 ? '#BD0036' :
+//                         d > 8000 ? '#AC4E2A' :
+//                             d > 6000 ? '#FD8D3C' :
+//                                 d > 4000 ? '#934A10' :
+//                                     d > 2000 ? '#966305' :
+//                                         '#766305';
+// }
+// function styleProvincia(feature) {
+//     return {
+//         fillColor: getColorProvincia(feature.properties.poblacion2),
+//         weight: 2,
+//         opacity: 1,
+//         color: 'white',
+//         dashArray: '3',
+//         fillOpacity: 0.4
+//     };
+// }
 /**
  * DISTRITOS
  */

@@ -75,7 +75,7 @@ var overLayers = [
 				            }),
 			"UVs": ICEUVS,
 			"Manzanos": ICEMNZA,
-			"Calles": ICECALLES,
+			// "Calles": ICECALLES,
 			// "Distrito 01": L.geoJson(exp_distrito1,
 			// 	{
 			// 		style: function (feature) {
