@@ -7,8 +7,14 @@ L.easyButton('<i class="fa fa-eye fa-lg" aria-hidden="true" style="margin-left:-
     } else {
         if (geojson)
             map.fitBounds(geojson.getBounds());
-        else
-            map.setView([-17.78361, -63.18212], 9);
+        else {
+            // map.setView([-17.78361, -63.18212], 11);
+            map.locate({ setView: true, watch: false });
+            map.on("locationfound", function (e) {
+                console.info("location found", e);
+                map.stopLocate();
+            });
+        }
     }
     // map.setView(map.getCenter(), 7);
 }, 'Centrar Vista').addTo(map);

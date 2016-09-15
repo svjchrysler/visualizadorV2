@@ -10,8 +10,8 @@ var baseLayers = [
 		expanded: false,
 		layers: {
 			"Blank": BLANK,
-			"Mapbox": grayscale,
-			"Satelite": lluvia,
+			"Mapbox": mbgrayscale,
+			"Satelite": gmapsatellite,
 			"OSM": OS,
 		}
 	}
@@ -73,9 +73,14 @@ var overLayers = [
 					},
 				                onEachFeature: onEachFeatureDistritos,
 				            }),
-			"UVs": ICEUVS,
+			// "Santa Cruz":ICESANTACRUZ,
+			// "Distritos":ICEDISTRITOS,
+			// "UVs": ICEUVS,
 			"Manzanos": ICEMNZA,
-			// "Calles": ICECALLES,
+			"Calles": ICECALLES,
+			"Rios": ICERIOS,
+			"Caminos":ICECAMINOS,
+
 			// "Distrito 01": L.geoJson(exp_distrito1,
 			// 	{
 			// 		style: function (feature) {
@@ -385,7 +390,7 @@ map.addControl(controlStyledLayer);
 
 // map.addLayer(OS);
 map.addLayer(BLANK);
-map.addLayer(lluvia);
+map.addLayer(gmapsatellite);
 // map.addLayer(ICEMNZA);
 
 // map.addLayer(clustershospitales);

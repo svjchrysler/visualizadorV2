@@ -196,9 +196,10 @@
         }
         
         #frameSlideInfo {
-            width: 700px;
-            height: 92%;
+            width: 100%;
+            height: 98%;
             border: none;
+            margin-top:5px;
         }
         
         .label {
@@ -287,33 +288,42 @@
 //DEFINIENDO MAPAS BASE
       mbUrlMapbox = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw'; //mAPBOX
       mbUrlNubes = 'https://dnv9my2eseobd.cloudfront.net/v3/cartodb.map-4xtxp73f/{z}/{x}/{y}.png'; //WEATHER Nubes
-      mbUrlLluvia = 'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s={s}'; //WEATHER lluvia
+      mbUrlSatellite = 'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s={s}'; //WEATHER lluvia
       mbUrlOS = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; //OPEN STREET lluvia
-      mbUrlGOO = 'http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'; //GOOGLE ?
-		grayscale = L.tileLayer(mbUrlMapbox, { id: 'mapbox.light'});//, attribution: 'Tiles by <a href="http://mapc.org">MapBox</a>	 ' });
+      mbUrlGOO = 'http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'; //arcgis ?
+		mbgrayscale = L.tileLayer(mbUrlMapbox, { id: 'mapbox.light'});//, attribution: 'Tiles by <a href="http://mapc.org">MapBox</a>	 ' });
 		nubes = L.tileLayer(mbUrlNubes, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">CLOUD FRONT</a>	' });
-		lluvia = L.tileLayer(mbUrlLluvia, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
-		minimap = L.tileLayer(mbUrlLluvia, { id: 'mapbox.streets',minZoom:0,maxZoom:14});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
+		gmapsatellite = L.tileLayer(mbUrlSatellite, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
+		minimap = L.tileLayer(mbUrlSatellite, { id: 'mapbox.streets',minZoom:0,maxZoom:14});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
 		OS = L.tileLayer(mbUrlOS, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">OpenStreetMap</a>' });
 		GO = L.tileLayer(mbUrlGOO, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">ARCGIS</a>' });
 // DEFINIENDO MAPAS ICE
 //200.119.197.136
 //10.10.110.250
-		mbUrlICE = 'http://10.10.110.250/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
-		mbUrlICEMNZA = 'http://10.10.110.250/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
-		mbUrlICEUVS = 'http://10.10.110.250/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
-		mbUrlICEDISTRITOS = 'http://10.10.110.250/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
-		mbUrlICEPREDIOS= 'http://10.10.110.250/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
-		mbUrlICECALLES = 'http://10.10.110.250/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
+//10.10.141.3:81
+//10.10.101.84:81
+var ref=window.location;
+var url=ref.hostname+":"+ref.port;
+		mbUrlICESANTACRUZ = 'http://'+url+'/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
+		// mbUrlICEMNZA = 'http://10.10.110.250/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
+		mbUrlICEMNZA = 'http://'+url+'/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
+		mbUrlICEUVS = 'http://1'+url+'/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
+		mbUrlICEDISTRITOS = 'http://'+url+'/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
+		mbUrlICEPREDIOS= 'http://'+url+'/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
+		mbUrlICECALLES = 'http://'+url+'/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
+		mbUrlICERIOS = 'http://'+url+'/santacruz/rios/Z{z}/{y}/{x}.png'; //MAPA ICE RIOS
+		mbUrlICECAMINOS = 'http://'+url+'/santacruz/caminos/Z{z}/{y}/{x}.png'; //MAPA ICE RIOS
 
-        mBlank='';
+        mBlank='http://'+url+'/santacruz/blank.png';
         BLANK=L.tileLayer(mBlank);
-		ICE = L.tileLayer(mbUrlICE, { id: 'ice.streets'});//, attribution: 'Tiles by <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+		ICESANTACRUZ = L.tileLayer(mbUrlICESANTACRUZ, { id: 'ice.streets'});//, attribution: 'Tiles by <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICEMNZA = L.tileLayer(mbUrlICEMNZA, { id: 'ice.streets'});//, attribution: 'Manzanos de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICEUVS = L.tileLayer(mbUrlICEUVS, { id: 'ice.streets'});//, attribution: 'Uvs de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICEPREDIOS = L.tileLayer(mbUrlICEPREDIOS, { id: 'ice.streets'});//, attribution: 'Predios de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICECALLES = L.tileLayer(mbUrlICECALLES, { id: 'ice.streets'});//, attribution: 'Calles de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 19, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICEDISTRITOS = L.tileLayer(mbUrlICEDISTRITOS, { id: 'ice.streets'});//, attribution: 'Distritos de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+        ICERIOS=L.tileLayer(mbUrlICERIOS, { id: 'ice.streets'});;
+        ICECAMINOS=L.tileLayer(mbUrlICECAMINOS, { id: 'ice.streets'});;
 
 // ESTABLECIENDO COORDENADAS INICALES (PLAZA 24 DE SEPTIEMBRE)
       var map = L.map('map',{
