@@ -305,17 +305,17 @@
 var ref=window.location;
 //var url=ref.hostname+":"+ref.port;
 var url='159.203.182.38';
-		mbUrlICESANTACRUZ = 'http://'+url+'/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
+		mbUrlICESANTACRUZ = 'http://'+url+'/icelayers/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
 		// mbUrlICEMNZA = 'http://10.10.110.250/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
-		mbUrlICEMNZA = 'http://'+url+'/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
-		mbUrlICEUVS = 'http://1'+url+'/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
-		mbUrlICEDISTRITOS = 'http://'+url+'/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
-		mbUrlICEPREDIOS= 'http://'+url+'/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
-		mbUrlICECALLES = 'http://'+url+'/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
-		mbUrlICERIOS = 'http://'+url+'/santacruz/rios/Z{z}/{y}/{x}.png'; //MAPA ICE RIOS
-		mbUrlICECAMINOS = 'http://'+url+'/santacruz/caminos/Z{z}/{y}/{x}.png'; //MAPA ICE RIOS
+		mbUrlICEMNZA = 'http://'+url+'/icelayers/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
+		mbUrlICEUVS = 'http://1'+url+'/icelayers/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
+		mbUrlICEDISTRITOS = 'http://'+url+'/icelayers/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
+		mbUrlICEPREDIOS= 'http://'+url+'/icelayers/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
+		mbUrlICECALLES = 'http://'+url+'/icelayers/santacruz/calles/Z{z}/{y}/{x}.png'; //MAPA ICE CALLES
+		mbUrlICERIOS = 'http://'+url+'/icelayers/rios/Z{z}/{y}/{x}.png'; //MAPA ICE RIOS
+		mbUrlICECAMINOS = 'http://'+url+'/icelayers/caminos/Z{z}/{y}/{x}.png'; //MAPA ICE RIOS
 
-        mBlank='http://'+url+'/santacruz/blank.png';
+        mBlank='http://'+url+'/icelayers/blank.png';
         BLANK=L.tileLayer(mBlank);
 		ICESANTACRUZ = L.tileLayer(mbUrlICESANTACRUZ, { id: 'ice.streets'});//, attribution: 'Tiles by <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICEMNZA = L.tileLayer(mbUrlICEMNZA, { id: 'ice.streets'});//, attribution: 'Manzanos de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
