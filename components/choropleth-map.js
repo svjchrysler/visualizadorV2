@@ -361,7 +361,7 @@ function tematicoSelect(obj) {
             break;
 
         // case 'Tematicos':
-        case 'Division Politica':
+        case 'Cartografia Nacional':
             var puntos = [];
             if (markersTematicos.hasOwnProperty(obj.name)) {
                 puntos = markersTematicos[obj.name];
@@ -465,7 +465,7 @@ function tematicoUnSelect(obj) {
             controlSearch._layer = searchcluster;
             break;
         // case 'Tematicos':
-        case 'Division Politica':
+        case 'Cartografia Nacional':
             if (markersTematicos.hasOwnProperty(obj.name)) {
                 var puntos = markersTematicos[obj.name];
                 for (var o in markersTematicos[obj.name]) {

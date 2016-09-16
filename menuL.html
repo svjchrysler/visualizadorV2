@@ -8,19 +8,23 @@
     <link rel="stylesheet" href="components/markerAwesome/leaflet_awesome_markers.css">
     <script src="components/markerAwesome/leaflet_awesome_markers.js"></script>
     <style>
+        .menuL{
+            font-size:13px;
+        }
         button.accordion {
             /*background-color: #eee;*/
             background-color: #31ba75;
             /*color: #444;*/
             color: #eee2;
             cursor: pointer;
-            padding: 18px;
-            width: 100%;
+            padding: 15px;
+            width: 80%;
             border: none;
             text-align: left;
             outline: none;
-            font-size: 15px;
+            /*font-size: 15px;*/
             transition: 0.3s;
+            font-weight:bold;
         }
         
         button.accordion.active,
@@ -30,7 +34,7 @@
         }
         
         button.accordion:after {
-            content: '\02795';
+            /*content: '\02795';*/
             font-size: 13px;
             color: #222;
             /*color: #777;*/
@@ -43,50 +47,52 @@
         }
         
         div.panel {
-            padding: 0 18px;
+            /*padding: 0 18px;*/
             background-color: #31b875;
             /*background-color: white;*/
             max-height: 0;
             overflow: hidden;
-            transition: 0.3s ease-in-out;
+            transition: 0.1s ease-in-out;
             opacity: 0;
+            max-width:80%;
         }
         
         div.panel.show {
             opacity: 1;
             max-height: 500px;
+            max-width:80%;
         }
         
         #btni {
             background: #333;
             display: inline-block;
-            margin: 0 1px;
-            padding: 7px 20px 7px;
+            /*margin: 0 1px;*/
+            padding: 5px 8px 5px;
             color: white;
             text-decoration: none;
             text-shadow: 0 1px 1px black;
             border: 1px solid #ccc;
             width: 100px;
             border-radius: 8px;
-            cursor: hand;
         }
         
         #btni:hover {
             background: #555;
             display: inline-block;
-            margin: 0 1px;
-            padding: 7px 20px 7px;
+            /*margin: 0 1px;*/
+            padding: 5px 8px 5px;
             color: white;
             text-decoration: none;
             text-shadow: 0 1px 1px black;
             border: 1px solid #ccc;
             width: 100px;
             border-radius: 8px;
+            cursor: pointer;
         }
         
         table {
             width: 100%;
-            margin-left: -10px;
+            margin-left: -3px;
         }
         
         table,
@@ -101,30 +107,32 @@
             padding: 2px;
             text-align: center;
         }
+
+        
     </style>
 </head>
 
-<body>
-    <div style="width:350px; height:auto;">
-        <h2>Division Politica</h2>
-        <p>Selecciona la capa que quieres ver</p>
-        <button class="accordion">Division Politica</button>
+<body bgcolor="#FFFFFF">
+    <div class="menuL" style="width:350px; height:auto;">
+        <h2>Cartografia Nacional</h2>
+        <p>Selecciona la capa que quieres agregar al menu</p>
+        <button class="accordion">Cartografia Nacional</button>
         <div class="panel">
             <table>
                 <tr>
                     <td>
-                        <div id="btni" onclick="pressP('Departamento','departamentosGEOJ','Division Politica')">Departamento</div>
+                        <div id="btni" onclick="pressP('Departamento','departamentosGEOJ','Cartografia Nacional')">Departamento</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="pressP('Provincia','provinciaGEOJ','Division Politica')">Provincia</div>
+                        <div id="btni" onclick="pressP('Provincia','provinciaGEOJ','Cartografia Nacional')">Provincia</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="pressP('Municipio','municipioGEOJ','Division Politica')">Municipio</div>
+                        <div id="btni" onclick="pressP('Municipio','municipioGEOJ','Cartografia Nacional')">Municipio</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="pressP('Rios','rios_nal','Division Politica')">Rios (Bolivia)</div>
+                        <!--<div id="btni" onclick="pressP('Rios','rios_nal','Cartografia Nacional')">Rios (Bolivia)</div>-->
                     </td>
                 </tr>
             </table>
@@ -132,10 +140,10 @@
 
         <!--FIN DEL CUADRO-->
     </div>
-    <div style="width:350px; height:auto;">
-        <h2>Distritos de la Ciudad de Santa Cruz</h2>
-        <p>Selecciona la capa que quieres ver</p>
-        <button class="accordion">Ciudad de Santa Cruz</button>
+    <div  class="menuL" style="width:350px; height:auto;">
+        <h2>Ciudad de Santa Cruz</h2>
+        <p>Selecciona la capa que quieres agregar al menu</p>
+        <button class="accordion">Distritos</button>
         <div class="panel">
             <table>
                 <tr>
@@ -214,7 +222,7 @@
 
         <!--FIN DEL CUADRO-->
     </div>
-    <div style="width:350px; height:auto;">
+    <div  class="menuL" style="width:350px; height:auto;">
         <h2>Puntos de Interes</h2>
         <p>Selecciona la categoria que quieres agregar al mapa</p>
         <button class="accordion">Salud</button>

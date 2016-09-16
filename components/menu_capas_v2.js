@@ -33,7 +33,7 @@ var overLayers = [
 	// },
 	// {
 	// 	// groupName: "Tematicos",
-	// 	groupName: "Division Politica",
+	// 	groupName: "Cartografia Nacional",
 	// 	expanded: false,
 	// 	layers: {
 

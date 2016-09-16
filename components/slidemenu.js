@@ -8,8 +8,8 @@ var slideMenu=L.control.slideMenu(
     "<div id='informacion' width='100%' height='95%' style='margin-left:5px'></div>",
         { 
             position: 'topleft', 
-            delay: '8',
-            width:'400px',
+            delay: '7',
+            width:'350px',
         });
         
         slideMenu.addTo(map);

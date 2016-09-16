@@ -199,7 +199,7 @@
             width: 100%;
             height: 98%;
             border: none;
-            margin-top:5px;
+            margin-top: 5px;
         }
         
         .label {
@@ -259,12 +259,12 @@
         }*/
         
         #icelogo {
-            width: 210px !important; 
+            width: 210px !important;
             height: 100px !important;
             background-image: url('image/ice_logo_1.jpeg') !important;
-            background-size: cover ;
-            margin:-4px;
-            border-radius:10px;
+            background-size: cover;
+            margin: -4px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -339,22 +339,17 @@ var url='159.203.182.38';
 /**
  * AGREGANDO TITULO
  */
-    var title = new L.Control();
-		title.onAdd = function (map) {
-			//create a div with a class "info"
-			this._div = L.DomUtil.create('div', 'info-title');
-			this.update();
-			return this._div;
-		};
-		title.update = function () {
-			// this._div.innerHTML = '<h2 align="center">ICE</h2><h3>Instituto Cruce&#241o de Estad&#237stica</h3>'
-			// this._div.innerHTML = '<h3>Instituto Cruce&#241o de Estad&#237stica</h3>'
-			// this._div.innerHTML = '<img id="icelogo" src="image/ice_logo_1.jpeg" height="80px" width="200px" >'
-			// this._div.innerHTML = '<img id="icelogo" src="image/ice_logo_1.jpeg" height="80px" width="200px" >'
-			// this._div.innerHTML = '<div id="icelogo"><img src="image/ice_logo_1.jpeg" /></div>'
-			this._div.innerHTML = '<div id="icelogo"></div>'
-		};
-		title.addTo(map);
+    // var title = new L.Control();
+	// 	title.onAdd = function (map) {
+	// 		//create a div with a class "info"
+	// 		this._div = L.DomUtil.create('div', 'info-title');
+	// 		this.update();
+	// 		return this._div;
+	// 	};
+	// 	title.update = function () {
+	// 		this._div.innerHTML = '<div id="icelogo"></div>'
+	// 	};
+	// 	title.addTo(map);
 //************FIN DEL TITULO*****************
         new L.Control.MiniMap(minimap, {
             toggleDisplay: true,
