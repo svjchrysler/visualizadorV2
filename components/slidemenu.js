@@ -9,7 +9,7 @@ var slideMenu=L.control.slideMenu(
         { 
             position: 'topleft', 
             delay: '7',
-            width:'350px',
+            width:'360px',
         });
         
         slideMenu.addTo(map);

@@ -10,7 +10,7 @@ L.Control.SlideMenu = L.Control.extend({
         L.Util.setOptions(this, options);
         this._innerHTML = innerHTML;
         this._startPosition = -(parseInt(this.options.width, 10));
-        this._isLeftPosition = this.options.position == 'topleft' || 
+        this._isLeftPosition = this.options.position == 'topleft' ||
             this.options.position == 'buttomleft' ? true : false;
     },
 
@@ -21,8 +21,8 @@ L.Control.SlideMenu = L.Control.extend({
         // L.DomUtil.create('span', 'fa fa-bars', link);
         L.DomUtil.create('span', 'fa fa-map-o fa-2x', link);
 
-        this._menu = L.DomUtil.create('div', 'leaflet-menu', 
-            document.getElementsByClassName('leaflet-container')[0]);    
+        this._menu = L.DomUtil.create('div', 'leaflet-menu',
+            document.getElementsByClassName('leaflet-container')[0]);
         this._menu.style.width = this.options.width;
         this._menu.style.height = this.options.height;
 
@@ -46,27 +46,31 @@ L.Control.SlideMenu = L.Control.extend({
         L.DomEvent.disableClickPropagation(this._menu);
         L.DomEvent
             .on(link, 'click', L.DomEvent.stopPropagation)
-            .on(link, 'click', function() {
+            .on(link, 'click', function () {
                 // Open
+                // alert("animate open");
+                map.scrollWheelZoom.disable();
                 this._animate(this._menu, this._startPosition, 0, true);
             }, this)
             .on(closeButton, 'click', L.DomEvent.stopPropagation)
-            .on(closeButton, 'click', function() {
+            .on(closeButton, 'click', function () {
                 // Close
+                // alert("animate close");
+                map.scrollWheelZoom.enable();
                 this._animate(this._menu, 0, this._startPosition, false);
             }, this);
 
         return this._container;
     },
 
-    setContents: function(innerHTML) {
+    setContents: function (innerHTML) {
         this._innerHTML = innerHTML;
         this._contents.innerHTML = this._innerHTML;
     },
 
-    _animate: function(menu, from, to, isOpen) {
+    _animate: function (menu, from, to, isOpen) {
 
-        if(isOpen ? from > to : from < to) {
+        if (isOpen ? from > to : from < to) {
             return;
         }
 
@@ -77,13 +81,13 @@ L.Control.SlideMenu = L.Control.extend({
             menu.style.right = from + "px";
         }
 
-        setTimeout(function(slideMenu) {
+        setTimeout(function (slideMenu) {
             var value = isOpen ? from + 10 : from - 10;
             slideMenu._animate(slideMenu._menu, value, to, isOpen);
         }, this.options.delay, this);
     }
 });
 
-L.control.slideMenu = function(innerHTML, options) {
+L.control.slideMenu = function (innerHTML, options) {
     return new L.Control.SlideMenu(innerHTML, options);
 }
