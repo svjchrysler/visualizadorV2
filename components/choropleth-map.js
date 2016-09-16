@@ -395,6 +395,9 @@ function tematicoSelect(obj) {
         // case 'Distritos':
         case 'Ciudad de Santa Cruz':
             if (obj.name == 'Limites de Distrito') {
+                console.info("name",obj.name);
+                console.info("layer",obj.layer);
+                console.info("group",obj.group.name);
                 var puntos = [];
                 if (markersTematicos.hasOwnProperty(obj.name)) {
                     puntos = markersTematicos[obj.name];

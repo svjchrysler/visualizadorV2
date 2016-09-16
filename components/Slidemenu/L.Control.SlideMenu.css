@@ -28,7 +28,8 @@ div .leaflet-menu{
 
 .leaflet-menu::-webkit-scrollbar-thumb{
     border-radius: 4px;
-    background: #4285F4;   
+    background: #444;   
+    cursor: pointer;
 }
 
 .leaflet-menu-close-button{
@@ -37,8 +38,11 @@ div .leaflet-menu{
     font-size: 14pt;
     color: black;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 5px;
     margin-top: 10px;
+    /*overflow: auto;*/
+    position: fixed;
+    left: 330px;
 }
 
 .leaflet-menu-close-button:hover{

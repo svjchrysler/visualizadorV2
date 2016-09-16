@@ -59,20 +59,20 @@ var overLayers = [
 		groupName: "Ciudad de Santa Cruz",
 		expanded: false,
 		layers: {
-			"Limites de Distrito": L.geoJson(exp_distritos,
-				            {
-				                style: function (feature) {
-						return {
-							fillColor: '#EB7E37',
-							weight: 2,
-							opacity: 1,
-							color: 'white',
-							dashArray: '3',
-							fillOpacity: 0.4
-						};
-					},
-				                onEachFeature: onEachFeatureDistritos,
-				            }),
+			// "Limites de Distrito": L.geoJson(exp_distritos,
+			// 	            {
+			// 	                style: function (feature) {
+			// 			return {
+			// 				fillColor: '#EB7E37',
+			// 				weight: 2,
+			// 				opacity: 1,
+			// 				color: 'white',
+			// 				dashArray: '3',
+			// 				fillOpacity: 0.4
+			// 			};
+			// 		},
+			// 	                onEachFeature: onEachFeatureDistritos,
+			// 	            }),
 			// "Santa Cruz":ICESANTACRUZ,
 			// "Distritos":ICEDISTRITOS,
 			// "UVs": ICEUVS,
