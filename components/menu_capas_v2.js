@@ -55,6 +55,15 @@ var overLayers = [
 	// 	}
 	// },
 	{
+		groupName: "Cartografia Nacional",
+		expanded: false,
+		layers: {
+			"Departamento": ICEDEPARTAMENTOS,
+			"Rios": ICERIOS,
+			"Caminos": ICECAMINOS,
+		}
+	},
+	{
 		// groupName: "Distritos",
 		groupName: "Ciudad de Santa Cruz",
 		expanded: false,
@@ -94,15 +103,7 @@ var overLayers = [
 			// 	}),
 		}
 	},
-	{
-		// groupName: "Distritos",
-		groupName: "Cartografia Nacional",
-		expanded: false,
-		layers: {
-			"Rios": ICERIOS,
-			"Caminos": ICECAMINOS,
-		}
-	},
+	
 	// {
 	// 	groupName:"Categorias",
 	// 	expanded:false,

@@ -114,10 +114,13 @@ info.update = function (props, layer) {
                 btn = "";
                 ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreTematico + '",' + '"' + getAbsolutePath() + "graficos/" + nombreTematico + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
                 // ref="<br><a id='btnref' target='_blank' href='"+getAbsolutePath()+"graficos/"+nombreTematico+".html'><b>Graficos Estadisticos</b></a>";
-                contenido = '<h4><b>' + props.nombre + '</b></h4>';
+                contenido = ''
+                    // + '<h4><b>' + props.nombre + '</b></h4>'
+                    + "<b>Superficie:</b> " + props.superficie+' km2'
+                    + '';
                 // info._container.style.visibility = 'visible';
                 win.title(props.nombre)
-                    .content(btn + '<br>' + ref)
+                    .content(contenido+'<br>'+btn + '<br>' + ref)
                     .show();
 
                 break;
@@ -395,9 +398,6 @@ function tematicoSelect(obj) {
         // case 'Distritos':
         case 'Ciudad de Santa Cruz':
             if (obj.name == 'Limites de Distrito') {
-                console.info("name",obj.name);
-                console.info("layer",obj.layer);
-                console.info("group",obj.group.name);
                 var puntos = [];
                 if (markersTematicos.hasOwnProperty(obj.name)) {
                     puntos = markersTematicos[obj.name];
