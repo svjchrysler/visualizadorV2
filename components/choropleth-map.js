@@ -28,7 +28,7 @@ function existeUrl(url) {
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
     http.send();
-    console.info("http status", http.status);
+    // console.info("http status", http.status);
     return http.status != 404;
 }
 
@@ -177,7 +177,7 @@ function getColor(d) {
     // '#990026';
 }
 
-function style(feature) {
+function styleFeature(feature) {
     return {
         fillColor: getColor(feature.properties.poblacion2),
         weight: 2,
@@ -353,7 +353,7 @@ var geojsonDistritos = {};
 function tematicoSelect(obj) {
     switch (obj.group.name) {
         case "Mapas Base":
-            console.info("mapas base Select", obj.group.name);
+            // console.info("mapas base Select", obj.group.name);
             break;
         case 'Categorias':
             controlSearch._layer = obj.layer;
@@ -415,9 +415,8 @@ function tematicoSelect(obj) {
                                 })
                             });
                             etiqueta.on('click', function (event) {
-                                console.info('etiqueta click', event.getBounds());
+                                // console.info('etiqueta click', event.getBounds());
                                 map.fitBounds(event.getBounds());
-
                             });
                             etiqueta.addTo(map);
                             puntos.push(etiqueta);
@@ -444,11 +443,11 @@ function tematicoSelect(obj) {
             }
             break;
         case "Capas":
-            console.info("capas Select", obj.group.name);
+            // console.info("capas Select", obj.group.name);
 
             break;
         default:
-            console.info("Select", obj.group.name);
+            // console.info("Select", obj.group.name);
             controlSearch._layer = obj.layer;
             searchcluster.addLayer(obj.layer);
             break;
@@ -458,7 +457,7 @@ function tematicoSelect(obj) {
 function tematicoUnSelect(obj) {
     switch (obj.group.name) {
         case "Mapas Base":
-            console.info("mapas base unSelect", obj.group.name);
+            // console.info("mapas base unSelect", obj.group.name);
             break;
         case 'Categorias':
             searchcluster.removeLayer(obj.layer);
@@ -514,10 +513,10 @@ function tematicoUnSelect(obj) {
             break;
 
         case "Capas":
-            console.info("capas unSelect", obj.group.name);
+            // console.info("capas unSelect", obj.group.name);
             break;
         default:
-            console.info("unSelect", obj.group.name);
+            // console.info("unSelect", obj.group.name);
             searchcluster.removeLayer(obj.layer);
             searchcluster.addTo(map);
             controlSearch._layer = searchcluster;

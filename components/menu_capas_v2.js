@@ -39,17 +39,17 @@ var overLayers = [
 
 	// 		// "Departamento": L.geoJson(exp_departamento,
 	// 		// 	            {
-	// 		// 	                style: style,
+	// 		// 	                style: styleFeature,
 	// 		// 	                onEachFeature: onEachFeature,
 	// 		// 	            }),
 	// 		// "Provincia": L.geoJson(exp_provincia,
 	// 		// 	{
-	// 		// 		style: style,
+	// 		// 		style: styleFeature,
 	// 		// 		onEachFeature: onEachFeature,
 	// 		// 	}),
 	// 		// "Municipio": L.geoJson(exp_municipio,
 	// 		// 	            {
-	// 		// 	                style: style,
+	// 		// 	                style: styleFeature,
 	// 		// 	                onEachFeature: onEachFeature,
 	// 		// 	            }),
 	// 	}
@@ -78,9 +78,6 @@ var overLayers = [
 			// "UVs": ICEUVS,
 			"Manzanos": ICEMNZA,
 			"Calles": ICECALLES,
-			"Rios": ICERIOS,
-			"Caminos":ICECAMINOS,
-
 			// "Distrito 01": L.geoJson(exp_distrito1,
 			// 	{
 			// 		style: function (feature) {
@@ -95,231 +92,15 @@ var overLayers = [
 			// 		},
 			// 		onEachFeature: onEachFeatureDistritos,
 			// 	}),
-			// "Distrito 02": L.geoJson(exp_distrito2,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 03": L.geoJson(exp_distrito3,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 04": L.geoJson(exp_distrito4,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 05": L.geoJson(exp_distrito5,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 06": L.geoJson(exp_distrito6,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 07": L.geoJson(exp_distrito7,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 08": L.geoJson(exp_distrito8,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 09": L.geoJson(exp_distrito9,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 10": L.geoJson(exp_distrito10,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 11": L.geoJson(exp_distrito11,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 12": L.geoJson(exp_distrito12,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 13": L.geoJson(exp_distrito13,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 14": L.geoJson(exp_distrito14,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 15": L.geoJson(exp_distrito15,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 16": L.geoJson(exp_distrito16,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-			// "Distrito 17": L.geoJson(exp_distrito17,
-			// 	{
-			// 		style: function (feature) {
-			// 			return {
-			// 				fillColor: '#EB7E37',
-			// 				weight: 2,
-			// 				opacity: 1,
-			// 				color: 'white',
-			// 				dashArray: '3',
-			// 				fillOpacity: 0.4
-			// 			};
-			// 		},
-			// 		onEachFeature: onEachFeatureDistritos,
-			// 	}),
-
+		}
+	},
+	{
+		// groupName: "Distritos",
+		groupName: "Cartografia Nacional",
+		expanded: false,
+		layers: {
+			"Rios": ICERIOS,
+			"Caminos": ICECAMINOS,
 		}
 	},
 	// {
@@ -389,8 +170,8 @@ map.addControl(controlStyledLayer);
 
 
 // map.addLayer(OS);
-map.addLayer(BLANK);
-map.addLayer(gmapsatellite);
+// map.addLayer(BLANK);
+map.addLayer(mbgrayscale);
 // map.addLayer(ICEMNZA);
 
 // map.addLayer(clustershospitales);
