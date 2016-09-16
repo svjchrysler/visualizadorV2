@@ -116,11 +116,11 @@ info.update = function (props, layer) {
                 // ref="<br><a id='btnref' target='_blank' href='"+getAbsolutePath()+"graficos/"+nombreTematico+".html'><b>Graficos Estadisticos</b></a>";
                 contenido = ''
                     // + '<h4><b>' + props.nombre + '</b></h4>'
-                    + "<b>Superficie:</b> " + props.superficie+' km2'
+                    + "<b>Superficie:</b> " + props.superficie + ' km2'
                     + '';
                 // info._container.style.visibility = 'visible';
                 win.title(props.nombre)
-                    .content(contenido+'<br>'+btn + '<br>' + ref)
+                    .content(contenido + '<br>' + btn + '<br>' + ref)
                     .show();
 
                 break;
@@ -347,7 +347,7 @@ info.addTo(map);
 var markersTematicos = {};
 var geojsonTematicos = {};
 var geojsonDistritos = {};
-
+var puntosDepartamento;
 
 /**
  * funcion para asignar el geojson 
@@ -365,6 +365,41 @@ function tematicoSelect(obj) {
 
         // case 'Tematicos':
         case 'Cartografia Nacional':
+            if (obj.name == "Departamento") {
+
+                if (puntosDepartamento) {
+                    puntosDepartamento.addTo(map);
+
+                } else {
+                    $.getJSON("datos/points/departamentos.geojson", function (data) {
+                        var ratIcon = L.AwesomeMarkers.icon({
+                            prefix: 'fa',
+                            icon: 'map-marker fa-2x',
+                            iconColor: 'green'
+                        });
+
+
+                        puntosDepartamento = L.geoJson(data, {
+                            pointToLayer: function (feature, latlng) {
+                                var contenido = ''
+                                    + '<b>' + feature.properties.nombre + '</b>'
+                                    + '';
+                                var marker = L.marker(latlng, { icon: ratIcon});
+                                marker.bindLabel(feature.properties.nombre);
+                                marker.bindPopup(contenido);
+                                marker.addEventListener('click', function (e) {
+                                    map.setView(e.latlng);
+                                });
+                                return marker;
+                            }
+                        }).addTo(map);
+                    });
+                    console.info("puntosDepartamento", puntosDepartamento);
+                    map.addLayer(puntosDepartamento)
+
+                }
+                enableMap();
+            }
             var puntos = [];
             if (markersTematicos.hasOwnProperty(obj.name)) {
                 puntos = markersTematicos[obj.name];
@@ -469,6 +504,9 @@ function tematicoUnSelect(obj) {
             break;
         // case 'Tematicos':
         case 'Cartografia Nacional':
+            if (puntosDepartamento) {
+                map.removeLayer(puntosDepartamento);
+            }
             if (markersTematicos.hasOwnProperty(obj.name)) {
                 var puntos = markersTematicos[obj.name];
                 for (var o in markersTematicos[obj.name]) {
