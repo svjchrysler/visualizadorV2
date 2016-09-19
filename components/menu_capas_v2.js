@@ -59,10 +59,10 @@ var overLayers = [
 		expanded: false,
 		layers: {
 			"Departamento": ICEDEPARTAMENTOS,
-			"Rios": ICERIOS,
-			"Caminos": ICECAMINOS,
 			"Provincias": ICEPROVINCIA,
 			"Municipios": ICEMUNICIPIO,
+			"Rios": ICERIOS,
+			"Caminos": ICECAMINOS,
 		}
 	},
 	{

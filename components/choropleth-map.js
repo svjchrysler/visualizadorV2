@@ -377,7 +377,7 @@ function tematicoSelect(obj) {
                         var ratIcon = L.AwesomeMarkers.icon({
                             prefix: 'fa',
                             icon: 'dot-circle-o',
-                            iconColor: 'darkblack'
+                            iconColor: 'green'
                         });
 
 
@@ -441,7 +441,7 @@ function tematicoSelect(obj) {
                                 var ratIcon = L.AwesomeMarkers.icon({
                                     prefix: 'fa',
                                     icon: 'dot-circle-o',
-                                    iconColor: 'darkblack'
+                                    iconColor: 'darkred'
                                 });
 
 
