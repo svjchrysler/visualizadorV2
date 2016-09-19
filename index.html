@@ -20,6 +20,9 @@
     <!--<script src="js/Fuse/fuse.2012.js"></script>-->
 
     <!------------CONTROL DRAW----------------------->
+    <link rel="stylesheet" href="components/ZoomBox/L.Control.ZoomBox.css" />
+    <script src="components/ZoomBox/L.Control.ZoomBox.js"></script>
+    <!------------CONTROL DRAW----------------------->
     <link rel="stylesheet" href="components/Draw/leaflet.draw.css" />
     <script src="components/Draw/leaflet.draw.js"></script>
     <!------------------------------------------------>
@@ -298,6 +301,8 @@
     minimap = L.tileLayer(mbUrlSatellite, { id: 'mapbox.streets',minZoom:0,maxZoom:14});//, attribution: 'Tiles by <a href="http://mapc.org">Google</a>	' });
     OS = L.tileLayer(mbUrlOS, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">OpenStreetMap</a>' });
     GO = L.tileLayer(mbUrlGOO, { id: 'mapbox.streets'});//, attribution: 'Tiles by <a href="http://mapc.org">ARCGIS</a>' });
+    // otromapa=L.tileLayer('//{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png');
+
 // DEFINIENDO MAPAS ICE
 //200.119.197.136
 //10.10.110.250
@@ -399,6 +404,8 @@ var url='159.203.182.38';
     //     minZoom: 4
     // }).addTo(map);
 
+    var controlZoombox = L.control.zoomBox({modal: true});
+        map.addControl(controlZoombox);
 
     L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
     L.Control.measureControl().addTo(map);
