@@ -573,13 +573,13 @@ function tematicoUnSelect(obj) {
             break;
         // case 'Tematicos':
         case 'Cartografia Nacional':
-            if (puntosDepartamento) {
+            if (map.hasLayer(puntosDepartamento)) {
                 map.removeLayer(puntosDepartamento);
             } else {
-                if (puntosProvincia) {
+                if (map.hasLayer(puntosProvincia)) {
                     map.removeLayer(puntosProvincia);
                 } else {
-                    if (puntosMunicipio) {
+                    if (map.hasLayer(puntosMunicipio)) {
                         map.removeLayer(puntosMunicipio);
                     }
                 }
