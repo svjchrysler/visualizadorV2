@@ -61,6 +61,8 @@ var overLayers = [
 			"Departamento": ICEDEPARTAMENTOS,
 			"Rios": ICERIOS,
 			"Caminos": ICECAMINOS,
+			"Provincias": ICEPROVINCIA,
+			"Municipios": ICEMUNICIPIO,
 		}
 	},
 	{

@@ -348,6 +348,8 @@ var markersTematicos = {};
 var geojsonTematicos = {};
 var geojsonDistritos = {};
 var puntosDepartamento;
+var puntosProvincia;
+var puntosMunicipio;
 
 /**
  * funcion para asignar el geojson 
@@ -374,8 +376,8 @@ function tematicoSelect(obj) {
                     $.getJSON("datos/points/departamentos.geojson", function (data) {
                         var ratIcon = L.AwesomeMarkers.icon({
                             prefix: 'fa',
-                            icon: 'map-marker fa-2x',
-                            iconColor: 'green'
+                            icon: 'dot-circle-o',
+                            iconColor: 'darkblack'
                         });
 
 
@@ -384,7 +386,7 @@ function tematicoSelect(obj) {
                                 var contenido = ''
                                     + '<b>' + feature.properties.nombre + '</b>'
                                     + '';
-                                var marker = L.marker(latlng, { icon: ratIcon});
+                                var marker = L.marker(latlng, { icon: ratIcon });
                                 marker.bindLabel(feature.properties.nombre);
                                 marker.bindPopup(contenido);
                                 marker.addEventListener('click', function (e) {
@@ -393,12 +395,79 @@ function tematicoSelect(obj) {
                                 return marker;
                             }
                         }).addTo(map);
+                        map.fitBounds(puntosDepartamento.getBounds());
                     });
-                    console.info("puntosDepartamento", puntosDepartamento);
-                    map.addLayer(puntosDepartamento)
-
                 }
                 enableMap();
+            } else {
+                if (obj.name == "Provincias") {
+
+                    if (puntosProvincia) {
+                        puntosProvincia.addTo(map);
+                    } else {
+                        $.getJSON("datos/points/provincias.geojson", function (data) {
+                            var ratIcon = L.AwesomeMarkers.icon({
+                                prefix: 'fa',
+                                icon: 'dot-circle-o',
+                                iconColor: 'darkblack'
+                            });
+
+
+                            puntosProvincia = L.geoJson(data, {
+                                pointToLayer: function (feature, latlng) {
+                                    var contenido = ''
+                                        + '<b>' + feature.properties.nombre + '</b>'
+                                        + '';
+                                    var marker = L.marker(latlng, { icon: ratIcon });
+                                    marker.bindLabel(feature.properties.nombre);
+                                    marker.bindPopup(contenido);
+                                    marker.addEventListener('click', function (e) {
+                                        map.setView(e.latlng);
+                                    });
+                                    return marker;
+                                }
+                            }).addTo(map);
+                            map.fitBounds(puntosProvincia.getBounds());
+                        });
+                    }
+                    enableMap();
+                } else {
+                    if (obj.name == "Municipios") {
+
+                        if (puntosMunicipio) {
+                            puntosMunicipio.addTo(map);
+                        } else {
+                            $.getJSON("datos/points/municipios.geojson", function (data) {
+                                var ratIcon = L.AwesomeMarkers.icon({
+                                    prefix: 'fa',
+                                    icon: 'dot-circle-o',
+                                    iconColor: 'darkblack'
+                                });
+
+
+                                puntosMunicipio = L.geoJson(data, {
+                                    pointToLayer: function (feature, latlng) {
+                                        var contenido = ''
+                                            + '<b>' + feature.properties.nombre + '</b>'
+                                            + '<br><b>Departamento: </b>' + feature.properties.departamento
+                                            + '<br><b>Provincia: </b>' + feature.properties.provincia
+                                            + '<br><b>Capital: </b>' + feature.properties.capital
+                                            + '';
+                                        var marker = L.marker(latlng, { icon: ratIcon });
+                                        marker.bindLabel(feature.properties.nombre);
+                                        marker.bindPopup(contenido);
+                                        marker.addEventListener('click', function (e) {
+                                            map.setView(e.latlng);
+                                        });
+                                        return marker;
+                                    }
+                                }).addTo(map);
+                                map.fitBounds(puntosMunicipio.getBounds());
+                            });
+                        }
+                        enableMap();
+                    }
+                }
             }
             var puntos = [];
             if (markersTematicos.hasOwnProperty(obj.name)) {
@@ -506,6 +575,14 @@ function tematicoUnSelect(obj) {
         case 'Cartografia Nacional':
             if (puntosDepartamento) {
                 map.removeLayer(puntosDepartamento);
+            } else {
+                if (puntosProvincia) {
+                    map.removeLayer(puntosProvincia);
+                } else {
+                    if (puntosMunicipio) {
+                        map.removeLayer(puntosMunicipio);
+                    }
+                }
             }
             if (markersTematicos.hasOwnProperty(obj.name)) {
                 var puntos = markersTematicos[obj.name];
