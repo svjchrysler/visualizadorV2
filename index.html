@@ -15,10 +15,12 @@
     <link rel="stylesheet" href="components/Label/leaflet.label.css" />
     <!------------------------------------------------>
 
-    <script src="js/Fuse/fuse.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!--<script src="js/Fuse/fuse.js"></script>-->
     <!--<script src="js/Fuse/fuse.min.js"></script>-->
     <!--<script src="js/Fuse/fuse.2012.js"></script>-->
-
+    <link rel="stylesheet" type="text/css" href="https://www.mapbox.com/maki/www/maki-sprite.css" />
     <!------------CONTROL DRAW----------------------->
     <link rel="stylesheet" href="components/ZoomBox/L.Control.ZoomBox.css" />
     <script src="components/ZoomBox/L.Control.ZoomBox.js"></script>
@@ -65,7 +67,6 @@
     <link rel="stylesheet" href="css/L.Control.Window.css" />
     <!------------------------------------------------>
     <!------------SLIDE MENU----------------------->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="components/Slidemenu/L.Control.SlideMenu.js"></script>
     <link rel="stylesheet" href="components/Slidemenu/L.Control.SlideMenu.css" />
     <!------------------------------------------------>
@@ -88,6 +89,9 @@
     <!------------TAG FILTER CONTROL----------------------->
     <link rel="stylesheet" href="components/TagFilterButton/tag-filter-button.css" />
     <script src="components/TagFilterButton/tag-filter-button.js"></script>
+    <!------------------------------------------------>
+    <!------------Underneath----------------------->
+    <script src="components/Underneath/underneath.js"></script>
     <!------------------------------------------------>
     <!------------FUSE SEARCH CONTROL----------------------->
     <!--<link rel="stylesheet" href="components/FuseSearch/leaflet.fusesearch.css" />-->
@@ -290,6 +294,7 @@
     <script>
 
 //DEFINIENDO MAPAS BASE
+    mbUrlMapbox1='http://{s}.tiles.mapbox.com/v4/mapbox.mapbox-streets-v6/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoibGllZG1hbiIsImEiOiJjaWtjYjh5cGcwMDNhdm5sdmoycmgzY3drIn0.CZCSz1N53qWOVB0j2A_5pg';
     mbUrlMapbox = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw'; //mAPBOX
     mbUrlNubes = 'https://dnv9my2eseobd.cloudfront.net/v3/cartodb.map-4xtxp73f/{z}/{x}/{y}.png'; //WEATHER Nubes
     mbUrlSatellite = 'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s={s}'; //WEATHER lluvia
@@ -339,14 +344,39 @@ var url='159.203.182.38';
         ICEMUNICIPIO=L.tileLayer(mbUrlICEMUNICIPIO, { id: 'ice.municipio'});
 
 // ESTABLECIENDO COORDENADAS INICALES (PLAZA 24 DE SEPTIEMBRE)
-      var map = L.map('map',{
-          attributionControl:false,
+    //   var map = L.map('map',{
+    //       attributionControl:false,
+    //       center:[-17.78361, -63.18212],
+    //       zoom:13,
+    //       maxZoom:17,
+    //       loadingControl:true, //LOADING CONTROL LIB
+    //       fullscreenControl:true, //FULL SCREEN CONTROL LIB
+           
+    //   });//.setView([-17.78361, -63.18212], 11);
+
+var underneathEventsActive = false;
+
+var map = L.map('map',{
+    attributionControl:false,
           center:[-17.78361, -63.18212],
           zoom:13,
           maxZoom:17,
           loadingControl:true, //LOADING CONTROL LIB
           fullscreenControl:true, //FULL SCREEN CONTROL LIB
-      });//.setView([-17.78361, -63.18212], 11);
+}).setView([-17.78361, -63.18212], 15),
+    featureLayer = L.geoJson(undefined, {
+        pointToLayer: function(f, latLng) {
+            console.info("f",f);
+            return L.circleMarker(latLng, {
+                    radius: 4,
+                    opacity: 1,
+                    fillOpacity: 0.5
+                })
+                // .bindPopup('<li><span class="maki-icon ' + f.properties.maki + '"></span>' + f.properties.name + '</li>');
+                .bindPopup('<li><i class="fa fa-' + f.properties.maki + '" aria-hidden="true"></i>' + f.properties.name + '</li>');
+        }
+    }).addTo(map);
+    map.addLayer(BLANK);
 
 /**
  * AGREGANDO TITULO
@@ -363,10 +393,13 @@ var url='159.203.182.38';
 	// 	};
 	// 	title.addTo(map);
 //************FIN DEL TITULO*****************
+/**
+ * AGREGANDO MINIMAP
+ */
         new L.Control.MiniMap(minimap, {
             toggleDisplay: true,
-            zoomLevelOffset:-2
-            // autoToggleDisplay:true
+            zoomLevelOffset:-2,
+            autoToggleDisplay:true
         }).addTo(map);
 
  /**
@@ -628,6 +661,20 @@ var url='159.203.182.38';
                 console.info("components/easybuttons.js",exception);
             });
         //****************************************************************************
+
+        /**
+         * AGREGANDO UNDERNEATH EVENT 
+         **/
+        
+        $.getScript( "components/underneathevent.js" )
+            .done(function( script, textStatus ) {
+                console.info("components/underneathevent.js",textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.info("components/underneathevent.js",exception);
+            });
+        //****************************************************************************
+    
     </script>
     <!--****************************************************************************-->
 

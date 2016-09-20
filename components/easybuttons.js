@@ -19,6 +19,17 @@ L.easyButton('<i class="fa fa-eye fa-lg" aria-hidden="true" style="margin-left:-
     // map.setView(map.getCenter(), 7);
 }, 'Centrar Vista').addTo(map);
 
+
+/**
+ * ADD UNDERNEATH EVENTS BUTTON
+ */
+L.easyButton('<i class="fa fa-star fa-lg" aria-hidden="true" style="margin-left:-1px; margin-top:5px;"></i>', function () {
+    underneathEventsActive = !underneathEventsActive;
+    if (!underneathEventsActive)
+        featureLayer.clearLayers();
+}, 'Lugares Cerca').addTo(map);
+
+
 /**
  * ADD INFO BUTTON
  */

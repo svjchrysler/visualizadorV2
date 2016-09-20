@@ -376,8 +376,11 @@ function tematicoSelect(obj) {
                     $.getJSON("datos/points/departamentos.geojson", function (data) {
                         var ratIcon = L.AwesomeMarkers.icon({
                             prefix: 'fa',
-                            icon: 'dot-circle-o',
-                            iconColor: 'green'
+                            icon: 'square',
+                            iconColor: 'green',
+                            // markerColor: 'red',
+                            // extraClasses: 'fa-rotate-90',
+                            // spin: true
                         });
 
 
@@ -386,9 +389,23 @@ function tematicoSelect(obj) {
                                 var contenido = ''
                                     + '<b>' + feature.properties.nombre + '</b>'
                                     + '';
+                                btn = "<br><br><a  id='btnref' onclick='return referencia(" + '"' + nombreTematico + '"' + ");'><b>Informe Tecnico</b></a>";
+                                contenido = ''
+                                    // +'<h2>' + feature.properties.nombre + '</h2>'
+                                    + "<center><b>Poblacion</b></center>"
+                                    + "<br><b>Total: </b>" + feature.properties.total
+                                    + "<br><b>Hombres: </b>" + feature.properties.hombre + " hab."
+                                    + "<br><b>Hombres: </b>" + feature.properties.mujer + " hab."
+                                    + "<br><br><b>Total Urbano: </b>" + feature.properties.total_urb + " hab."
+                                    + "<br><b>Hombres: </b>" + feature.properties.hombre_urb + " hab."
+                                    + "<br><b>Mujeres: </b>" + feature.properties.mujer_urb + " hab."
+                                    + "<br><br><b>Total Rural: </b>" + feature.properties.total_ru + " hab."
+                                    + "<br><b>Hombres: </b>" + feature.properties.hombre_ru + " hab."
+                                    + "<br><b>Mujeres: </b>" + feature.properties.mujer_ru + " hab.";
+                                    info.update(feature.properties,undefined);
                                 var marker = L.marker(latlng, { icon: ratIcon });
                                 marker.bindLabel(feature.properties.nombre);
-                                marker.bindPopup(contenido);
+                                marker.bindPopup(contenido+ '<br>' + btn + '<br>');
                                 marker.addEventListener('click', function (e) {
                                     map.setView(e.latlng);
                                 });
@@ -408,8 +425,8 @@ function tematicoSelect(obj) {
                         $.getJSON("datos/points/provincias.geojson", function (data) {
                             var ratIcon = L.AwesomeMarkers.icon({
                                 prefix: 'fa',
-                                icon: 'dot-circle-o',
-                                iconColor: 'darkblack'
+                                icon: 'circle',
+                                iconColor: 'blue'
                             });
 
 
@@ -419,8 +436,9 @@ function tematicoSelect(obj) {
                                         + '<b>' + feature.properties.nombre + '</b>'
                                         + '';
                                     var marker = L.marker(latlng, { icon: ratIcon });
+
                                     marker.bindLabel(feature.properties.nombre);
-                                    marker.bindPopup(contenido);
+                                    marker.bindPopup(contenido );
                                     marker.addEventListener('click', function (e) {
                                         map.setView(e.latlng);
                                     });
@@ -440,7 +458,7 @@ function tematicoSelect(obj) {
                             $.getJSON("datos/points/municipios.geojson", function (data) {
                                 var ratIcon = L.AwesomeMarkers.icon({
                                     prefix: 'fa',
-                                    icon: 'dot-circle-o',
+                                    icon: 'circle',
                                     iconColor: 'darkred'
                                 });
 
@@ -573,13 +591,13 @@ function tematicoUnSelect(obj) {
             break;
         // case 'Tematicos':
         case 'Cartografia Nacional':
-            if (map.hasLayer(puntosDepartamento)) {
+            if (obj.name == "Departamento") {
                 map.removeLayer(puntosDepartamento);
             } else {
-                if (map.hasLayer(puntosProvincia)) {
+                if (obj.name == "Provincias") {
                     map.removeLayer(puntosProvincia);
                 } else {
-                    if (map.hasLayer(puntosMunicipio)) {
+                    if (obj.name == "Municipios") {
                         map.removeLayer(puntosMunicipio);
                     }
                 }
