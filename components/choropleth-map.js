@@ -402,7 +402,7 @@ function tematicoSelect(obj) {
                                     + "<br><br><b>Total Rural: </b>" + feature.properties.total_ru + " hab."
                                     + "<br><b>Hombres: </b>" + feature.properties.hombre_ru + " hab."
                                     + "<br><b>Mujeres: </b>" + feature.properties.mujer_ru + " hab.";
-                                    info.update(feature.properties,undefined);
+                                    // info.update(feature.properties,undefined);
                                 var marker = L.marker(latlng, { icon: ratIcon });
                                 marker.bindLabel(feature.properties.nombre);
                                 marker.bindPopup(contenido+ '<br>' + btn + '<br>');
