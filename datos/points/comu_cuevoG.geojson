@@ -1,0 +1,35 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID_1": 1, "OBJECTID": 1, "Id": 0, "NOMBRE": "ESTANCIA ENTRE RUMBOS", "COD_CIU_CP": "04019" }, "geometry": { "type": "Point", "coordinates": [ -63.476999198105453, -20.263694809595979 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 2, "OBJECTID": 2, "Id": 0, "NOMBRE": "ESTANCIA SAN ISIDRO", "COD_CIU_CP": "04009" }, "geometry": { "type": "Point", "coordinates": [ -63.472749190798908, -20.236486702425719 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 3, "OBJECTID": 3, "Id": 0, "NOMBRE": "COMUNIDAD SALINAS", "COD_CIU_CP": "04008" }, "geometry": { "type": "Point", "coordinates": [ -63.465970772246592, -20.226596438734934 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 4, "OBJECTID": 4, "Id": 0, "NOMBRE": "COMUNIDAD EL ARENAL", "COD_CIU_CP": "04002" }, "geometry": { "type": "Point", "coordinates": [ -63.519394597534145, -20.405040652444232 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 5, "OBJECTID": 5, "Id": 0, "NOMBRE": "COMUNIDAD KARAPARY ALTO", "COD_CIU_CP": "04018" }, "geometry": { "type": "Point", "coordinates": [ -63.69111532232656, -20.24192245233548 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 6, "OBJECTID": 6, "Id": 0, "NOMBRE": "COMUNIDAD KARAPARY BAJO", "COD_CIU_CP": "04017" }, "geometry": { "type": "Point", "coordinates": [ -63.692082074355753, -20.299969002076608 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 7, "OBJECTID": 7, "Id": 0, "NOMBRE": "COMUNIDAD ITAKISE", "COD_CIU_CP": "04014" }, "geometry": { "type": "Point", "coordinates": [ -63.520482901512082, -20.241022562680282 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 8, "OBJECTID": 8, "Id": 0, "NOMBRE": "COMUNIDAD TIMBOYRENDA", "COD_CIU_CP": "04004" }, "geometry": { "type": "Point", "coordinates": [ -63.504068459220051, -20.384664305557727 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 9, "OBJECTID": 9, "Id": 0, "NOMBRE": "COMUNIDAD KAPIRENDA", "COD_CIU_CP": "04016" }, "geometry": { "type": "Point", "coordinates": [ -63.488790986493164, -20.373052269804457 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 10, "OBJECTID": 10, "Id": 0, "NOMBRE": "COMUNIDAD TARTAGALITO", "COD_CIU_CP": "04011" }, "geometry": { "type": "Point", "coordinates": [ -63.455574047835356, -20.391878841317968 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 11, "OBJECTID": 11, "Id": 59, "NOMBRE": "COMUNIDAD ITACUATIA", "COD_CIU_CP": "04015" }, "geometry": { "type": "Point", "coordinates": [ -63.424489353937687, -20.369969488827611 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 12, "OBJECTID": 12, "Id": 0, "NOMBRE": "COMUNIDAD IBICUATI", "COD_CIU_CP": "04005" }, "geometry": { "type": "Point", "coordinates": [ -63.447772783152629, -20.36802257496274 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 13, "OBJECTID": 13, "Id": 0, "NOMBRE": "CUEVO", "COD_CIU_CP": "04013" }, "geometry": { "type": "Point", "coordinates": [ -63.520358231907473, -20.452685862177471 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 14, "OBJECTID": 14, "Id": 0, "NOMBRE": "COMUNIDAD MANDIYITI", "COD_CIU_CP": "04007" }, "geometry": { "type": "Point", "coordinates": [ -63.561522548457248, -20.441498239231226 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 15, "OBJECTID": 15, "Id": 0, "NOMBRE": "ESTANCIA LA COLORADA", "COD_CIU_CP": "04010" }, "geometry": { "type": "Point", "coordinates": [ -63.503936954989122, -20.407778773969898 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 16, "OBJECTID": 16, "Id": 0, "NOMBRE": "ESTANCIA SIPOPERENDA(por confirmar)", "COD_CIU_CP": "04021" }, "geometry": { "type": "Point", "coordinates": [ -63.626010816085255, -20.44784371169667 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 17, "OBJECTID": 17, "Id": 0, "NOMBRE": "ESTANCIA MOROCUAPIRA(por confirmar)", "COD_CIU_CP": "04022" }, "geometry": { "type": "Point", "coordinates": [ -63.619981606480991, -20.41331987008267 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 18, "OBJECTID": 18, "Id": 0, "NOMBRE": "COMUNIDAD CARAYAGUA(por confirmar)", "COD_CIU_CP": "04023" }, "geometry": { "type": "Point", "coordinates": [ -63.546535630544689, -20.426540048917378 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 19, "OBJECTID": 20, "Id": 0, "NOMBRE": "ESTANCIA ESPERANZA", "COD_CIU_CP": "04025" }, "geometry": { "type": "Point", "coordinates": [ -63.433863924667634, -20.365365727467207 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 20, "OBJECTID": 22, "Id": 0, "NOMBRE": "HACIENDA CARAHUATERENDA", "COD_CIU_CP": "04026" }, "geometry": { "type": "Point", "coordinates": [ -63.698882862913095, -20.246893510197609 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 21, "OBJECTID": 23, "Id": 0, "NOMBRE": "HACIENDA CARAPARI", "COD_CIU_CP": "04027" }, "geometry": { "type": "Point", "coordinates": [ -63.693579205623244, -20.282501003324512 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 22, "OBJECTID": 24, "Id": 0, "NOMBRE": "COMUNIDAD CARAPARI(por confirmar)", "COD_CIU_CP": "04028" }, "geometry": { "type": "Point", "coordinates": [ -63.695346246846867, -20.260564953599868 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 23, "OBJECTID": 25, "Id": 0, "NOMBRE": "HACIENDA SAN MIGUEL(por confirmar)", "COD_CIU_CP": "04029" }, "geometry": { "type": "Point", "coordinates": [ -63.678252014940661, -20.217527750677029 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 24, "OBJECTID": 26, "Id": 0, "NOMBRE": "ESTANCIA SALINAS(por confirmar)", "COD_CIU_CP": "04030" }, "geometry": { "type": "Point", "coordinates": [ -63.447884971835038, -20.239502420691707 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 25, "OBJECTID": 28, "Id": 0, "NOMBRE": "ESTANCIA POZO ESCONDIDO(por confirmar)", "COD_CIU_CP": "04006" }, "geometry": { "type": "Point", "coordinates": [ -63.364295520409328, -20.304185092873144 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 26, "OBJECTID": 29, "Id": 0, "NOMBRE": "ESTANCIA YAGUACUA(por confirmar)", "COD_CIU_CP": "04031" }, "geometry": { "type": "Point", "coordinates": [ -63.455175848763588, -20.41274312474895 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 27, "OBJECTID": 30, "Id": 22, "NOMBRE": "COMUNIDAD PARAPETIMI", "COD_CIU_CP": null }, "geometry": { "type": "Point", "coordinates": [ -63.459056546066499, -20.433508554337987 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 28, "OBJECTID": 430, "Id": 0, "NOMBRE": "COMUNIDAD PARAPETIMI", "COD_CIU_CP": null }, "geometry": { "type": "Point", "coordinates": [ -63.448774740219505, -20.424132372906854 ] } }
+]
+}

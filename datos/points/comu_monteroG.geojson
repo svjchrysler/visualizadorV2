@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "Id": 0, "COMUNIDADE": "Comunidad el torno", "COD_CIU_CP": "01002" }, "geometry": { "type": "Point", "coordinates": [ -63.335103299452243, -17.21943788839047 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "Id": 0, "COMUNIDADE": "Comunidad Villa copacabana", "COD_CIU_CP": "01017" }, "geometry": { "type": "Point", "coordinates": [ -63.249211731178903, -17.38681703575698 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "Id": 0, "COMUNIDADE": "Comunidad el cupesi", "COD_CIU_CP": "01018" }, "geometry": { "type": "Point", "coordinates": [ -63.188491862734402, -17.320157260708445 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "Id": 0, "COMUNIDADE": "Comunidad el potrerito", "COD_CIU_CP": "01005" }, "geometry": { "type": "Point", "coordinates": [ -63.178806784318958, -17.295197454240466 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "Id": 0, "COMUNIDADE": "Comunidad la Habra", "COD_CIU_CP": "01022" }, "geometry": { "type": "Point", "coordinates": [ -63.13494366512176, -17.300254203597149 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "Id": 0, "COMUNIDADE": "Comunidad el 21 turobito", "COD_CIU_CP": "01023" }, "geometry": { "type": "Point", "coordinates": [ -63.117870939275512, -17.310357694667072 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 7, "Id": 0, "COMUNIDADE": "Comunidad  turobito", "COD_CIU_CP": "01025" }, "geometry": { "type": "Point", "coordinates": [ -63.148075561332533, -17.352887500109905 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "Id": 0, "COMUNIDADE": "Comunidad el Cupesi", "COD_CIU_CP": "01018" }, "geometry": { "type": "Point", "coordinates": [ -63.199417189136582, -17.31704369552175 ] } }
+]
+}

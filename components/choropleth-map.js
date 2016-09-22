@@ -53,7 +53,7 @@ info.update = function (props, layer) {
                     + "<center><b>Poblacion</b></center>"
                     + "<br><b>Total: </b>" + props.total
                     + "<br><b>Hombres: </b>" + props.hombre + " hab."
-                    + "<br><b>Hombres: </b>" + props.mujer + " hab."
+                    + "<br><b>Mujeres: </b>" + props.mujer + " hab."
                     + "<br><br><b>Total Urbano: </b>" + props.total_urb + " hab."
                     + "<br><b>Hombres: </b>" + props.hombre_urb + " hab."
                     + "<br><b>Mujeres: </b>" + props.mujer_urb + " hab."
@@ -75,7 +75,7 @@ info.update = function (props, layer) {
                     + "<center><b>Poblacion</b></center>"
                     + "<br><b>Total: </b>" + props.total
                     + "<br><b>Hombres: </b>" + props.hombre + " hab."
-                    + "<br><b>Hombres: </b>" + props.mujer + " hab."
+                    + "<br><b>Mujeres: </b>" + props.mujer + " hab."
                     + "<br><br><b>Total Urbano: </b>" + props.total_urb + " hab."
                     + "<br><b>Hombres: </b>" + props.hombre_urb + " hab."
                     + "<br><b>Mujeres: </b>" + props.mujer_urb + " hab."
@@ -97,7 +97,7 @@ info.update = function (props, layer) {
                     + "<center><b>Poblacion</b></center>"
                     + "<br><b>Total: </b>" + props.total
                     + "<br><b>Hombres: </b>" + props.hombre + " hab."
-                    + "<br><b>Hombres: </b>" + props.mujer + " hab."
+                    + "<br><b>Mujeres: </b>" + props.mujer + " hab."
                     + "<br><br><b>Total Urbano: </b>" + props.total_urb + " hab."
                     + "<br><b>Hombres: </b>" + props.hombre_urb + " hab."
                     + "<br><b>Mujeres: </b>" + props.mujer_urb + " hab."
@@ -126,6 +126,7 @@ info.update = function (props, layer) {
                 break;
             // case 'Distritos':
             case 'Ciudad de Santa Cruz':
+                console.info('nombreDistrito', nombreDistrito);
                 if (nombreDistrito == "Distrito 02") {
                     btn = "<br><a  id='btnref' onclick='return referencia(" + '"' + nombreDistrito + '"' + ");'><b>Informe Tecnico</b></a>";
                     ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreDistrito + '",' + '"' + getAbsolutePath() + "graficos/" + nombreDistrito + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
@@ -134,10 +135,11 @@ info.update = function (props, layer) {
                     btn = '';
                     ref = '';
                 }
-
                 contenido = ''
                     // +'<h4>' + nombreDistrito + '</h4>'
-                    + "<b>UV:</b> " + props.UV_ET
+                    // + "<b>UV:</b> " + props.UV_ET
+                    + (props.UV_ET ? "<b>UV:</b> " + props.UV_ET : '')
+                    + (props.nombre ? "<b>Urbanizaciones: </b> " + props.nombre : '')
                     // + props.man?'':"<b>Manzana:</b> " + props.man
                     + '';
                 // info._container.style.visibility = 'visible';
@@ -148,12 +150,20 @@ info.update = function (props, layer) {
             default:
                 btn = '';
                 ref = '';
-                contenido = '<h4>' + nombreTematico + '</h4>' + btn;
+                contenido = ''
+                    // +'<h4>' + nombreDistrito + '</h4>'
+                    // + "<b>UV:</b> " + props.UV_ET
+                    + (props.UV_ET ? "<b>UV:</b> " + props.UV_ET : '')
+                    + (props.nombre ? "<b>Otras areas urbanas: </b> " + props.nombre : '')
+                    // + props.man?'':"<b>Manzana:</b> " + props.man
+                    + '';
+                 win.title(nombreTematico)
+                    .content(contenido)
+                    .show();
                 break;
         }
     }
     this._div.innerHTML = contenido + btn + ref;
-
 };
 
 function getColor(d) {
@@ -204,12 +214,6 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera) {
         layer.bringToFront();
     }
-
-    // if (geojsonTematicos.hasOwnProperty(layer.feature.properties.filetype)) {
-    //     nombreTematico = layer.feature.properties.filetype;
-    //     geojson = geojsonTematicos[nombreTematico];
-    // }
-    // info.update(layer.feature.properties);
 }
 
 
@@ -217,7 +221,6 @@ function resetHighlight(e) {
     if (geojson) {
         geojson.resetStyle(e.target);
     }
-    // info._container.style.visibility='hidden';
 }
 
 function zoomToFeature(e) {
@@ -286,15 +289,14 @@ function resetHighlightDistritos(e) {
     }
 }
 function viewLegend(e) {
-    // console.info("viewLegend",e);
-    // info._container.style.visibility='visible';
-    // nombreTematico="Distritos";
-    if (!e.target.feature.properties.filetype) {
+    map.fitBounds(e.target.getBounds());
+    var props = e.target.feature.properties;
+    if (!props.filetype) {
         nombreTematico = "Ciudad de Santa Cruz";
-        nombreDistrito = "Distrito " + e.target.feature.properties.DISTRITO;
+        nombreDistrito = (props.DISTRITO ? "Distrito " + props.DISTRITO : props.nombre);
     } else {
-        nombreTematico = "Distrito";
-        nombreDistrito = '';
+        nombreTematico = props.filetype;
+        nombreDistrito = props.nombre;
     }
     info.update(e.target.feature.properties);
 }
@@ -358,7 +360,6 @@ var puntosMunicipio;
 function tematicoSelect(obj) {
     switch (obj.group.name) {
         case "Mapas Base":
-            // console.info("mapas base Select", obj.group.name);
             break;
         case 'Categorias':
             controlSearch._layer = obj.layer;
@@ -402,10 +403,10 @@ function tematicoSelect(obj) {
                                     + "<br><br><b>Total Rural: </b>" + feature.properties.total_ru + " hab."
                                     + "<br><b>Hombres: </b>" + feature.properties.hombre_ru + " hab."
                                     + "<br><b>Mujeres: </b>" + feature.properties.mujer_ru + " hab.";
-                                    // info.update(feature.properties,undefined);
+                                // info.update(feature.properties,undefined);
                                 var marker = L.marker(latlng, { icon: ratIcon });
                                 marker.bindLabel(feature.properties.nombre);
-                                marker.bindPopup(contenido+ '<br>' + btn + '<br>');
+                                marker.bindPopup(contenido + '<br>' + btn + '<br>');
                                 marker.addEventListener('click', function (e) {
                                     map.setView(e.latlng);
                                 });
@@ -438,7 +439,7 @@ function tematicoSelect(obj) {
                                     var marker = L.marker(latlng, { icon: ratIcon });
 
                                     marker.bindLabel(feature.properties.nombre);
-                                    marker.bindPopup(contenido );
+                                    marker.bindPopup(contenido);
                                     marker.addEventListener('click', function (e) {
                                         map.setView(e.latlng);
                                     });
@@ -540,7 +541,6 @@ function tematicoSelect(obj) {
                                 })
                             });
                             etiqueta.on('click', function (event) {
-                                // console.info('etiqueta click', event.getBounds());
                                 map.fitBounds(event.getBounds());
                             });
                             etiqueta.addTo(map);
@@ -550,29 +550,16 @@ function tematicoSelect(obj) {
                     markersTematicos[obj.name] = puntos;
                 }
                 nombreTematico = obj.name;
-                // info._container.style.visibility = 'visible';
                 geojsonDistrito = obj.layer;
-                // geojsonTematicos[obj.name] = obj.layer;
             } else {
                 if (obj.layer._layers) {
                     nombreTematico = obj.group.name;
                     nombreDistrito = obj.name;
-                    // legend._container.style.visibility='visible';
-                    // info._container.style.visibility = 'visible';
-                    // if(!geojsonDistritos.hasOwnProperty(obj.name)){
-                    //     geojsonDistritos[obj.name]=obj.layer;
-                    // }
                     geojsonDistrito = obj.layer;
-                    // console.info("geojsonDistrito", geojsonDistrito);
                 }
             }
             break;
-        case "Capas":
-            // console.info("capas Select", obj.group.name);
-
-            break;
         default:
-            // console.info("Select", obj.group.name);
             controlSearch._layer = obj.layer;
             searchcluster.addLayer(obj.layer);
             break;
@@ -641,18 +628,10 @@ function tematicoUnSelect(obj) {
                     info._container.style.visibility = 'hidden';
                 }
             } else {
-                //  geojsonDistrito=null;
-                // nombreTematico='Descripcion';
-                // legend._container.style.visibility='hidden';
                 info._container.style.visibility = 'hidden';
             }
             break;
-
-        case "Capas":
-            // console.info("capas unSelect", obj.group.name);
-            break;
         default:
-            // console.info("unSelect", obj.group.name);
             searchcluster.removeLayer(obj.layer);
             searchcluster.addTo(map);
             controlSearch._layer = searchcluster;

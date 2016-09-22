@@ -372,7 +372,8 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
             var s_type_exclusive = this.options.exclusive ? ' type="radio" ' : ' type="checkbox" ';
 
             inputElement = '<input id="ac' + obj.group.id + '" name="accordion-1" class="menu" ' + s_expanded + s_type_exclusive + '/>';
-            inputLabel = '<label for="ac' + obj.group.id + '">' + obj.group.name + '</label>';
+            inputLabel = '<label for="ac' + obj.group.id + '" class="'+obj.group.name.replace(/\s/g,"_")+'">' + obj.group.name + '</label>';
+            console.info("add class",inputLabel),
             /**
              * agregando evento onClick en la libreria
              */

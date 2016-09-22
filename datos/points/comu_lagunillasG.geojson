@@ -1,0 +1,34 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "Id": 0, "NOMBRE": "COMUNIDAD SAN ANTONIO DE IRENDA", "COD_CIU_CP": "01026" }, "geometry": { "type": "Point", "coordinates": [ -63.558538302171534, -19.867444642860228 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "Id": 0, "NOMBRE": "COMUNIDAD IVIYECA", "COD_CIU_CP": "01025" }, "geometry": { "type": "Point", "coordinates": [ -63.641567976436313, -19.945283915987062 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "Id": 0, "NOMBRE": "COMUNIDAD TACETE", "COD_CIU_CP": "01031" }, "geometry": { "type": "Point", "coordinates": [ -63.641656461731408, -20.009896502290637 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "Id": 0, "NOMBRE": "COMUNIDAD CARAPARICITO", "COD_CIU_CP": "01042" }, "geometry": { "type": "Point", "coordinates": [ -63.660768280556582, -19.804484099737063 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "Id": 0, "NOMBRE": "COMUNIDAD AQUIO", "COD_CIU_CP": "01044" }, "geometry": { "type": "Point", "coordinates": [ -63.686568417166491, -19.707828452632235 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "Id": 0, "NOMBRE": "COMUNIDAD EL TUNAL", "COD_CIU_CP": "01002" }, "geometry": { "type": "Point", "coordinates": [ -63.648496006985077, -19.620653483752903 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 7, "Id": 0, "NOMBRE": "COMNIDAD KURUYUQUI", "COD_CIU_CP": "01006" }, "geometry": { "type": "Point", "coordinates": [ -63.620879199861811, -19.621809968429829 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "Id": 0, "NOMBRE": "COMUNIDAD_TERRAZAS", "COD_CIU_CP": "01019" }, "geometry": { "type": "Point", "coordinates": [ -63.671705358919588, -19.587577577389865 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 9, "Id": 0, "NOMBRE": "COMUNIDAD YAPUMBIA", "COD_CIU_CP": "01033" }, "geometry": { "type": "Point", "coordinates": [ -63.644684925983427, -20.041478542514241 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 10, "Id": 0, "NOMBRE": "COMUNIDAD KURUPAITY", "COD_CIU_CP": "01005" }, "geometry": { "type": "Point", "coordinates": [ -63.630714000000175, -19.575854000265615 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 11, "Id": 0, "NOMBRE": "COMUNIDAD MOCO_MOCAL", "COD_CIU_CP": "01049" }, "geometry": { "type": "Point", "coordinates": [ -63.592625382185503, -19.733643605581609 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 13, "Id": 0, "NOMBRE": "COMUNIDAD LA TAPERA", "COD_CIU_CP": "01011" }, "geometry": { "type": "Point", "coordinates": [ -63.670126999937445, -19.54572700016065 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 14, "Id": 0, "NOMBRE": "COMUNIDAD LA PEÑA", "COD_CIU_CP": "01010" }, "geometry": { "type": "Point", "coordinates": [ -63.670556376161713, -19.512454487788219 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 15, "Id": 0, "NOMBRE": "COMUNINDAD ITAIMI", "COD_CIU_CP": "01013" }, "geometry": { "type": "Point", "coordinates": [ -63.674614545822898, -19.490635795762845 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 16, "Id": 0, "NOMBRE": "COMUNIDAD IGUASURENDA", "COD_CIU_CP": "01001" }, "geometry": { "type": "Point", "coordinates": [ -63.6628904671608, -19.476079492573788 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 18, "Id": 0, "NOMBRE": "ZONA ÑANKAGUASU", "COD_CIU_CP": "01007" }, "geometry": { "type": "Point", "coordinates": [ -63.682080319537647, -19.398052514542997 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 19, "Id": 0, "NOMBRE": "COMUNIDAD IPATIMIRI", "COD_CIU_CP": "01043" }, "geometry": { "type": "Point", "coordinates": [ -63.561796769350423, -19.783023109883612 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 20, "Id": 0, "NOMBRE": "COMUNIDAD PAMPA REDONDA", "COD_CIU_CP": "01012" }, "geometry": { "type": "Point", "coordinates": [ -63.558474181903783, -19.795043943556067 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 21, "Id": 0, "NOMBRE": "COMUNIDAD  IPATI", "COD_CIU_CP": "01037" }, "geometry": { "type": "Point", "coordinates": [ -63.56171106645531, -19.766478968628146 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 24, "Id": 0, "NOMBRE": "COMUNIDAD POTRERILLO LOS POZOS", "COD_CIU_CP": "01017" }, "geometry": { "type": "Point", "coordinates": [ -63.60322217155845, -19.687997430468965 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 31, "Id": 0, "NOMBRE": "COMUNIDAD  BUENA VISTA", "COD_CIU_CP": "01028" }, "geometry": { "type": "Point", "coordinates": [ -63.6630310000997, -20.108537000005448 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 32, "Id": 0, "NOMBRE": "COMUNIDAD ARATICAL", "COD_CIU_CP": "01040" }, "geometry": { "type": "Point", "coordinates": [ -63.657542609490875, -19.72381293240289 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 34, "Id": 0, "NOMBRE": "COMUNIDAD MOREVITI", "COD_CIU_CP": "01046" }, "geometry": { "type": "Point", "coordinates": [ -63.569185909072537, -19.797883071126872 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 36, "Id": 0, "NOMBRE": "COMUNIDAD AGUADA GRANDE", "COD_CIU_CP": null }, "geometry": { "type": "Point", "coordinates": [ -63.672790999684693, -19.496610000062187 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 37, "Id": 0, "NOMBRE": "COMUNIDAD PUEBLO NUEVO", "COD_CIU_CP": null }, "geometry": { "type": "Point", "coordinates": [ -63.668731999697613, -19.55687300031002 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 38, "Id": 0, "NOMBRE": "COMUNIDAD YAITY", "COD_CIU_CP": null }, "geometry": { "type": "Point", "coordinates": [ -63.637248000055067, -20.066134999717057 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 39, "Id": 0, "NOMBRE": "CP\/LAGUNILLAS", "COD_CIU_CP": null }, "geometry": { "type": "Point", "coordinates": [ -63.67304541685612, -19.650956767079908 ] } }
+]
+}

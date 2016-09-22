@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "Id": 0, "COD_CIU_CP": "02013", "NOMBRE": "COMUNIDAD COSORIO" }, "geometry": { "type": "Point", "coordinates": [ -63.011066874670533, -17.669397442597276 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "Id": 0, "COD_CIU_CP": "02003", "NOMBRE": "COMUNIDAD EL BIS" }, "geometry": { "type": "Point", "coordinates": [ -62.917577914049218, -17.665936661394689 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "Id": 0, "COD_CIU_CP": "02037", "NOMBRE": "COMUNIDAD PUERTO PAILAS" }, "geometry": { "type": "Point", "coordinates": [ -62.804874324199403, -17.666127007710511 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "Id": 0, "COD_CIU_CP": "02010", "NOMBRE": "COMUNIDAD ITAPAQUI" }, "geometry": { "type": "Point", "coordinates": [ -63.017308465728462, -17.69316212765353 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "Id": 0, "COD_CIU_CP": "02025", "NOMBRE": "COMUNIDAD LOS TAJIBOS" }, "geometry": { "type": "Point", "coordinates": [ -62.993548817260063, -17.691499218256094 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "Id": 0, "COD_CIU_CP": "02035", "NOMBRE": "COMUNIDAD VILLA ALBA" }, "geometry": { "type": "Point", "coordinates": [ -62.884344322733817, -17.699964089040783 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "Id": 0, "COD_CIU_CP": "02006", "NOMBRE": "ARROYUELO" }, "geometry": { "type": "Point", "coordinates": [ -63.048427621907223, -17.813467488970108 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 9, "Id": 0, "COD_CIU_CP": "02017", "NOMBRE": "EL BISITO" }, "geometry": { "type": "Point", "coordinates": [ -63.016087336787329, -17.793088469649465 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 10, "Id": 0, "COD_CIU_CP": "02018", "NOMBRE": "LAS BARRERAS" }, "geometry": { "type": "Point", "coordinates": [ -62.97515829297101, -17.795036650535963 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 11, "Id": 0, "COD_CIU_CP": "02009", "NOMBRE": "EL ESPINO" }, "geometry": { "type": "Point", "coordinates": [ -62.861274468637326, -17.773824059403875 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 12, "Id": 0, "COD_CIU_CP": "02008", "NOMBRE": "CUMAVI" }, "geometry": { "type": "Point", "coordinates": [ -63.03913206222866, -17.817335288246824 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 13, "Id": 0, "COD_CIU_CP": "02040", "NOMBRE": "BARCELONA" }, "geometry": { "type": "Point", "coordinates": [ -62.962848882728174, -17.832521831465581 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 14, "Id": 0, "COD_CIU_CP": "02014", "NOMBRE": "DON LORENZO" }, "geometry": { "type": "Point", "coordinates": [ -62.879177248193628, -17.806534275137231 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 15, "Id": 0, "COD_CIU_CP": "02003", "NOMBRE": "CAMPANERO" }, "geometry": { "type": "Point", "coordinates": [ -62.951074532716234, -17.726890601591027 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 16, "Id": 0, "COD_CIU_CP": "02019", "NOMBRE": "LA CRUCEÑA" }, "geometry": { "type": "Point", "coordinates": [ -62.989760124840558, -17.78031393153767 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 17, "Id": 0, "COD_CIU_CP": "02011", "NOMBRE": "SANTA ROSA DE PROBOSTE" }, "geometry": { "type": "Point", "coordinates": [ -63.010728517866525, -17.779835598708093 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 18, "Id": 0, "COD_CIU_CP": "02022", "NOMBRE": "COMUNIDAD ECONADA" }, "geometry": { "type": "Point", "coordinates": [ -62.899597249766529, -17.73273127755537 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 19, "Id": 0, "COD_CIU_CP": "02036", "NOMBRE": "ZONA CALLEJAS" }, "geometry": { "type": "Point", "coordinates": [ -63.045888449271168, -17.765377792589355 ] } }
+]
+}

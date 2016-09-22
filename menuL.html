@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="components/markerAwesome/leaflet_awesome_markers.css">
     <script src="components/markerAwesome/leaflet_awesome_markers.js"></script>
     <style>
-        .menuL{
-            font-size:13px;
+        .menuL {
+            font-size: 13px;
         }
+        
         button.accordion {
             /*background-color: #eee;*/
             background-color: #31ba75;
@@ -24,7 +25,7 @@
             outline: none;
             /*font-size: 15px;*/
             transition: 0.3s;
-            font-weight:bold;
+            font-weight: bold;
         }
         
         button.accordion.active,
@@ -54,13 +55,13 @@
             overflow: hidden;
             transition: 0.1s ease-in-out;
             opacity: 0;
-            max-width:80%;
+            max-width: 80%;
         }
         
         div.panel.show {
             opacity: 1;
             max-height: 500px;
-            max-width:80%;
+            max-width: 80%;
         }
         
         #btni {
@@ -107,8 +108,6 @@
             padding: 2px;
             text-align: center;
         }
-
-        
     </style>
 </head>
 
@@ -138,12 +137,11 @@
             </table>
         </div>
     </div>-->
-        <!--FIN DEL CUADRO-->
-    
-    <div  class="menuL" style="width:350px; height:auto;">
+    <!--FIN DEL CUADRO-->
+    <div class="menuL" style="width:350px; height:auto;">
         <h2>Ciudad de Santa Cruz</h2>
         <p>Selecciona la capa que quieres agregar al menu</p>
-        <button class="accordion">Distritos</button>
+        <button class="accordion Ciudad_de_Santa_Cruz">Distritos</button>
         <div class="panel">
             <table>
                 <tr>
@@ -226,13 +224,33 @@
                 </tr>
             </table>
         </div>
-
-        <!--FIN DEL CUADRO-->
+        <button class="accordion Ciudad_de_Santa_Cruz">Provincias</button>
+        <div class="panel">
+            <table>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Cotoca','cotoca','Ciudad de Santa Cruz')">Cotoca</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="pressD('Warnes','warnes','Ciudad de Santa Cruz')">Warnes</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="pressD('Montero','montero','Ciudad de Santa Cruz')">Montero</div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div  class="menuL" style="width:350px; height:auto;">
+    <!--FIN DEL CUADRO-->
+
+    <div class="menuL" style="width:350px; height:auto;">
         <h2>Puntos de Interes</h2>
         <p>Selecciona la categoria que quieres agregar al mapa</p>
-        <button class="accordion">Salud</button>
+        <button class="accordion Salud">Salud</button>
         <div class="panel">
             <table>
                 <tr>
@@ -288,37 +306,37 @@
             </table>
         </div>
 
-        <button class="accordion">Social</button>
+        <button class="accordion Recreativo">Recreativo</button>
         <div class="panel">
             <table>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('parques','Social','tree','darkgreen')">Parques</div>
+                        <div id="btni" onclick="press('parques','Recreativo','tree','darkgreen')">Parques</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('plazas','Social','tree','black')">Plazas</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="btni" onclick="press('coliseos','Social','soccer-ball-o','black')">Coliseos</div>
-                    </td>
-                    <td>
-                        <div id="btni" onclick="press('polifuncionales','Social','soccer-ball-o','green')">Polifuncionales</div>
+                        <div id="btni" onclick="press('plazas','Recreativo','tree','black')">Plazas</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="btni" onclick="press('canchas','Social','soccer-ball-o','darkgreen')">Canchas</div>
+                        <div id="btni" onclick="press('coliseos','Recreativo','soccer-ball-o','black')">Coliseos</div>
                     </td>
                     <td>
-                        <div id="btni" onclick="press('gimnasios','Social','users','black')">GYM</div>
+                        <div id="btni" onclick="press('polifuncionales','Recreativo','soccer-ball-o','green')">Polifuncionales</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btni" onclick="press('canchas','Recreativo','soccer-ball-o','darkgreen')">Canchas</div>
+                    </td>
+                    <td>
+                        <div id="btni" onclick="press('gimnasios','Recreativo','users','black')">GYM</div>
                     </td>
                 </tr>
             </table>
         </div>
 
-        <button class="accordion">Educacion</button>
+        <button class="accordion Educacion">Educacion</button>
         <div class="panel">
             <table>
                 <tr>
@@ -345,7 +363,7 @@
             </table>
         </div>
 
-        <button class="accordion">Otros</button>
+        <button class="accordion Otros">Otros</button>
         <div class="panel">
             <table>
                 <tr>
@@ -361,7 +379,7 @@
                         <div id="btni" onclick="press('policia','Otros','user','black')">Puesto Policial</div>
                     </td>
                     <td>
-                        <!--<div id="btni" onclick="press('licoreria','Otros','beer','red')">Licorerias</div>-->
+                        <!--<div id="btni" onclick="press('centros_poblados_nal','Otros','beer','red')">centros_poblados_nal</div>-->
                     </td>
                 </tr>
             </table>
