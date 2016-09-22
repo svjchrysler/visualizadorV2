@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="refresh" content="5">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="components/markerAwesome/leaflet_awesome_markers.css">
+    <script src="components/markerAwesome/leaflet_awesome_markers.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #FEFEFE;
+        }
+        
+        .menu_bar {
+            display: none;
+        }
+        
+        header {
+            width: 100%;
+        }
+        
+        header nav {
+            background: #023859;
+            z-index: 1000;
+            max-width: 1000px;
+            width: 95%;
+            margin: 20px auto;
+            left:0px;
+        }
+        
+        header nav ul {
+            list-style: none;
+        }
+        
+        header nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+        
+        header nav ul li:hover {
+            background: #E6344A;
+        }
+        
+        header nav ul li a {
+            color: #fff;
+            display: block;
+            text-decoration: none;
+            padding: 20px;
+        }
+        
+        header nav ul li a span {
+            margin-right: 10px;
+        }
+        
+        header nav ul li:hover .children {
+            display: block;
+        }
+        
+        header nav ul li .children {
+            display: none;
+            background: #011826;
+            position: absolute;
+            width: 150%;
+            z-index: 1000;
+        }
+        
+        header nav ul li .children li {
+            display: block;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, .5);
+        }
+        
+        header nav ul li .children li a {
+            display: block;
+        }
+        
+        header nav ul li .children li a span {
+            float: right;
+            position: relative;
+            top: 3px;
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        header nav ul li .caret {
+            position: relative;
+            top: 3px;
+            margin-left: 10px;
+            margin-right: 0px;
+        }
+        
+        @media screen and (max-width: 800px) {
+            body {
+                padding-top: 80px;
+            }
+            .menu_bar {
+                display: block;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                background: #E6344A;
+            }
+            .menu_bar .bt-menu {
+                display: block;
+                padding: 20px;
+                color: #fff;
+                overflow: hidden;
+                font-size: 25px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            .menu_bar span {
+                float: right;
+                font-size: 40px;
+            }
+            header nav {
+                width: 80%;
+                height: calc(100% - 80px);
+                position: fixed;
+                right: 100%;
+                margin: 0;
+                overflow: scroll;
+            }
+            header nav ul li {
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, .5);
+            }
+            header nav ul li a {
+                display: block;
+            }
+            header nav ul li:hover .children {
+                display: none;
+            }
+            header nav ul li .children {
+                width: 100%;
+                position: relative;
+            }
+            header nav ul li .children li a {
+                margin-left: 20px;
+            }
+            header nav ul li .caret {
+                float: right;
+            }
+        }
+    </style>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+    
+    <script>
+        $(document).ready(main);
+
+        var contador = 1;
+        var ancho = $(document).width();
+
+        function main (){
+            $('.menu_bar').click(function(){
+                // $('nav').toggle(); Forma Sencilla de aparecer y desaparecer
+                
+                // if (contador == 1){
+                //     $('nav').animate({
+                //         left: '0'
+                //     });
+                //     contador = 0;
+                // } else {
+                //     contador = 1;
+                //     $('nav').animate({
+                //         left: '-100%'
+                //     });
+                // };
+                
+            });
+
+            // Mostramos y ocultamos submenus
+            $('.submenu').click(function(){
+                $(this).children('.children').slideToggle();
+            });
+
+        };
+    </script>
+
+    <header>
+        <!--<div class="menu_bar">
+            <a href="#" class="bt-menu"><span class="icon-list2"></span>Menu</a>
+        </div>-->
+
+        <nav>
+            <ul>
+                <li><a href="#"><span class="icon-house"></span>Inicio</a></li>
+                <li><a href="#"><span class="icon-suitcase"></span>Trabajos</a></li>
+                <li class="submenu">
+                    <a href="#"><span class="icon-rocket"></span>Proyectos<span class="caret icon-arrow-down6"></span></a>
+                    <ul class="children">
+                        <li><a href="#">SubElemento #1 <span class="icon-dot"></span></a></li>
+                        <li><a href="#">SubElemento #2 <span class="icon-dot"></span></a></li>
+                        <li><a href="#">SubElemento #3 <span class="icon-dot"></span></a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="icon-earth"></span>Servicios</a></li>
+                <li><a href="#"><span class="icon-mail"></span>Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+                acc[i].onclick = function(){
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+            }
+        }
+    </script>
+
+    <script>
+        var otherlayers=[];
+
+        /**
+         * Capas de polygonos
+         */
+        function pressP(layername,filename,groupname){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
+                    var divpol= L.geoJson(data,
+				            {
+				                style: styleFeature,
+				                onEachFeature: onEachFeature,
+				            });
+                    if(divpol){
+                        controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
+                        // document.getElementById('loadcenter').style.visibility='hidden';
+                    }else{
+                        // document.getElementById('loadcenter').style='visible';
+                    }
+                    enableMap();
+                });
+            }
+        }
+        
+        /**
+         * Capas de Distritos
+         */
+        function pressD(layername,filename,groupname){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
+                    var divpol= L.geoJson(data,
+				            {
+				                style: function (feature) {
+                                    return {
+                                        fillColor: '#EB7E37',
+                                        weight: 2,
+                                        opacity: 1,
+                                        color: 'white',
+                                        dashArray: '3',
+                                        fillOpacity: 0.4
+                                    };
+                                },
+                                onEachFeature: onEachFeatureDistritos,
+                        });
+                    if(divpol){
+                        controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
+                        
+                    }else{
+                        // document.getElementById('loadcenter').style='visible';
+                    }
+                    enableMap();
+                });
+            }
+        }
+
+        /**
+         * Capas de puntos
+         */
+         function press(layername,groupname,iconname,iconcolor){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/points/"+layername+".geojson", function (data) {
+                    // var ratIcon = L.icon({
+                    //     iconUrl: 'image/icons/'+iconname,
+                    //     iconSize: [25, 25]
+                    // });
+                    // var ratIcon = L.divIcon({
+                    //     className:'fa fa-blind',
+                    //     // html: '<i class="fa fa-blind" aria-hidden="true"></i>',
+                    //     iconSize: [25, 25]
+                    // });
+                    var ratIcon = L.AwesomeMarkers.icon({
+                        prefix:'fa',
+                        icon:iconname,//'database',
+                        iconColor:iconcolor//'red'
+                    });
+                    var categ= L.geoJson(data, {
+                        pointToLayer: function (feature, latlng) {
+                            var contenido=''
+                                +'<b>'+feature.properties.NOMBREREF+'</b>'
+                                +'<br><br><b>DISTRITO</b> '+feature.properties.DISTRITO
+                                +' / '+feature.properties.UV
+                                +'<br><b>BARRIO</b> '+feature.properties.BARRIO
+                                +'';
+                            
+                            var marker = L.marker(latlng, { icon: ratIcon,tags:['DISTRITO '+feature.properties.DISTRITO] });
+                            marker.bindLabel(feature.properties.NOMBREREF);
+                            marker.bindPopup(contenido);
+                            marker.addEventListener('click',function(e){
+                                document.getElementById('coord').innerHTML=e.latlng;
+                            });
+                            return marker;
+                        }
+                    });
+                    if(categ){
+                        // categ.StyledLayerControl = {
+                        //     removable : true,
+                        //     visible :false
+                        // }
+                        controlStyledLayer.addOverlay( categ, layername, {groupName : groupname} );
+                    }
+                    enableMap();
+                });
+            }
+        }
+
+        /**
+         * Capas de puntos por Distrito
+         */
+         function pressDD(layername,groupname,iconname,iconcolor){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/"+foldername+"/"+layername+".geojson", function (data) {
+                    var ratIcon = L.AwesomeMarkers.icon({
+                        prefix:'fa',
+                        icon:iconname,//'database',
+                        iconColor:iconcolor//'red'
+                    });
+                    var categ= L.geoJson(data, {
+                        pointToLayer: function (feature, latlng) {
+                            var contenido=''
+                                +'<b>'+feature.properties.NOMBREREF+'</b>'
+                                +'<br><br><b>DISTRITO</b> '+feature.properties.DISTRITO
+                                +' / '+feature.properties.UV
+                                +'<br><b>BARRIO</b> '+feature.properties.BARRIO
+                                +'';
+                            
+                            var marker = L.marker(latlng, { icon: ratIcon,tags:['DISTRITO '+feature.properties.DISTRITO] });
+                            marker.bindLabel(feature.properties.NOMBREREF);
+                            marker.bindPopup(contenido);
+                            marker.addEventListener('click',function(e){
+                                document.getElementById('coord').innerHTML=e.latlng;
+                            });
+                            return marker;
+                        }
+                    });
+                    if(categ){
+                        // categ.StyledLayerControl = {
+                        //     removable : true,
+                        //     visible :false
+                        // }
+                        controlStyledLayer.addOverlay( categ, layername, {groupName : groupname} );
+                    }
+                    enableMap();
+                });
+            }
+        }
+
+
+        /**
+         * deshabilitar el mapa
+         */
+        function disableMap(layername){
+            // map.dragging.disable();
+            // map.touchZoom.disable();
+            // map.doubleClickZoom.disable();
+            // map.scrollWheelZoom.disable();
+            // map.boxZoom.disable();
+            // map.keyboard.disable();
+            // if (map.tap) map.tap.disable();
+            // document.getElementById('map').style.cursor='default';
+
+            // var loadcenter=document.getElementById('loadcenter');
+            //     loadcenter.style.visibility='visible';
+            //     loadcenter.innerHTML='cargando '+layername+'...';
+            // document.getElementsByClassName('leaflet-menu')[0].style.left = '-400px';
+            
+            // $('.leaflet-menu').animate({
+            //                    'margin-left':'-400px'
+            //         },1000);
+
+            $.blockUI({
+                message: 'Cargando '+layername+'...',
+                css:{
+                    backgroundColor:'#444',
+                    color:'white'
+                }
+            });
+            
+        }
+
+        /**
+         * habilitar el mapa
+         */
+        function enableMap(){
+            // map.dragging.enable();
+            // map.touchZoom.enable();
+            // map.doubleClickZoom.enable();
+            // map.scrollWheelZoom.enable();
+            // map.boxZoom.enable();
+            // map.keyboard.enable();
+            // if (map.tap) map.tap.enable();
+            // document.getElementById('map').style.cursor='grab';
+             $.unblockUI();
+            //  document.getElementById('loadcenter').style.visibility='hidden';
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

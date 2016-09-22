@@ -373,7 +373,6 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
 
             inputElement = '<input id="ac' + obj.group.id + '" name="accordion-1" class="menu" ' + s_expanded + s_type_exclusive + '/>';
             inputLabel = '<label for="ac' + obj.group.id + '" class="'+obj.group.name.replace(/\s/g,"_")+'">' + obj.group.name + '</label>';
-            console.info("add class",inputLabel),
             /**
              * agregando evento onClick en la libreria
              */
