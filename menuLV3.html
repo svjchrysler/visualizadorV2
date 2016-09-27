@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--<meta http-equiv="refresh" content="5">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="components/markerAwesome/leaflet_awesome_markers.css">
+    <script src="components/markerAwesome/leaflet_awesome_markers.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <style>
+        .menuL {
+            font-size: 13px;
+        }
+        
+        button.accordion {
+            /*background-color: #eee;*/
+            background-color: #31ba75;
+            /*color: #444;*/
+            color: #eee;
+            cursor: pointer;
+            padding: 15px;
+            width: 80%;
+            border: none;
+            text-align: left;
+            outline: none;
+            /*font-size: 15px;*/
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        
+        button.accordion.active,
+        button.accordion:hover {
+            background-color: #31AA75;
+            /*background-color: #ddd;*/
+        }
+        
+        button.accordion:after {
+            /*content: '\02795';*/
+            font-size: 13px;
+            color: #222;
+            /*color: #777;*/
+            float: left;
+            margin-right: 10px;
+        }
+        
+        button.accordion.active:after {
+            /*content: "\2796";*/
+        }
+        
+        div.panel {
+            /*padding: 0 18px;*/
+            background-color: #31b875;
+            /*background-color: white;*/
+            max-height: 0;
+            overflow: none;
+            transition: 0.1s ease-in-out;
+            opacity: 0;
+            max-width: 80%;
+        }
+        
+        div.panel.show {
+            opacity: 1;
+            max-height: 100%;
+            max-width: 80%;
+        }
+        
+        #btni {
+            background: #333;
+            display: inline-block;
+            /*margin: 0 1px;*/
+            padding: 5px 8px 5px;
+            color: white;
+            text-decoration: none;
+            text-shadow: 0 1px 1px black;
+            border: 1px solid #ccc;
+            width: 100px;
+            border-radius: 8px;
+        }
+        
+        #btni:hover {
+            background: #555;
+            display: inline-block;
+            /*margin: 0 1px;*/
+            padding: 5px 8px 5px;
+            color: white;
+            text-decoration: none;
+            text-shadow: 0 1px 1px black;
+            border: 1px solid #ccc;
+            width: 100px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        table {
+            width: 100%;
+            margin-left: -3px;
+        }
+        
+        table,
+        th,
+        td {
+            border: none;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 2px;
+            text-align: center;
+        }
+    </style>
+    <style>
+        /*MENU 2**/
+        
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #FEFEFE;
+        }
+        
+        .menu_bar {
+            display: none;
+        }
+        
+        header {
+            width: 100%;
+            visibility: hidden;
+        }
+        
+        header.show {
+            width: 100%;
+            visibility: visible;
+        }
+
+        header nav {
+            background: #023859;
+            z-index: 1000;
+            max-width: 1000px;
+            width: 95%;
+            margin: 20px auto;
+            left: 0px;
+        }
+        
+        header nav ul {
+            list-style: none;
+        }
+        
+        header nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+        
+        header nav ul li:hover {
+            background: #E6344A;
+        }
+        
+        header nav ul li a {
+            color: #fff !important;
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            text-align:center;
+        }
+        
+        header nav ul li a span {
+            margin-right: 10px;
+        }
+        
+        header nav ul li:hover .children {
+            display: block;
+        }
+        
+        header nav ul li .children {
+            display: none;
+            background: #011826;
+            position: absolute;
+            width: 150%;
+            z-index: 1000;
+        }
+        
+        header nav ul li .children li {
+            display: block;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, .5);
+        }
+        
+        header nav ul li .children li a {
+            display: block;
+        }
+        
+        header nav ul li .children li a span {
+            float: right;
+            position: relative;
+            top: 3px;
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        header nav ul li .caret {
+            position: relative;
+            top: 3px;
+            margin-left: 10px;
+            margin-right: 0px;
+        }
+        /*@media screen and (max-width: 800px) {*/
+        
+        body {
+            /*padding-top: 80px;*/
+        }
+        
+        .menu_bar {
+            display: block;
+            width: 100%;
+            /*position: fixed;*/
+            top: 0;
+            background: #E6344A;
+        }
+        
+        .menu_bar .bt-menu {
+            display: block;
+            padding: 20px;
+            color: #fff;
+            overflow: hidden;
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .menu_bar span {
+            float: right;
+            font-size: 40px;
+        }
+        
+        header nav {
+            width: 100%;
+            /*height: calc(100% - 80px);*/
+            height: auto;
+            position: relative;
+            right: 100%;
+            margin: 0;
+            overflow: none;
+        }
+        
+        header nav ul li {
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, .5);
+        }
+        
+        header nav ul li a {
+            display: block;
+        }
+        
+        header nav ul li:hover .children {
+            display: none;
+        }
+        
+        header nav ul li .children {
+            width: 100%;
+            position: relative;
+        }
+        
+        header nav ul li .children li a {
+            margin-left: 20px;
+        }
+        
+        header nav ul li .caret {
+            float: right;
+        }
+        /*}*/
+    </style>
+</head>
+
+<body bgcolor="#FFFFFF">
+    <script>
+        // $(document).ready(main);
+        // function main (){
+            // Mostramos y ocultamos submenus
+            // $('.submenu').click(function(){
+            //     $(this).children('.children').slideToggle();
+            // });
+            // $("body").on("click",".submenu",function(){
+            //     $(this).children('.children').slideToggle();
+                
+            // });
+            // $('.submenu').on('click',function(){
+            //     $(this).children('.children').slideToggle();
+            // });
+        // };
+    </script>
+
+
+    <div class="menuL" style="width:350px; height:auto;">
+        <h2>Puntos de Interes</h2>
+        <p>Selecciona la capa que quieres agregar al menu</p>
+        <button class="accordion Educacion">EDUCACION</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu">
+                            <a href="javascript:void()"><span class="icon-rocket"></span>PRIMARIA<span class="caret icon-arrow-down6"></span></a>
+                            <ul class="children">
+                                <li> <a href="javascript:saludo()">INICIAL <span class="icon-dot"></span></a> </li>
+                                <li><a href="javascript:press('primaria publica','Educacion','institution','green')">PUBLICA <span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:press('primaria privada','Educacion','institution','darkblue')">PRIVADA<span class="icon-dot"></span></a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void()"><span class="icon-rocket"></span>SECUNDARIA<span class="caret icon-arrow-down6"></span></a>
+                            <ul class="children">
+                                <li><a href="javascript:press('secundaria publica','Educacion','institution','red')">PUBLICA <span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:press('secundaria privada','Educacion','institution','darkred')">PRIVADA<span class="icon-dot"></span></a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void()"><span class="icon-rocket"></span>SUPERIOR<span class="caret icon-arrow-down6"></span></a>
+                            <ul class="children">
+                                <li><a href="javascript:press('universidades','Educacion','institution','black')">Universidades <span class="icon-dot"></span></a></li>
+                                <!--<li><a href="javascript:">PUBLICA<span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:">PRIVADA<span class="icon-dot"></span></a></li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion Salud">SALUD</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:press('hospitales','Salud','h-square','darkred')"><span class="icon-rocket"></span>HOSPITALES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('clinicas','Salud','ambulance','red')"><span class="icon-rocket"></span>CLINICAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('odontologos','Salud','user-md','blue')"><span class="icon-rocket"></span>ODONTOLOGIA<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('laboratorios','Salud','hospital-o','black')"><span class="icon-rocket"></span>LABORATORIOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('centros terapeuticos','Salud','hospital-o','green')"><span class="icon-rocket"></span>CENTRO TERAPEUTICO<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>BANCO DE SANGRE, ESPERMA Y DE ORGANOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('servicios de salud','Salud','hospital-o','blue')"><span class="icon-rocket"></span>OTROS SERVICIOS RELACIONADOS A LA SALUD<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('farmacias','Salud','plus-square','darkred')"><span class="icon-rocket"></span>FARMACIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('centros de salud','Salud','hospital-o','red')">CENTROS DE SALUD<span class="icon-rocket"></span><span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('postas','Salud','hospital-o','bluered')">POSTAS<span class="icon-rocket"></span><span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('consultorios medicos','Salud','stethoscope','black')"><span class="icon-rocket"></span>CONSULTORIOS MEDICOS<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion Recreativo">RECREACION</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:press('parques','Recreativo','tree','darkgreen')"><span class="icon-rocket"></span>PARQUES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('plazas','Recreativo','tree','black')"><span class="icon-rocket"></span>PLAZAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('coliseos','Recreativo','soccer-ball-o','black')"><span class="icon-rocket"></span>COLISEOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('gimnasios','Recreativo','users','black')"><span class="icon-rocket"></span>GYMNASIOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('canchas','Recreativo','soccer-ball-o','darkgreen')"><span class="icon-rocket"></span>CANCHAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('polifuncionales','Recreativo','soccer-ball-o','green')"><span class="icon-rocket"></span>CANCHAS POLIFUNCIONALES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>AREAS VERDES<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">COMERCIO AL POR MENOR</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>TIENDA DE BARRIO<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>SUPERMERCADOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>CARNICERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>VENTA DE PAN<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>LICORERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>VENTA DE PRODUCTOS TEXTILES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>VENTA DE ZAPATOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>VENTA DE PRENDAS DE VESTIR<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>FERRETERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>LIBRERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>FLORERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>JUGUETERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>PRENDAS DE VESTIR Y CALZADOS USADOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>COMPUTADORAS Y PROGRAMAS INFORMATICOS<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion Otros">HOTELES</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:press('hoteles','Otros','hotel','blue')"><span class="icon-rocket"></span>HOTELES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>HOSTALES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>ALOJAMIENTO<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:press('residenciales','Otros','hotel','red')"><span class="icon-rocket"></span>RESIDENCIALES<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">RESTAURANTES, BARES Y CANTINAS</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>RESTAURANTES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>SNACK<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>HELADERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>BARES, CANTINAS, KARAOKES, ETC<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">SERVICIOS PERSONALES</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>PELUQUERIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>FUNERARIAS Y SALONES VELATORIOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>LIMPIEZA EN SECO<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">MANUFACTURADOS</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>CONFECCION DE PRENDAS DE VESTIR<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>PASTELERIA<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>PANADERIA<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>REPOSTERIA NCP<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>ELABORACION DE HIELO<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>FABRICACION DE MUEBLES (CARPINTERIA)<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>ELABORACION DE HELADOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>TRATAMIENTO DE METALES<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">COMERCIO AL POR MENOR Y MAYOR AUTOMOTRICES</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>CARROCERIAS, CHAPERIO<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>REPUESTOS Y ACCESORIOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>CANCHAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>MECANICA EN GENERAL<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">TRANSPORTE, ALMACENAMIENTO</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>SERVICIO DE ALMACENAMIENTO Y DEPOSITO<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>SERVICIO DE RADIO-TAXI<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>SERVICIO DE TRANSPORTE AUTOMOTOR<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">SERVICIO DE CORREO Y TELECOMUNICACIONES</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>CAFE INTERNET<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">ORGANIZACIONES RELIGIOSAS</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>IGLESIAS CATOLICAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()"><span class="icon-rocket"></span>IGLESIAS OTROS<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <button class="accordion ">SEGURIDAD</button>
+        <div class="panel">
+            <header>
+                <nav>
+                    <ul>
+                        <li class="submenu"> <a href="javascript:press('policia','Otros','user','black')"><span class="icon-rocket"></span>PUESTO POLICIAL<span class="caret icon-arrow-down6"></span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+    </div>
+    <!--FIN DEL CUADRO-->
+
+    <script>
+        // var acc = document.getElementsByClassName("accordion");
+        // var i;
+
+        // for (i = 0; i < acc.length; i++) {
+        //         acc[i].onclick = function(){
+        //             this.classList.toggle("active");
+        //             this.nextElementSibling.classList.toggle("show");
+        //     }
+        // }
+
+        $("body").on("click",".accordion",function(){
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+                    var cc=this.nextElementSibling.children[0].classList.toggle("show");
+        });
+        $("body").on("click",".submenu",function(){
+                $(this).children('.children').slideToggle();
+        });
+
+        function saludo(e){
+            console.info("e",e)
+            console.info("saludo","hola mundo");
+        }
+    </script>
+
+    <script>
+        var otherlayers=[];
+
+        /**
+         * Capas de polygonos
+         */
+        function pressP(layername,filename,groupname){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
+                    var divpol= L.geoJson(data,
+				            {
+				                style: styleFeature,
+				                onEachFeature: onEachFeature,
+				            });
+                    if(divpol){
+                        controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
+                        // document.getElementById('loadcenter').style.visibility='hidden';
+                    }else{
+                        // document.getElementById('loadcenter').style='visible';
+                    }
+                    enableMap();
+                });
+            }
+        }
+        
+        /**
+         * Capas de Distritos
+         */
+        function pressD(layername,filename,groupname){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/polygons/"+filename+".geojson", function (data) {
+                    var divpol= L.geoJson(data,
+				            {
+				                style: function (feature) {
+                                    return {
+                                        fillColor: '#EB7E37',
+                                        weight: 2,
+                                        opacity: 1,
+                                        color: 'white',
+                                        dashArray: '3',
+                                        fillOpacity: 0.4
+                                    };
+                                },
+                                onEachFeature: onEachFeatureDistritos,
+                        });
+                    if(divpol){
+                        controlStyledLayer.addOverlay( divpol, layername, {groupName : groupname} );
+                        
+                    }else{
+                        // document.getElementById('loadcenter').style='visible';
+                    }
+                    enableMap();
+                });
+            }
+        }
+
+        /**
+         * Capas de puntos
+         */
+         function press(layername,groupname,iconname,iconcolor){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/points/"+layername+".geojson", function (data) {
+                    // var ratIcon = L.icon({
+                    //     iconUrl: 'image/icons/'+iconname,
+                    //     iconSize: [25, 25]
+                    // });
+                    // var ratIcon = L.divIcon({
+                    //     className:'fa fa-blind',
+                    //     // html: '<i class="fa fa-blind" aria-hidden="true"></i>',
+                    //     iconSize: [25, 25]
+                    // });
+                    var ratIcon = L.AwesomeMarkers.icon({
+                        prefix:'fa',
+                        icon:iconname,//'database',
+                        iconColor:iconcolor//'red'
+                    });
+                    var categ= L.geoJson(data, {
+                        pointToLayer: function (feature, latlng) {
+                            var contenido=''
+                                +'<b>'+feature.properties.NOMBREREF+'</b>'
+                                +'<br><br><b>DISTRITO</b> '+feature.properties.DISTRITO
+                                +' / '+feature.properties.UV
+                                +'<br><b>BARRIO</b> '+feature.properties.BARRIO
+                                +'';
+                            
+                            var marker = L.marker(latlng, { icon: ratIcon,tags:['DISTRITO '+feature.properties.DISTRITO] });
+                            marker.bindLabel(feature.properties.NOMBREREF);
+                            marker.bindPopup(contenido);
+                            marker.addEventListener('click',function(e){
+                                document.getElementById('coord').innerHTML=e.latlng;
+                            });
+                            return marker;
+                        }
+                    });
+                    if(categ){
+                        // categ.StyledLayerControl = {
+                        //     removable : true,
+                        //     visible :false
+                        // }
+                        controlStyledLayer.addOverlay( categ, layername, {groupName : groupname} );
+                    }
+                    enableMap();
+                });
+            }
+        }
+
+        /**
+         * Capas de puntos por Distrito
+         */
+         function pressDD(layername,groupname,iconname,iconcolor){
+            if(otherlayers.indexOf(layername)>-1){
+                // console.info("contains layername",layername);
+            }else{
+                otherlayers.push(layername);
+                disableMap(layername);
+                $.getJSON("datos/"+foldername+"/"+layername+".geojson", function (data) {
+                    var ratIcon = L.AwesomeMarkers.icon({
+                        prefix:'fa',
+                        icon:iconname,//'database',
+                        iconColor:iconcolor//'red'
+                    });
+                    var categ= L.geoJson(data, {
+                        pointToLayer: function (feature, latlng) {
+                            var contenido=''
+                                +'<b>'+feature.properties.NOMBREREF+'</b>'
+                                +'<br><br><b>DISTRITO</b> '+feature.properties.DISTRITO
+                                +' / '+feature.properties.UV
+                                +'<br><b>BARRIO</b> '+feature.properties.BARRIO
+                                +'';
+                            
+                            var marker = L.marker(latlng, { icon: ratIcon,tags:['DISTRITO '+feature.properties.DISTRITO] });
+                            marker.bindLabel(feature.properties.NOMBREREF);
+                            marker.bindPopup(contenido);
+                            marker.addEventListener('click',function(e){
+                                document.getElementById('coord').innerHTML=e.latlng;
+                            });
+                            return marker;
+                        }
+                    });
+                    if(categ){
+                        // categ.StyledLayerControl = {
+                        //     removable : true,
+                        //     visible :false
+                        // }
+                        controlStyledLayer.addOverlay( categ, layername, {groupName : groupname} );
+                    }
+                    enableMap();
+                });
+            }
+        }
+
+
+        /**
+         * deshabilitar el mapa
+         */
+        function disableMap(layername){
+            // map.dragging.disable();
+            // map.touchZoom.disable();
+            // map.doubleClickZoom.disable();
+            // map.scrollWheelZoom.disable();
+            // map.boxZoom.disable();
+            // map.keyboard.disable();
+            // if (map.tap) map.tap.disable();
+            // document.getElementById('map').style.cursor='default';
+
+            // var loadcenter=document.getElementById('loadcenter');
+            //     loadcenter.style.visibility='visible';
+            //     loadcenter.innerHTML='cargando '+layername+'...';
+            // document.getElementsByClassName('leaflet-menu')[0].style.left = '-400px';
+            
+            // $('.leaflet-menu').animate({
+            //                    'margin-left':'-400px'
+            //         },1000);
+
+            // $.blockUI({
+            //     message: 'Cargando '+layername+'...',
+            //     css:{
+            //         backgroundColor:'#444',
+            //         color:'white'
+            //     }
+            // });
+            
+        }
+
+        /**
+         * habilitar el mapa
+         */
+        function enableMap(){
+            // map.dragging.enable();
+            // map.touchZoom.enable();
+            // map.doubleClickZoom.enable();
+            // map.scrollWheelZoom.enable();
+            // map.boxZoom.enable();
+            // map.keyboard.enable();
+            // if (map.tap) map.tap.enable();
+            // document.getElementById('map').style.cursor='grab';
+             $.unblockUI();
+            //  document.getElementById('loadcenter').style.visibility='hidden';
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -88,6 +88,7 @@ var overLayers = [
 			// "Distritos":ICEDISTRITOS,
 			// "UVs": ICEUVS,
 			"Manzanos": ICEMNZA,
+			"Codigo Manzanos": ICEMNZACODIGO,
 			"Calles": ICECALLES,
 			// "Distrito 01": L.geoJson(exp_distrito1,
 			// 	{

@@ -15,5 +15,5 @@ var slideMenu=L.control.slideMenu(
         slideMenu.addTo(map);
 
 $(function() {
-$("#informacion").load("menuL.html"); 
+$("#informacion").load("menuLV3.html"); 
 }); 

@@ -339,6 +339,7 @@ var url='159.203.182.38';
 		mbUrlICESANTACRUZ = 'http://'+url+'/icelayers/santacruz/Z{z}/{y}/{x}.png'; //MAPA ICE HIBRIDO
 		// mbUrlICEMNZA = 'http://10.10.110.250/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
 		mbUrlICEMNZA = 'http://'+url+'/icelayers/santacruz/manzanas/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
+		mbUrlICEMNZACODIGO = 'http://'+url+'/icelayers/santacruz/manzanas_codigo/Z{z}/{y}/{x}.png'; //MAPA ICE MANZANAS
 		mbUrlICEUVS = 'http://1'+url+'/icelayers/santacruz/uvs/Z{z}/{y}/{x}.png'; //MAPA ICE UVS
 		mbUrlICEDISTRITOS = 'http://'+url+'/icelayers/santacruz/distritos/Z{z}/{y}/{x}.png'; //MAPA ICE DISTRITOS
 		mbUrlICEPREDIOS= 'http://'+url+'/icelayers/santacruz/predios/Z{z}/{y}/{x}.png'; //MAPA ICE PREDIOS
@@ -353,6 +354,7 @@ var url='159.203.182.38';
 		ICEDEPARTAMENTOS = L.tileLayer(mbUrlICEDEPARTAMENTOS, { id: 'ice.streets'});//, attribution: 'Tiles by <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICESANTACRUZ = L.tileLayer(mbUrlICESANTACRUZ, { id: 'ice.streets'});//, attribution: 'Tiles by <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICEMNZA = L.tileLayer(mbUrlICEMNZA, { id: 'ice.streets'});//, attribution: 'Manzanos de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
+		ICEMNZACODIGO = L.tileLayer(mbUrlICEMNZACODIGO, { id: 'ice.streets'});
 		ICEUVS = L.tileLayer(mbUrlICEUVS, { id: 'ice.streets'});//, attribution: 'Uvs de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICEPREDIOS = L.tileLayer(mbUrlICEPREDIOS, { id: 'ice.streets'});//, attribution: 'Predios de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 17, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });
 		ICECALLES = L.tileLayer(mbUrlICECALLES, { id: 'ice.streets'});//, attribution: 'Calles de <a href="http://www.santacruz.gob.bo">ICE</a>', maxZoom: 19, minZoom: 2, errorTileUrl: 'http://200.119.197.136/santacruz/blank.png' });

@@ -556,6 +556,8 @@ function tematicoSelect(obj) {
                     nombreTematico = obj.group.name;
                     nombreDistrito = obj.name;
                     geojsonDistrito = obj.layer;
+                }else{
+                    map.setView([-17.78361, -63.18212], 13);
                 }
             }
             break;
