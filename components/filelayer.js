@@ -18,13 +18,51 @@
 //     }).addTo(map);
 
 
-        var stylefilelayer = {color:'darkgreen', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: false};
-        // L.Control.FileLayerLoad.LABEL = '<img class="icon" src="image/folder.svg" alt="file icon"/>';
-        L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open fa-1x" aria-hidden="true" style="margin-top:5px"></i>';
-        L.Control.fileLayerLoad({
-            fitBounds: true,
-            layerOptions: {style: stylefilelayer,
-                           pointToLayer: function (data, latlng) {
-                              return L.circleMarker(latlng, {style: stylefilelayer});
-                           }},
-        }).addTo(map);
+var stylefilelayer = { color: 'darkgreen', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: true };
+var hoverStyle = { color: 'darkgreen', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: true };
+// var stylefilelayer = { color: 'darkgreen', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: true };
+// L.Control.FileLayerLoad.LABEL = '<img class="icon" src="image/folder.svg" alt="file icon"/>';
+L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open fa-1x" aria-hidden="true" style="margin-top:5px"></i>';
+
+var filelayercontrol = L.Control.fileLayerLoad({
+        fitBounds: true,
+        layerOptions: {
+                style: stylefilelayer,
+                pointToLayer: function (data, latlng) {
+                        return L.circleMarker(latlng, { style: stylefilelayer });
+                },
+                onEachFeature: function (feature, layer) {
+                if (feature.properties) {
+                    var popupString = '<div class="popup">';
+                    for (var k in feature.properties) {
+                        var v = feature.properties[k];
+                        popupString += k + ': ' + v + '<br />';
+                    }
+                    popupString += '</div>';
+                    layer.bindPopup(popupString);
+                }
+                if (!(layer instanceof L.Point)) {
+                    layer.on('mouseover', function () {
+                        layer.setStyle(hoverStyle);
+                    });
+                    layer.on('mouseout', function () {
+                        layer.setStyle(stylefilelayer);
+                    });
+                }
+            }
+        },
+});
+filelayercontrol.addTo(map);
+
+filelayercontrol.loader.on('data:loaded', function (e) {
+        console.info("filelayercontrol",e);
+        var filename = e.filename;
+        filename=filename.replace("."+e.format,"");
+        console.info("filelayercontrol",filename);
+        controlStyledLayer.addOverlay( e.layer, filename, {groupName : "Importado"} );
+});
+
+filelayercontrol.loader.on('data:error', function (e) {
+        console.info("Error de filelayer",e);
+        alert("Ocurrio un error al cargar el archivo "+e.filename+"!");
+});
