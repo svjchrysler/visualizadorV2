@@ -1,5 +1,6 @@
 /**
  * CENTER MAP BUTTON
+ * LOCATION
  */
 L.easyButton('<i class="fa fa-eye fa-lg" aria-hidden="true" style="margin-left:-3px; margin-top:4px"></i>', function () {
     if (geojsonDistrito) {
@@ -13,6 +14,10 @@ L.easyButton('<i class="fa fa-eye fa-lg" aria-hidden="true" style="margin-left:-
             map.on("locationfound", function (e) {
                 console.info("location found", e);
                 map.stopLocate();
+            });
+            map.on("locationerror", function (e) {
+                console.info("location error", e);
+                map.setView([-17.78361, -63.18212], 12);
             });
         }
     }

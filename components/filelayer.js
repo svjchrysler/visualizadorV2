@@ -19,7 +19,7 @@
 
 
 var stylefilelayer = { color: 'darkgreen', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: true };
-var hoverStyle = { color: 'darkgreen', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: true };
+var hoverStyle = { color: 'red', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: true };
 // var stylefilelayer = { color: 'darkgreen', opacity: 0.5, fillOpacity: 0.05, weight: 3, clickable: true };
 // L.Control.FileLayerLoad.LABEL = '<img class="icon" src="image/folder.svg" alt="file icon"/>';
 L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open fa-1x" aria-hidden="true" style="margin-top:5px"></i>';
