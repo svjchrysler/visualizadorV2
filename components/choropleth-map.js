@@ -59,7 +59,9 @@ info.update = function (props, layer) {
                     + "<br><b>Mujeres: </b>" + props.mujer_urb + " hab."
                     + "<br><br><b>Total Rural: </b>" + props.total_ru + " hab."
                     + "<br><b>Hombres: </b>" + props.hombre_ru + " hab."
-                    + "<br><b>Mujeres: </b>" + props.mujer_ru + " hab.";
+                    + "<br><b>Mujeres: </b>" + props.mujer_ru + " hab."
+                    + "<br><br><b>Fuente: CNPV-2012</b>"
+                    + "";
                 // info._container.style.visibility = 'visible';
                 // layer.bindPopup(contenido + btn + ref);
                 win.title(props.nombre)
@@ -81,7 +83,9 @@ info.update = function (props, layer) {
                     + "<br><b>Mujeres: </b>" + props.mujer_urb + " hab."
                     + "<br><br><b>Total Rural: </b>" + props.total_ru + " hab."
                     + "<br><b>Hombres: </b>" + props.hombre_ru + " hab."
-                    + "<br><b>Mujeres: </b>" + props.mujer_ru + " hab.";
+                    + "<br><b>Mujeres: </b>" + props.mujer_ru + " hab."
+                    + "<br><br><b>Fuente: CNPV-2012</b>"
+                    + "";
                 // info._container.style.visibility = 'visible';
                 // layer.bindPopup(contenido + btn + ref);
                 win.title(props.nombre)
@@ -103,7 +107,9 @@ info.update = function (props, layer) {
                     + "<br><b>Mujeres: </b>" + props.mujer_urb + " hab."
                     + "<br><br><b>Total Rural: </b>" + props.total_ru + " hab."
                     + "<br><b>Hombres: </b>" + props.hombre_ru + " hab."
-                    + "<br><b>Mujeres: </b>" + props.mujer_ru + " hab.";
+                    + "<br><b>Mujeres: </b>" + props.mujer_ru + " hab."
+                    + "<br><br><b>Fuente: CNPV-2012</b>"
+                    + "";
                 // info._container.style.visibility = 'visible';
                 // layer.bindPopup(contenido + btn + ref);
                 win.title(props.nombre)
@@ -157,7 +163,7 @@ info.update = function (props, layer) {
                     + (props.nombre ? "<b>Otras areas urbanas: </b> " + props.nombre : '')
                     // + props.man?'':"<b>Manzana:</b> " + props.man
                     + '';
-                 win.title(nombreTematico)
+                win.title(nombreTematico)
                     .content(contenido)
                     .show();
                 break;
@@ -384,7 +390,7 @@ function tematicoSelect(obj) {
                             // spin: true
                         });
 
-
+                        nombreTematico=obj.name;
                         puntosDepartamento = L.geoJson(data, {
                             pointToLayer: function (feature, latlng) {
                                 var contenido = ''
@@ -402,7 +408,10 @@ function tematicoSelect(obj) {
                                     + "<br><b>Mujeres: </b>" + feature.properties.mujer_urb + " hab."
                                     + "<br><br><b>Total Rural: </b>" + feature.properties.total_ru + " hab."
                                     + "<br><b>Hombres: </b>" + feature.properties.hombre_ru + " hab."
-                                    + "<br><b>Mujeres: </b>" + feature.properties.mujer_ru + " hab.";
+                                    + "<br><b>Mujeres: </b>" + feature.properties.mujer_ru + " hab."
+                                    + "<br><br><b>Fuente: CNPV-2012</b>"
+                                    + "";
+
                                 // info.update(feature.properties,undefined);
                                 var marker = L.marker(latlng, { icon: ratIcon });
                                 marker.bindLabel(feature.properties.nombre);
@@ -556,7 +565,7 @@ function tematicoSelect(obj) {
                     nombreTematico = obj.group.name;
                     nombreDistrito = obj.name;
                     geojsonDistrito = obj.layer;
-                }else{
+                } else {
                     map.setView([-17.78361, -63.18212], 13);
                 }
             }

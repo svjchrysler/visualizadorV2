@@ -23,6 +23,7 @@
 .ac-container{
 	width: auto;
 	margin: 10px auto 10px auto;
+	padding: 2px;
 	text-align: left;
 	overflow-y: auto;
 	overflow-x: hidden;
