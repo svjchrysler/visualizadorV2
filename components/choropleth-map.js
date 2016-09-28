@@ -213,7 +213,7 @@ function highlightFeature(e) {
     layer.setStyle({
         weight: 1,
         color: '#555',
-        dashArray: '1',
+        dashArray: '',
         fillOpacity: 1
     });
 
@@ -573,6 +573,7 @@ function tematicoSelect(obj) {
         default:
             controlSearch._layer = obj.layer;
             searchcluster.addLayer(obj.layer);
+            $(".leaflet-control-search").toggleClass("showsearch");
             break;
     }
 }
@@ -646,6 +647,7 @@ function tematicoUnSelect(obj) {
             searchcluster.removeLayer(obj.layer);
             searchcluster.addTo(map);
             controlSearch._layer = searchcluster;
+            $(".leaflet-control-search").toggleClass("showsearch");
             break;
     }
 }
