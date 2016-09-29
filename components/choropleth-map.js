@@ -131,7 +131,7 @@ info.update = function (props, layer) {
 
                 break;
             // case 'Distritos':
-            case 'Ciudad de Santa Cruz':
+            case 'Municipio de Santa Cruz':
                 console.info('nombreDistrito', nombreDistrito);
                 if (nombreDistrito == "Distrito 02") {
                     btn = "<br><a  id='btnref' onclick='return referencia(" + '"' + nombreDistrito + '"' + ");'><b>Informe Tecnico</b></a>";
@@ -202,7 +202,7 @@ function styleFeature(feature) {
         weight: 2,
         opacity: 1,
         color: 'white',
-        dashArray: '1',
+        dashArray: '',
         fillOpacity: 0.4
     };
 }
@@ -298,7 +298,7 @@ function viewLegend(e) {
     map.fitBounds(e.target.getBounds());
     var props = e.target.feature.properties;
     if (!props.filetype) {
-        nombreTematico = "Ciudad de Santa Cruz";
+        nombreTematico = "Municipio de Santa Cruz";
         nombreDistrito = (props.DISTRITO ? "Distrito " + props.DISTRITO : props.nombre);
     } else {
         nombreTematico = props.filetype;
@@ -358,7 +358,7 @@ var geojsonDistritos = {};
 var puntosDepartamento;
 var puntosProvincia;
 var puntosMunicipio;
-
+var geojsonPtosInteres = {};
 /**
  * funcion para asignar el geojson 
  * desde los eventos del menu 
@@ -390,7 +390,7 @@ function tematicoSelect(obj) {
                             // spin: true
                         });
 
-                        nombreTematico=obj.name;
+                        nombreTematico = obj.name;
                         puntosDepartamento = L.geoJson(data, {
                             pointToLayer: function (feature, latlng) {
                                 var contenido = ''
@@ -528,7 +528,7 @@ function tematicoSelect(obj) {
             break;
 
         // case 'Distritos':
-        case 'Ciudad de Santa Cruz':
+        case 'Municipio de Santa Cruz':
             if (obj.name == 'Limites de Distrito') {
                 var puntos = [];
                 if (markersTematicos.hasOwnProperty(obj.name)) {
@@ -573,7 +573,14 @@ function tematicoSelect(obj) {
         default:
             controlSearch._layer = obj.layer;
             searchcluster.addLayer(obj.layer);
-            $(".leaflet-control-search").toggleClass("showsearch");
+            if (!geojsonPtosInteres.hasOwnProperty(obj.name)) {
+                geojsonPtosInteres[obj.name] = obj.layer;
+                var aa = Object.keys(geojsonPtosInteres);
+                console.info("geojsonPtosInteres", aa);
+                console.info("geojsonPtosInteres", aa.length);
+            }
+
+            $(".leaflet-control-search").css("display", "initial");
             break;
     }
 }
@@ -620,7 +627,7 @@ function tematicoUnSelect(obj) {
             }
             break;
         // case 'Distritos':
-        case 'Ciudad de Santa Cruz':
+        case 'Municipio de Santa Cruz':
             if (obj.name == 'Limites de Distrito') {
                 if (markersTematicos.hasOwnProperty(obj.name)) {
                     var puntos = markersTematicos[obj.name];
@@ -645,9 +652,22 @@ function tematicoUnSelect(obj) {
             break;
         default:
             searchcluster.removeLayer(obj.layer);
+            if (geojsonPtosInteres) {
+                delete geojsonPtosInteres[obj.name];
+                var dimPtos = Object.keys(geojsonPtosInteres);
+                if (dimPtos.length > 0) {
+                    var layerPtos = geojsonPtosInteres[dimPtos[dimPtos.length - 1]];
+                    console.info("layerPtos", layerPtos);
+                    searchcluster.addLayer(layerPtos);
+                    controlSearch._layer = layerPtos;
+                } else {
+                    controlSearch._layer = searchcluster;
+                    $(".leaflet-control-search").css("display", "none");
+                }
+            } else {
+                $(".leaflet-control-search").css("display", "none");
+            }
             searchcluster.addTo(map);
-            controlSearch._layer = searchcluster;
-            $(".leaflet-control-search").toggleClass("showsearch");
             break;
     }
 }

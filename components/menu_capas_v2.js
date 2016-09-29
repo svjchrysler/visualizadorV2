@@ -67,7 +67,7 @@ var overLayers = [
 	},
 	{
 		// groupName: "Distritos",
-		groupName: "Ciudad de Santa Cruz",
+		groupName: "Municipio de Santa Cruz",
 		expanded: false,
 		layers: {
 			// "Limites de Distrito": L.geoJson(exp_distritos,
