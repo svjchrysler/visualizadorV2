@@ -1,3 +1,4 @@
 .leaflet-control-draw-measure {
     background-image: url(../image/measure-control.svg);
+    background-size: contain;
 }
