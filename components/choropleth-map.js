@@ -135,7 +135,8 @@ info.update = function (props, layer) {
                 console.info('nombreDistrito', nombreDistrito);
                 if (nombreDistrito == "Distrito 02") {
                     btn = "<br><a  id='btnref' onclick='return referencia(" + '"' + nombreDistrito + '"' + ");'><b>Informe Tecnico</b></a>";
-                    ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreDistrito + '",' + '"' + getAbsolutePath() + "graficos/" + nombreDistrito + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
+                    // ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreDistrito + '",' + '"' + getAbsolutePath() + "graficos/" + nombreDistrito + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
+                    ref = "<br><a  id='btnref' href='"+ getAbsolutePath() + "graficos/" + nombreDistrito + ".html'" + " target='_blank'><b>Graficos Estadisticos</b></a>";
                     // ref="<br><a id='btnref' target='_blank' href='"+getAbsolutePath()+"graficos/"+nombreTematico+".html'><b>Graficos Estadisticos</b></a>";
                 } else {
                     btn = '';
@@ -431,6 +432,7 @@ function tematicoSelect(obj) {
 
                     if (puntosProvincia) {
                         puntosProvincia.addTo(map);
+                        map.fitBounds(puntosProvincia.getBounds());
                     } else {
                         $.getJSON("datos/points/provincias.geojson", function (data) {
                             var ratIcon = L.AwesomeMarkers.icon({
@@ -444,6 +446,7 @@ function tematicoSelect(obj) {
                                 pointToLayer: function (feature, latlng) {
                                     var contenido = ''
                                         + '<b>' + feature.properties.nombre + '</b>'
+                                        + "<br><br><a  id='btnref' href='" + getAbsolutePath() + "graficos/" + obj.name + ".html'" + "' target='_blank'><b>Graficos Estadisticos</b></a>"
                                         + '';
                                     var marker = L.marker(latlng, { icon: ratIcon });
 
@@ -464,6 +467,7 @@ function tematicoSelect(obj) {
 
                         if (puntosMunicipio) {
                             puntosMunicipio.addTo(map);
+                            map.fitBounds(puntosMunicipio.getBounds());
                         } else {
                             $.getJSON("datos/points/municipios.geojson", function (data) {
                                 var ratIcon = L.AwesomeMarkers.icon({
@@ -480,7 +484,11 @@ function tematicoSelect(obj) {
                                             + '<br><b>Departamento: </b>' + feature.properties.departamento
                                             + '<br><b>Provincia: </b>' + feature.properties.provincia
                                             + '<br><b>Capital: </b>' + feature.properties.capital
+                                            // + "<br><a  id='btnref' onclick='return refgrafico(" + '"' + obj.name + '",' + '"' + getAbsolutePath() + "graficos/" + obj.name + '.html"' + ");'><b>Graficos Estadisticos</b></a>"
+                                            + "<br><br><a  id='btnref' href='" + getAbsolutePath() + "graficos/" + obj.name + ".html'" + "' target='_blank'><b>Graficos Estadisticos</b></a>"
                                             + '';
+
+
                                         var marker = L.marker(latlng, { icon: ratIcon });
                                         marker.bindLabel(feature.properties.nombre);
                                         marker.bindPopup(contenido);

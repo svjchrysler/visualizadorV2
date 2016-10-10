@@ -37,29 +37,30 @@ if ( !AmCharts.translations[ "export" ][ "en" ] ) {
 		"capturing.delayed.menu.label": "{{duration}}",
 		"capturing.delayed.menu.title": "Click to cancel",
 
-		"menu.label.print": "Print",
-		"menu.label.undo": "Undo",
-		"menu.label.redo": "Redo",
-		"menu.label.cancel": "Cancel",
+		"menu.label.print": "Imprimir",
+		"menu.label.undo": "Deshacer",
+		"menu.label.redo": "Rehacer",
+		"menu.label.cancel": "Cancelar",
 
-		"menu.label.save.image": "Download as ...",
-		"menu.label.save.data": "Save as ...",
+		"menu.label.save.image": "Descargar como ...",
+		"menu.label.save.data": "Guardar como ...",
 
-		"menu.label.draw": "Annotate ...",
-		"menu.label.draw.change": "Change ...",
-		"menu.label.draw.add": "Add ...",
-		"menu.label.draw.shapes": "Shape ...",
+		"menu.label.draw": "Notas ...",
+		"menu.label.draw.change": "Cambiar ...",
+		"menu.label.draw.add": "Agregar ...",
+		"menu.label.draw.shapes": "Forma ...",
 		"menu.label.draw.colors": "Color ...",
-		"menu.label.draw.widths": "Size ...",
-		"menu.label.draw.opacities": "Opacity ...",
-		"menu.label.draw.text": "Text",
+		"menu.label.draw.widths": "Tamaño ...",
+		"menu.label.draw.opacities": "Opacitdad ...",
+		"menu.label.draw.text": "Texto",
 
-		"menu.label.draw.modes": "Mode ...",
-		"menu.label.draw.modes.pencil": "Pencil",
-		"menu.label.draw.modes.line": "Line",
-		"menu.label.draw.modes.arrow": "Arrow",
+		"menu.label.draw.modes": "Modo ...",
+		"menu.label.draw.modes.pencil": "Lapiz",
+		"menu.label.draw.modes.line": "Linea",
+		"menu.label.draw.modes.arrow": "Flecha",
 
-		"label.saved.from": "Saved from: "
+		"label.saved.from": "Descargado desde: ",
+		"label.header.ice": '<header>   <div class="topleft"></div>        <div class="topright"></div>    </header> '
 	}
 }
 
@@ -2375,7 +2376,7 @@ if ( !AmCharts.translations[ "export" ][ "en" ] ) {
 			 */
 			toXLSX: function( options, callback ) {
 				var cfg = _this.deepMerge( {
-					name: "amCharts",
+					name: "Datos", //"amCharts"
 					dateFormat: _this.config.dateFormat || "dateObject",
 					withHeader: true,
 					stringify: false

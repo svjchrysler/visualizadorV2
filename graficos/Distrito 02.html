@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<!--<meta http-equiv="refresh" content="10" />-->
+
+<head>
+    <!--<meta http-equiv="refresh" content="10" />-->
     <meta charset="utf-8">
-    
+
     <title>Distrito 2</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
@@ -11,18 +12,18 @@
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-    
+
     <script src="../datos/polygons/distritos.js"></script>
-    
+
     <script src="../amcharts/amcharts.js" type="text/javascript"></script>
     <script src="../amcharts/serial.js" type="text/javascript"></script>
     <script src="../amcharts/pie.js" type="text/javascript"></script>
 
     <script src="../amcharts/themes/dark.js" type="text/javascript"></script>
     <script src="../amcharts/plugins/export/export.js" type="text/javascript"></script>
-    
-    <link rel="stylesheet" href="../amcharts/plugins/export/export.css"/>
-    
+
+    <link rel="stylesheet" href="../amcharts/plugins/export/export.css" />
+
     <script type="text/javascript" src="../datos/graficos/d2_educacion.js"></script>
     <script type="text/javascript" src="../datos/graficos/d2_hoteles_residenciales.js"></script>
     <script type="text/javascript" src="../datos/graficos/d2_infraestructura_recreativa.js"></script>
@@ -32,45 +33,127 @@
     <script type="text/javascript" src="../datos/graficos/d2_servicios_basicos.js"></script>
     <script type="text/javascript" src="../datos/graficos/d2_vivienda.js"></script>
     <script type="text/javascript" src="../datos/graficos/d2_hoteles_residenciales_capacidad_trabajadores.js"></script>
-    
+
 
     <style>
-        body{
-            background-color:white;
+        @media screen {
+            body {
+                background-color: white;
+            }
+            #chart1,
+            #chart2,
+            #chart3,
+            #chart4,
+            #chart5,
+            #chart6,
+            #chart7,
+            #chart8,
+            #chart9 {
+                width: 90%;
+                height: 500px;
+                font-size: 11px;
+            }
         }
-    #chart1,#chart2,#chart3,#chart4,#chart5,#chart6,#chart7,#chart8,#chart9{
-        width		: 90%;
-        height		: 500px;
-        font-size	: 11px;
-    }
-
+        
+        @media print {
+            #chartdivserial,
+            #chartdivpie {}
+            a {
+                display: none !important;
+            }
+            header {
+                position: relative;
+                top: 0;
+                width: 100%;
+                text-align: center;
+                height: 6em;
+            }
+            .topright {
+                width: 150px !important;
+                height: 100% !important;
+                background: #fff url('../image/logoice.png') no-repeat !important;
+                background-size: contain !important;
+                position: absolute;
+                top: 8px;
+                right: 0px;
+            }
+            .topleft {
+                width: 150px !important;
+                height: 100% !important;
+                background: #fff url('../image/ice_logo_12.png') no-repeat !important;
+                background-size: contain !important;
+                position: absolute;
+                top: 8px;
+                left: 0px;
+            }
+            footer {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                height: 8em;
+                display: none;
+            }
+        }
     </style>
-  </head>
-  <body>
-      <div><center><H1>VIVIENDA</H1></center></div>
-      <div id="chart1"></div>
-      <div><center><H1>MANZANAS Y PREDIOS</H1></center></div>
-      <div id="chart2"></div>
-      <div><center><H1>POBLACION POR UV</H1></center></div>
-      <div id="chart3"></div>
-      <!--<div><center><H1>SERVICIOS BASICOS</H1></center></div>-->
-      <!--<div id="chart4"></div>-->
-      <div><center><H1>EDUCACION</H1></center></div>
-      <div id="chart5"></div>
-      <div><center><H1>SALUD</H1></center></div>
-      <div id="chart6"></div>
-      <div><center><H1>HOTELES Y RESIDENCIALES</H1></center></div>
-      <div id="chart7"></div>
-      <!--<div><center><H1>HOTELES Y RESIDENCIALES-CAPACIDAD Y TRABAJADORES</H1></center></div>-->
-      <!--<div id="chart8"></div>-->
-      <!--<div><center><H1>INFRAESTRUCTURA RECREATIVA</H1></center></div>-->
-      <!--<div id="chart9"></div>-->
-      
-      <script type="text/javascript">
+</head>
+
+<body>
+    <header>
+        <div class="topleft"></div>
+        <div class="topright"></div>
+    </header>
+
+
+    <div>
+        <center>
+            <H1>VIVIENDA</H1>
+        </center>
+    </div>
+    <div id="chart1"></div>
+    <div>
+        <center>
+            <H1>MANZANAS Y PREDIOS</H1>
+        </center>
+    </div>
+    <div id="chart2"></div>
+    <div>
+        <center>
+            <H1>POBLACION POR UV</H1>
+        </center>
+    </div>
+    <div id="chart3"></div>
+    <!--<div><center><H1>SERVICIOS BASICOS</H1></center></div>-->
+    <!--<div id="chart4"></div>-->
+    <div>
+        <center>
+            <H1>EDUCACION</H1>
+        </center>
+    </div>
+    <div id="chart5"></div>
+    <div>
+        <center>
+            <H1>SALUD</H1>
+        </center>
+    </div>
+    <div id="chart6"></div>
+    <div>
+        <center>
+            <H1>HOTELES Y RESIDENCIALES</H1>
+        </center>
+    </div>
+    <div id="chart7"></div>
+    <!--<div><center><H1>HOTELES Y RESIDENCIALES-CAPACIDAD Y TRABAJADORES</H1></center></div>-->
+    <!--<div id="chart8"></div>-->
+    <!--<div><center><H1>INFRAESTRUCTURA RECREATIVA</H1></center></div>-->
+    <!--<div id="chart9"></div>-->
+
+    <script type="text/javascript">
 </script>
 
 
-<script>
+    <script>
 
     AmCharts.makeChart( "chart1", {
 	                "type": "pie",
@@ -317,5 +400,6 @@ AmCharts.makeChart("chart5", {
 
    
 </script>
-  </body>
+</body>
+
 </html>
