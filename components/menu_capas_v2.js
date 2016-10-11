@@ -11,7 +11,7 @@ var baseLayers = [
 		layers: {
 			"Blank": BLANK,
 			"Mapbox": mbgrayscale,
-			"Satelite": gmapsatellite,
+			// "Satelite": gmapsatellite,
 			"OSM": OS,
 		}
 	}
