@@ -31,7 +31,9 @@ L.Control.SlideMenu = L.Control.extend({
         if (this._isLeftPosition) {
             this._menu.style.left = '-' + this.options.width;
             closeButton.style.float = 'right';
-            L.DomUtil.addClass(closeButton, 'fa-chevron-left');
+            closeButton.style.position='absolute';
+            closeButton.style.left='270px';
+            L.DomUtil.addClass(closeButton, 'fa-chevron-left fa-2x');
         }
         else {
             this._menu.style.right = '-' + this.options.width;

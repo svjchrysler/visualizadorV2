@@ -14,6 +14,7 @@ div .leaflet-menu{
     /*background-color: rgba(255, 255, 255, 255);*/
     background-color: white;
     overflow: auto;
+    overflow-x: hidden;
     cursor: default;
     z-index: 9999;
     
