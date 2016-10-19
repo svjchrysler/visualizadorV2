@@ -3,6 +3,7 @@
 <head>
     <title>ICEGEO - VISOR GEOGRAFICO</title>
     <!--<meta http-equiv="refresh" content="10" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--LEAFLETJS-->
     <!--*******************************************************-->
     <link rel="stylesheet" href="js/leaflet_0.7.5/leaflet.css" />
@@ -333,6 +334,8 @@
             font-size: 10px !important;
             margin-top: 8px !important;
         }
+        
+        
     </style>
 
 </head>
@@ -348,6 +351,13 @@
 
     <script type="text/javascript">
         var _0x3ccb=["\x6F\x6E\x63\x6F\x6E\x74\x65\x78\x74\x6D\x65\x6E\x75"];document[_0x3ccb[0]]= function(){return false}
+
+        console.info("touch",document.documentElement);
+        if("ontouchstart" in document.documentElement){
+            alert("Tactil");
+        }else{
+            alert("Visual");
+        }
     </script>
 
 

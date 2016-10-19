@@ -36,6 +36,9 @@
 
 
     <style>
+        @page:first{
+            margin-top:4cm;
+        }
         @media screen {
             body {
                 background-color: white;
@@ -53,6 +56,9 @@
                 height: 500px;
                 font-size: 11px;
             }
+            header{
+                display:none;
+            }
         }
         
         @media print {
@@ -62,16 +68,18 @@
                 display: none !important;
             }
             header {
-                position: relative;
+                display:block;
+                position: fixed;
                 top: 0;
                 width: 100%;
                 text-align: center;
                 height: 6em;
+                z-index:1;
             }
             .topright {
                 width: 150px !important;
                 height: 100% !important;
-                background: #fff url('../image/logoice.png') no-repeat !important;
+                /*background: #fff url('../image/logoice.png') no-repeat !important;*/
                 background-size: contain !important;
                 position: absolute;
                 top: 8px;
@@ -80,7 +88,7 @@
             .topleft {
                 width: 150px !important;
                 height: 100% !important;
-                background: #fff url('../image/ice_logo_12.png') no-repeat !important;
+                /*background: #fff url('../image/ice_logo_12.png') no-repeat !important;*/
                 background-size: contain !important;
                 position: absolute;
                 top: 8px;
@@ -101,8 +109,12 @@
 
 <body>
     <header>
-        <div class="topleft"></div>
-        <div class="topright"></div>
+        <div class="topleft">
+            <img src='../image/ice_logo_12.png' alt="">
+        </div>
+        <div class="topright">
+            <img src='../image/logoice.png' alt="">
+        </div>
     </header>
 
 

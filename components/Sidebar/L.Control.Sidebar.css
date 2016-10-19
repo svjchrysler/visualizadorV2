@@ -38,7 +38,7 @@
       background-clip: padding-box; }
   @media (max-width: 767px) {
     .leaflet-sidebar {
-      width: 60%;
+      width: 100%;
       padding: 4px 12px; }
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 60%; }
