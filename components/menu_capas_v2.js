@@ -106,7 +106,7 @@ var overLayers = [
 			// 	}),
 		}
 	},
-	
+
 	// {
 	// 	groupName:"Categorias",
 	// 	expanded:false,
@@ -123,15 +123,25 @@ var overLayers = [
 /**
  * Definiendo las opciones
  */
-var options = {
-				container_width: "200px",
-				group_maxHeight: "400px",
-				// container_maxHeight : "350px", 
-				exclusive: false,
-				collapsed: false,
-				position: 'topright'
-};
-
+if ("ontouchstart" in document.documentElement) {
+	var options = {
+		container_width: "200px",
+		group_maxHeight: "400px",
+		// container_maxHeight : "350px", 
+		exclusive: false,
+		collapsed: true,
+		position: 'topright'
+	};
+} else {
+	var options = {
+		container_width: "200px",
+		group_maxHeight: "400px",
+		// container_maxHeight : "350px", 
+		exclusive: false,
+		collapsed: false,
+		position: 'topright'
+	};
+}
 
 var controlStyledLayer = L.Control.styledLayerControl(baseLayers, overLayers, options);
 map.addControl(controlStyledLayer);

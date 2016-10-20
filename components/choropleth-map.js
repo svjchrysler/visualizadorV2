@@ -136,7 +136,7 @@ info.update = function (props, layer) {
                 if (nombreDistrito == "Distrito 02") {
                     btn = "<br><a  id='btnref' onclick='return referencia(" + '"' + nombreDistrito + '"' + ");'><b>Informe Tecnico</b></a>";
                     // ref = "<br><a  id='btnref' onclick='return refgrafico(" + '"' + nombreDistrito + '",' + '"' + getAbsolutePath() + "graficos/" + nombreDistrito + '.html"' + ");'><b>Graficos Estadisticos</b></a>";
-                    ref = "<br><a  id='btnref' href='"+ getAbsolutePath() + "graficos/" + nombreDistrito + ".html'" + " target='_blank'><b>Graficos Estadisticos</b></a>";
+                    ref = "<br><a  id='btnref' href='" + getAbsolutePath() + "graficos/" + nombreDistrito + ".html'" + " target='_blank'><b>Graficos Estadisticos</b></a>";
                     // ref="<br><a id='btnref' target='_blank' href='"+getAbsolutePath()+"graficos/"+nombreTematico+".html'><b>Graficos Estadisticos</b></a>";
                 } else {
                     btn = '';
@@ -415,7 +415,9 @@ function tematicoSelect(obj) {
 
                                 // info.update(feature.properties,undefined);
                                 var marker = L.marker(latlng, { icon: ratIcon });
-                                marker.bindLabel(feature.properties.nombre);
+                                if (!("ontouchstart" in document.documentElement)) {
+                                    marker.bindLabel(feature.properties.nombre);
+                                }
                                 marker.bindPopup(contenido + '<br>' + btn + '<br>');
                                 marker.addEventListener('click', function (e) {
                                     map.setView(e.latlng);
@@ -449,8 +451,9 @@ function tematicoSelect(obj) {
                                         + "<br><br><a  id='btnref' href='" + getAbsolutePath() + "graficos/" + obj.name + ".html'" + "' target='_blank'><b>Graficos Estadisticos</b></a>"
                                         + '';
                                     var marker = L.marker(latlng, { icon: ratIcon });
-
-                                    marker.bindLabel(feature.properties.nombre);
+                                    if (!("ontouchstart" in document.documentElement)) {
+                                        marker.bindLabel(feature.properties.nombre);
+                                    }
                                     marker.bindPopup(contenido);
                                     marker.addEventListener('click', function (e) {
                                         map.setView(e.latlng);
@@ -490,7 +493,9 @@ function tematicoSelect(obj) {
 
 
                                         var marker = L.marker(latlng, { icon: ratIcon });
-                                        marker.bindLabel(feature.properties.nombre);
+                                        if (!("ontouchstart" in document.documentElement)) {
+                                            marker.bindLabel(feature.properties.nombre);
+                                        }
                                         marker.bindPopup(contenido);
                                         marker.addEventListener('click', function (e) {
                                             map.setView(e.latlng);

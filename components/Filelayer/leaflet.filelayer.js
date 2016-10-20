@@ -116,7 +116,8 @@
             LABEL: '&#8965;'
         },
         options: {
-            position: 'topleft',
+            // position: 'topleft',
+            position: 'bottomright',
             fitBounds: true,
             layerOptions: {},
             addToMap: true,

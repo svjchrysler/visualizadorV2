@@ -542,7 +542,9 @@
                         <li class="submenu"> <a href="javascript:void()" onclick="press('hoteles','Hoteles','hotel','blue')"><span class="icon-rocket"></span>HOTELES<span class="caret icon-arrow-down6"></span></a></li>
                         <!--<li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>HOSTALES<span class="caret icon-arrow-down6"></span></a></li>
                         <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>ALOJAMIENTO<span class="caret icon-arrow-down6"></span></a></li>-->
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('residenciales','Hoteles','residencial','red')"><span class="icon-rocket"></span>RESIDENCIALES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu">
+                            <!--<a href="javascript:void()" onclick="press('residenciales','Hoteles','residencial','red')"><span class="icon-rocket"></span>RESIDENCIALES<span class="caret icon-arrow-down6"></span></a>-->
+                        </li>
                     </ul>
                 </nav>
             </header>
@@ -757,21 +759,21 @@
                 otherlayers.push(layername);
                 disableMap(layername);
                 $.getJSON("datos/points/"+layername+".geojson", function (data) {
-                    var ratIcon = L.icon({
-                        // iconUrl: 'image/icons/'+iconname,
-                        iconUrl: 'image/marker/'+iconname+'.png',
-                        iconSize: [25, 25]
-                    });
+                    // var ratIcon = L.icon({
+                    //     // iconUrl: 'image/icons/'+iconname,
+                    //     iconUrl: 'image/marker/'+iconname+'.png',
+                    //     iconSize: [25, 25]
+                    // });
                     // var ratIcon = L.divIcon({
                     //     className:'fa fa-blind',
                     //     // html: '<i class="fa fa-blind" aria-hidden="true"></i>',
                     //     iconSize: [25, 25]
                     // });
-                    // var ratIcon = L.AwesomeMarkers.icon({
-                    //     prefix:'fa',
-                    //     icon:iconname,//'database',
-                    //     iconColor:iconcolor//'red'
-                    // });
+                    var ratIcon = L.AwesomeMarkers.icon({
+                        prefix:'fa',
+                        icon:iconname,//'database',
+                        iconColor:iconcolor//'red'
+                    });
                     var categ= L.geoJson(data, {
                         pointToLayer: function (feature, latlng) {
                             var contenido=''
@@ -782,7 +784,9 @@
                                 +'';
                             
                             var marker = L.marker(latlng, { icon: ratIcon,tags:['DISTRITO '+feature.properties.DISTRITO] });
-                            marker.bindLabel(feature.properties.NOMBREREF);
+                            if(!("ontouchstart" in document.documentElement)){
+                                marker.bindLabel(feature.properties.NOMBREREF);
+                            }
                             marker.bindPopup(contenido);
                             marker.addEventListener('click',function(e){
                                 document.getElementById('coord').innerHTML=e.latlng;
@@ -827,7 +831,9 @@
                                 +'';
                             
                             var marker = L.marker(latlng, { icon: ratIcon,tags:['DISTRITO '+feature.properties.DISTRITO] });
-                            marker.bindLabel(feature.properties.NOMBREREF);
+                            if(!("ontouchstart" in document.documentElement)){
+                                marker.bindLabel(feature.properties.NOMBREREF);
+                            }
                             marker.bindPopup(contenido);
                             marker.addEventListener('click',function(e){
                                 document.getElementById('coord').innerHTML=e.latlng;
