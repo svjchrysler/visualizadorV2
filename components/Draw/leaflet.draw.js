@@ -810,7 +810,7 @@
 		}
 	}), L.Control.Draw = L.Control.extend({
 		options: {
-			position: "topleft",
+			position: "bottomright",
 			draw: {},
 			edit: !1
 		},

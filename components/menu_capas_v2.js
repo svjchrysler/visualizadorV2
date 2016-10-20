@@ -129,7 +129,7 @@ if ("ontouchstart" in document.documentElement) {
 		group_maxHeight: "400px",
 		// container_maxHeight : "350px", 
 		exclusive: false,
-		collapsed: true,
+		collapsed: false,
 		position: 'topright'
 	};
 } else {
