@@ -9,6 +9,8 @@ var pois = L.tileLayer.underneath('http://{s}.tiles.mapbox.com/v4/mapbox.mapbox-
 
 map.on('click', function (e) {
     if (underneathEventsActive) {
+    // $(".fa-star").css("color","blue");
+        // $(".fa-star").css("color:blue !important;");
         var results = [],
             content = '<h2>Cerca</h2> <ul>',
             showResults = function (results) {
@@ -37,5 +39,13 @@ map.on('click', function (e) {
                 showResults(results);
             }
         }, null, 50);
+    }else{
+    // $(".fa-star").css("color","black");
+        // $(".fa-star").css("color:red !important;");
     }
+});
+
+$(".fa-star").click(function(e){
+    // $(".fa-star").toggleClass(".starblue");
+    console.info($(this).parent().toggleClass("starblue"));
 });

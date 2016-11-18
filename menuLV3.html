@@ -436,21 +436,21 @@
                             <a href="javascript:void()"><span class="icon-rocket"></span>PRIMARIA<span class="caret icon-arrow-down6"></span></a>
                             <ul class="children">
                                 <!--<li> <a href="javascript:saludo()">INICIAL <span class="icon-dot"></span></a> </li>-->
-                                <li><a href="javascript:void()" onclick="press('primaria publica','Educacion','institution','green')">PUBLICA <span class="icon-dot"></span></a></li>
-                                <li><a href="javascript:void()" onclick="press('primaria privada','Educacion','institution','darkblue')">PRIVADA<span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:void()" onclick="press('primaria publica','Educacion','institution','green',false)">PUBLICA <span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:void()" onclick="press('primaria privada','Educacion','institution','darkblue',false)">PRIVADA<span class="icon-dot"></span></a></li>
                             </ul>
                         </li>
                         <li class="submenu">
                             <a href="javascript:void()"><span class="icon-rocket"></span>SECUNDARIA<span class="caret icon-arrow-down6"></span></a>
                             <ul class="children">
-                                <li><a href="javascript:void()" onclick="press('secundaria publica','Educacion','institution','red')">PUBLICA <span class="icon-dot"></span></a></li>
-                                <li><a href="javascript:void()" onclick="press('secundaria privada','Educacion','institution','darkred')">PRIVADA<span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:void()" onclick="press('secundaria publica','Educacion','institution','red',false)">PUBLICA <span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:void()" onclick="press('secundaria privada','Educacion','institution','darkred',false)">PRIVADA<span class="icon-dot"></span></a></li>
                             </ul>
                         </li>
                         <li class="submenu">
                             <a href="javascript:void()"><span class="icon-rocket"></span>SUPERIOR<span class="caret icon-arrow-down6"></span></a>
                             <ul class="children">
-                                <li><a href="javascript:void()" onclick="press('universidades','Educacion','institution','black')">UNIVERSIDADES <span class="icon-dot"></span></a></li>
+                                <li><a href="javascript:void()" onclick="press('universidades','Educacion','institution','black',false)">UNIVERSIDADES <span class="icon-dot"></span></a></li>
                                 <!--<li><a href="javascript:void()">PUBLICA<span class="icon-dot"></span></a></li>
                                 <li><a href="javascript:void()">PRIVADA<span class="icon-dot"></span></a></li>-->
                             </ul>
@@ -465,22 +465,22 @@
             <header>
                 <nav>
                     <ul>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('hospitales','Salud','h-square','darkred')"><span class="icon-rocket"></span>HOSPITALES<span class="caret icon-arrow-down6"></span></a></li>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('clinicas','Salud','ambulance','red')"><span class="icon-rocket"></span>CLINICAS<span class="caret icon-arrow-down6"></span></a></li>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('odontologos','Salud','user-md','blue')"><span class="icon-rocket"></span>ODONTOLOGIA<span class="caret icon-arrow-down6"></span></a></li>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('laboratorios','Salud','hospital-o','black')"><span class="icon-rocket"></span>LABORATORIOS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('hospitales','Salud','h-square','darkred',false)"><span class="icon-rocket"></span>HOSPITALES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('clinicas','Salud','ambulance','red',false)"><span class="icon-rocket"></span>CLINICAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('odontologos','Salud','user-md','blue',true)"><span class="icon-rocket"></span>ODONTOLOGIA<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('laboratorios','Salud','hospital-o','black',false)"><span class="icon-rocket"></span>LABORATORIOS<span class="caret icon-arrow-down6"></span></a></li>
                         <li class="submenu">
-                            <a href="javascript:void()" onclick="press('centros terapeuticos','Salud','hospital-o','green')"><span class="icon-rocket"></span>CENTRO TERAPEUTICO<span class="caret icon-arrow-down6"></span></a>
+                            <a href="javascript:void()" onclick="press('centros terapeuticos','Salud','hospital-o','green',false)"><span class="icon-rocket"></span>CENTRO TERAPEUTICO<span class="caret icon-arrow-down6"></span></a>
                         </li>
                         <!--<li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>BANCO DE SANGRE, ESPERMA Y DE ORGANOS<span class="caret icon-arrow-down6"></span></a></li>-->
                         <li class="submenu">
-                            <a href="javascript:void()" onclick="press('servicios de salud','Salud','hospital-o','blue')"><span class="icon-rocket"></span>OTROS SERVICIOS RELACIONADOS A LA SALUD<span class="caret icon-arrow-down6"></span></a>
+                            <a href="javascript:void()" onclick="press('servicios de salud','Salud','hospital-o','blue',false)"><span class="icon-rocket"></span>OTROS SERVICIOS RELACIONADOS A LA SALUD<span class="caret icon-arrow-down6"></span></a>
                         </li>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('farmacias','Salud','plus-square','darkred')"><span class="icon-rocket"></span>FARMACIAS<span class="caret icon-arrow-down6"></span></a></li>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('centros de salud','Salud','hospital-o','red')">CENTROS DE SALUD<span class="icon-rocket"></span><span class="caret icon-arrow-down6"></span></a></li>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('postas','Salud','hospital-o','bluered')">POSTAS<span class="icon-rocket"></span><span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('farmacias','Salud','plus-square','darkred',false)"><span class="icon-rocket"></span>FARMACIAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('centros de salud','Salud','hospital-o','red',false)">CENTROS DE SALUD<span class="icon-rocket"></span><span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('postas','Salud','hospital-o','red',false)">POSTAS<span class="icon-rocket"></span><span class="caret icon-arrow-down6"></span></a></li>
                         <li class="submenu">
-                            <a href="javascript:void()" onclick="press('consultorios medicos','Salud','stethoscope','black')"><span class="icon-rocket"></span>CONSULTORIOS MEDICOS<span class="caret icon-arrow-down6"></span></a>
+                            <a href="javascript:void()" onclick="press('consultorios medicos','Salud','stethoscope','black',false)"><span class="icon-rocket"></span>CONSULTORIOS MEDICOS<span class="caret icon-arrow-down6"></span></a>
                         </li>
                     </ul>
                 </nav>
@@ -492,17 +492,17 @@
             <header>
                 <nav>
                     <ul>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('parques','Recreativo','tree','darkgreen')"><span class="icon-rocket"></span>PARQUES<span class="caret icon-arrow-down6"></span></a></li>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('plazas','Recreativo','tree','black')"><span class="icon-rocket"></span>PLAZAS<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('parques','Recreativo','tree','darkgreen',false)"><span class="icon-rocket"></span>PARQUES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('plazas','Recreativo','tree','black',false)"><span class="icon-rocket"></span>PLAZAS<span class="caret icon-arrow-down6"></span></a></li>
                         <li class="submenu">
-                            <a href="javascript:void()" onclick="press('coliseos','Recreativo','soccer-ball-o','black')"><span class="icon-rocket"></span>COLISEOS<span class="caret icon-arrow-down6"></span></a>
+                            <a href="javascript:void()" onclick="press('coliseos','Recreativo','soccer-ball-o','black',false)"><span class="icon-rocket"></span>COLISEOS<span class="caret icon-arrow-down6"></span></a>
                         </li>
-                        <!--<li class="submenu"> <a href="javascript:void()" onclick="press('gimnasios','Recreativo','users','black')"><span class="icon-rocket"></span>GYMNASIOS<span class="caret icon-arrow-down6"></span></a></li>-->
+                        <!--<li class="submenu"> <a href="javascript:void()" onclick="press('gimnasios','Recreativo','users','black',false)"><span class="icon-rocket"></span>GYMNASIOS<span class="caret icon-arrow-down6"></span></a></li>-->
                         <li class="submenu">
-                            <a href="javascript:void()" onclick="press('canchas','Recreativo','soccer-ball-o','darkgreen')"><span class="icon-rocket"></span>CANCHAS<span class="caret icon-arrow-down6"></span></a>
+                            <a href="javascript:void()" onclick="press('canchas','Recreativo','soccer-ball-o','darkgreen',false)"><span class="icon-rocket"></span>CANCHAS<span class="caret icon-arrow-down6"></span></a>
                         </li>
                         <li class="submenu">
-                            <a href="javascript:void()" onclick="press('polifuncionales','Recreativo','soccer-ball-o','green')"><span class="icon-rocket"></span>CANCHAS POLIFUNCIONALES<span class="caret icon-arrow-down6"></span></a>
+                            <a href="javascript:void()" onclick="press('polifuncionales','Recreativo','soccer-ball-o','green',false)"><span class="icon-rocket"></span>CANCHAS POLIFUNCIONALES<span class="caret icon-arrow-down6"></span></a>
                         </li>
                         <!--<li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>AREAS VERDES<span class="caret icon-arrow-down6"></span></a></li>-->
                     </ul>
@@ -539,7 +539,7 @@
             <header>
                 <nav>
                     <ul>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('hoteles','Hoteles','hotel','blue')"><span class="icon-rocket"></span>HOTELES<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('hoteles','Hoteles','hotel','blue',true)"><span class="icon-rocket"></span>HOTELES<span class="caret icon-arrow-down6"></span></a></li>
                         <!--<li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>HOSTALES<span class="caret icon-arrow-down6"></span></a></li>
                         <li class="submenu"> <a href="javascript:saludo()"><span class="icon-rocket"></span>ALOJAMIENTO<span class="caret icon-arrow-down6"></span></a></li>-->
                         <li class="submenu">
@@ -650,7 +650,7 @@
             <header>
                 <nav>
                     <ul>
-                        <li class="submenu"> <a href="javascript:void()" onclick="press('policia','Seguridad','user','black')"><span class="icon-rocket"></span>PUESTO POLICIAL<span class="caret icon-arrow-down6"></span></a></li>
+                        <li class="submenu"> <a href="javascript:void()" onclick="press('policia','Seguridad','user','black',false)"><span class="icon-rocket"></span>PUESTO POLICIAL<span class="caret icon-arrow-down6"></span></a></li>
                     </ul>
                 </nav>
             </header>
@@ -752,7 +752,7 @@
         /**
          * Capas de puntos
          */
-         function press(layername,groupname,iconname,iconcolor){
+         function press(layername,groupname,iconname,iconcolor,haveicon){
             if(otherlayers.indexOf(layername)>-1){
                 // console.info("contains layername",layername);
             }else{
@@ -769,11 +769,28 @@
                     //     // html: '<i class="fa fa-blind" aria-hidden="true"></i>',
                     //     iconSize: [25, 25]
                     // });
-                    var ratIcon = L.AwesomeMarkers.icon({
+                    // var ratIcon = L.AwesomeMarkers.icon({
+                    //     prefix:'fa',
+                    //     icon:iconname,//'database',
+                    //     iconColor:iconcolor//'red'
+                    // });
+
+                    var ratIcon;
+                    if(haveicon){
+                         ratIcon = L.icon({
+                        // iconUrl: 'image/icons/'+iconname,
+                        iconUrl: 'image/marker/'+iconname+'.png',
+                        iconSize: [25, 25]
+                        });
+                    }else{
+                         ratIcon = L.AwesomeMarkers.icon({
                         prefix:'fa',
                         icon:iconname,//'database',
                         iconColor:iconcolor//'red'
-                    });
+                        });
+                    }
+
+
                     var categ= L.geoJson(data, {
                         pointToLayer: function (feature, latlng) {
                             var contenido=''

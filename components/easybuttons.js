@@ -2,7 +2,7 @@
  * CENTER MAP BUTTON
  * LOCATION
  */
-L.easyButton('<i class="fa fa-eye fa-lg" aria-hidden="true" style="margin-left:-3px; margin-top:4px"></i>', function () {
+L.easyButton('<i class="fa fa-eye fa-2x" aria-hidden="true" style="margin-left:-1px; margin-top:2px"></i>', function () {
     if (geojsonDistrito) {
         map.fitBounds(geojsonDistrito.getBounds());
     } else {
@@ -28,7 +28,7 @@ L.easyButton('<i class="fa fa-eye fa-lg" aria-hidden="true" style="margin-left:-
 /**
  * ADD UNDERNEATH EVENTS BUTTON
  */
-L.easyButton('<i class="fa fa-star fa-lg" aria-hidden="true" style="margin-left:-1px; margin-top:5px;"></i>', function () {
+L.easyButton('<i class="fa fa-star fa-2x" aria-hidden="true" style="margin-left:-1px; margin-top:1px;"></i>', function () {
     underneathEventsActive = !underneathEventsActive;
     if (!underneathEventsActive)
         featureLayer.clearLayers();

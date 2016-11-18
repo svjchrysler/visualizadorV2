@@ -30,7 +30,7 @@
 
 .leaflet-retina .leaflet-draw-toolbar a {
 	background-image: url('image/spritesheet-2x.png');
-	background-size: 270px 30px;
+	/*background-size: 270px 30px;*/
 	/*background-size: contain;*/
 	/*background-repeat: no-repeat;*/
 }
